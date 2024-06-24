@@ -14,5 +14,5 @@ dependencyResolutionManagement {
         maven { url "https://jitpack.io" }
     }
 }
-rootProject.name = "DSS"
+rootProject.name = "Regional_News"
 include ':app'
