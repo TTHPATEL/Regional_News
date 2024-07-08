@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/app_bc_new"
+    android:background="@color/bg_logo_color"
     tools:context=".SplashActivity">
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:src="@drawable/society"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/app_logo_1"/>
     <TextView
         android:layout_width="match_parent"
         android:text="@string/app_nameversion"

@@ -58,4 +58,11 @@
         android:name="com.app.Regional_News.ui.gallery.ExpenseFragment"
         android:label="@string/menu_expense"
         tools:layout="@layout/fragment_income" />
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.app.Regional_News.ui.gallery.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+
+
 </navigation>
