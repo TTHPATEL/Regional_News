@@ -59,8 +59,8 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(gridLayoutManager); // set LayoutManager to RecyclerView
         tabLayout = rootView.findViewById(R.id.tablayout);
 
-
-
+        // Replace fragment with latest_news fragment initially
+        replaceFragment(new latest_news());
 
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
