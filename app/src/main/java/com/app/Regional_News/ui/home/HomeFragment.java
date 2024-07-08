@@ -64,7 +64,6 @@ public class HomeFragment extends Fragment {
         } else {
             Toast.makeText(getActivity(), getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
         }
-
         return rootView;
     }
     private void getmm() {
