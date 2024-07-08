@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Regional News</string>
-    <string name="app_nameversion">Regional_News V 1.0</string>
-    <string name="app_login">Regional_News LOGIN</string>
+    <string name="app_nameversion">Regional News v1.0</string>
+    <string name="app_login">Regional News LOGIN</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

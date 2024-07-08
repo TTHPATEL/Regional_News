@@ -5,10 +5,569 @@
     android:layout_height="match_parent"
     tools:context=".ui.gallery.SettingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp">
+
+<!--                <ImageView-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:src="@drawable/back"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_marginTop="8dp" />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="162dp"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:text="પ્રોફાઇલ"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textStyle="bold" />-->
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp">
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ramcharan"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_gravity="center"
+                        android:textSize="19dp"
+                        android:text="રામ ચરણ"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/setting_background"
+                android:layout_marginEnd="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="એકાઉન્ટ સેટિંગસ"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:paddingTop="7dp"
+                    android:paddingStart="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_user_purpole"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="તમારી પ્રોફાઇલ"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:paddingStart="10dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="એડિટ કરો અને પ્રોફાઇલ માહિતી જુઓ"
+                            android:textColor="@color/black"
+                            android:paddingStart="10dp"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="88dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_next"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/setting_background"
+                android:layout_marginEnd="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="એપ્લિકેશન સેટિંગ્સ"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:paddingTop="7dp"
+                    android:paddingStart="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_brightness"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ડિસ્પ્લે પસંદગી"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:paddingStart="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="કૃપા કરીને તમારી ડિસ્પ્લે ગોઠવો"
+                            android:textColor="@color/black"
+                            android:paddingStart="10dp"/>
+
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="127dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_next"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_ringing_modified"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="નોટિફિકેશન"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:paddingStart="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="નોટિફિકેશન ચાલુ/બંધ કરો"
+                            android:textColor="@color/black"
+                            android:paddingStart="10dp"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_next"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/setting_background"
+                android:layout_marginEnd="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="અન્ય સર્વિસ"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:paddingTop="7dp"
+                    android:paddingStart="12dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_game"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="સુડોકુ ગેમ"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:paddingStart="10dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="તાર્કિક અને યોજના પર આધારિત ગેમ"
+                            android:textColor="@color/black"
+                            android:paddingStart="10dp"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_next" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_quiz"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ક્વિઝ"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:paddingStart="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="આપણા ક્વિઝ સાથે તમારી જ્ઞાનને પરીક્ષણ કરો"
+                            android:textColor="@color/black"
+                            android:paddingStart="10dp"/>
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_next"/>
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="155dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_next"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_calendar"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ઇવેન્ટ"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:paddingStart="10dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="એક્સાઇટેડ અને મનોરંજનનો ઇવેન્ટ"
+                            android:textColor="@color/black"
+                            android:paddingStart="10dp"/>
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="110dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_next"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_scholarship"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="શિષ્યવૃત્તિ"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:paddingStart="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="શિષ્યવૃત્તિ માટે અરજી કરો"
+                            android:textColor="@color/black"
+                            android:paddingStart="10dp"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="152dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_next"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/setting_background"
+                android:layout_marginEnd="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="એપ્લિકેશન માહિતી"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:paddingTop="7dp"
+                    android:paddingStart="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_share"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="એપ શેર"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:paddingStart="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="એપ શેર કરો"
+                            android:textColor="@color/black"
+                            android:paddingStart="10dp"/>
+
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="220dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_next"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_feedback"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ફીડબેક"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:paddingStart="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ફીડબેક આપો"
+                            android:textColor="@color/black"
+                            android:paddingStart="10dp"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="212dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_next"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Terms and Conditions"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_nameversion"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

@@ -11,6 +11,9 @@
     <color name="signupColor">#066e8a</color>
     <color name="light_gray">#E8EBEC</color>
     <color name="bg_logo_color">#2E0B5B</color>
+    <color name="light_purple">#5B4472</color>
+    <color name="light_blue">#F1EAFF</color>
+
 
 
 </resources>
