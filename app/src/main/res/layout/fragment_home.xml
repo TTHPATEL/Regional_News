@@ -1,52 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/homefragment"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:padding="@dimen/item_offset" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:visibility="gone" />
 
     <LinearLayout
-        android:id="@+id/lyt_not_found"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:visibility="gone"
-        tools:ignore="UseCompoundDrawables">
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_no_item"
-            />
 
-        <TextView
-            android:layout_width="wrap_content"
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/no_item_found"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/black" />
+            android:background="@color/very_light_purple"
+            app:tabIndicatorColor="@color/purple_200"
+            app:tabSelectedTextColor="@color/purple_200"
+
+            android:layout_above="@+id/recyclerView"
+            app:tabMode="scrollable">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/latest_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="લેટેસ્ટ ન્યુઝ"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/top_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="મુખ્ય સમાચાર"/>
+
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ram_mandir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="રામ મંદિર વિશેષ"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/sport_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="સ્પોર્ટ્સ ન્યુઝ"/>
+
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/top_news2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="મનોરંજન
+"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ram_mandir2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="તંત્રી લેખ"/>
+
+        </com.google.android.material.tabs.TabLayout>
+
+
+        <FrameLayout
+            android:id="@+id/framelayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
     </LinearLayout>
 
-</RelativeLayout>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="@dimen/item_offset" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/lyt_not_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_no_item"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_item_found"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+
+
+</LinearLayout>

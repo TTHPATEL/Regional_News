@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +26,9 @@ import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.ItemOffsetDecoration;
 import com.app.Regional_News.extra.NetworkUtils;
 import com.app.Regional_News.extra.UtilsApi;
+import com.app.Regional_News.latest_news;
+import com.app.Regional_News.top_news;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -38,6 +43,7 @@ public class HomeFragment extends Fragment {
     private LinearLayout lyt_not_found;
     BaseApiService mApiService;
     MMAdapter adapter;
+    private TabLayout tabLayout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -51,6 +57,48 @@ public class HomeFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
         gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL); // set Horizontal Orientation
         recyclerView.setLayoutManager(gridLayoutManager); // set LayoutManager to RecyclerView
+        tabLayout = rootView.findViewById(R.id.tablayout);
+
+
+
+
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                Fragment fragment = null;
+                switch (tab.getPosition()) {
+                    case 0:
+                        fragment = new latest_news();
+                        break;
+                    case 1:
+                        fragment = new top_news();
+                        break;
+//                    case 2:
+//                        fragment = new Ram_mandir();
+//                        break;
+//                    case 3:
+//                        fragment = new sport_news();
+//                        break;
+//                    case 4:
+//                        fragment = new Entertainment_news();
+//                        break;
+//                    case 5:
+//                        fragment = new Tantri_lekh();
+//                        break;
+                }
+                replaceFragment(fragment);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {}
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {}
+        });
+
+
+
 
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 //        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(requireActivity(), R.dimen.item_offset);
@@ -66,6 +114,17 @@ public class HomeFragment extends Fragment {
         }
         return rootView;
     }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.framelayout2, fragment);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+
     private void getmm() {
         mApiService.dssMMRequest("maintance_mlist")
                 .enqueue(new Callback<MMdata>() {
@@ -118,6 +177,9 @@ public class HomeFragment extends Fragment {
             lyt_not_found.setVisibility(View.GONE);
         }
     }
+
+
+
 
     @Override
     public void onDestroyView() {

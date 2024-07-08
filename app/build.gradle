@@ -5,6 +5,8 @@ plugins {
 android {
     compileSdk 31
 
+
+
     defaultConfig {
         applicationId 'com.app.Regional_News'
         minSdk 21
