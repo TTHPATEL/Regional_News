@@ -1,64 +1,144 @@
 package com.app.Regional_News;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link latest_news#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.app.Regional_News.R;
+import com.app.Regional_News.adapter.MMAdapter;
+import com.app.Regional_News.data.MMdata;
+import com.app.Regional_News.data.MMlistdata;
+import com.app.Regional_News.extra.BaseApiService;
+import com.app.Regional_News.extra.ItemOffsetDecoration;
+import com.app.Regional_News.extra.NetworkUtils;
+import com.app.Regional_News.extra.UtilsApi;
+import com.app.Regional_News.latest_news;
+import com.app.Regional_News.top_news;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
 public class latest_news extends Fragment {
+    public RecyclerView recyclerView;
+    private ProgressBar progressBar;
+    private LinearLayout lyt_not_found;
+    BaseApiService mApiService;
+    MMAdapter adapter;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_latest_news, container, false);
+        mApiService = UtilsApi.getAPIService();
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+        lyt_not_found = rootView.findViewById(R.id.lyt_not_found);
+        progressBar = rootView.findViewById(R.id.progressBar);
+        recyclerView = rootView.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
+        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL); // set Horizontal Orientation
+        recyclerView.setLayoutManager(gridLayoutManager); // set LayoutManager to RecyclerView
 
-    public latest_news() {
-        // Required empty public constructor
+
+
+
+
+
+
+
+//     DO NOT REMOVE COMMENT  recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+//     DO NOT REMOVE COMMENT   ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(requireActivity(), R.dimen.item_offset);
+//     DO NOT REMOVE COMMENT   recyclerView.addItemDecoration(itemDecoration);
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(requireActivity(), R.dimen.item_offset);
+        recyclerView.addItemDecoration(itemDecoration);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this.getActivity(), LinearLayout.VERTICAL));
+        if (NetworkUtils.isConnected(getActivity())) {
+            showProgress(true);
+            getmm();
+        } else {
+            Toast.makeText(getActivity(), getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
+        }
+        return rootView;
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment latest_news.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static latest_news newInstance(String param1, String param2) {
-        latest_news fragment = new latest_news();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
+    private void getmm() {
+        mApiService.dssMMRequest("maintance_mlist")
+                .enqueue(new Callback<MMdata>() {
+                    @Override
+                    public void onResponse(Call<MMdata> call, Response<MMdata> response) {
+                        if (response.isSuccessful()){
+                            Log.e("msg",""+response.code());
+                            showProgress(false);
+                            MMdata degdata=response.body();
+                            Log.e("msg2",degdata.getMsg());
+                            if (degdata.getStatus().equals("1")){
+                                String error_message = degdata.getMsg();
+                                Toast.makeText(getActivity(), error_message, Toast.LENGTH_SHORT).show();
+                                displayData(degdata.getMaintance_mlist());
+                            } else {
+                                String error_message = degdata.getMsg();
+                                Toast.makeText(getActivity(), error_message, Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Log.e("msg1",""+response.code());
+                            Log.e("msg5",""+call.request().url());
+                            showProgress(false);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<MMdata> call, Throwable t) {
+                        Log.e("debug", "onFailure: ERROR > " + t.toString());
+                        showProgress(false);
+                    }
+                });
+    }
+    private void showProgress(boolean show) {
+        if (show) {
+            progressBar.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+            lyt_not_found.setVisibility(View.GONE);
+        } else {
+            progressBar.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+    }
+    private void displayData(ArrayList<MMlistdata> degree_list) {
+        adapter = new MMAdapter(getActivity(), degree_list);
+        recyclerView.setAdapter(adapter);
+
+        if (adapter.getItemCount() == 0) {
+            lyt_not_found.setVisibility(View.VISIBLE);
+        } else {
+            lyt_not_found.setVisibility(View.GONE);
         }
     }
 
+
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_latest_news, container, false);
+    public void onDestroyView() {
+        super.onDestroyView();
     }
 }
