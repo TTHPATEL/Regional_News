@@ -1,7 +1,7 @@
 package com.app.Regional_News.extra;
 
 public class UtilsApi {
-    public static final String BASE_URL_API = "http://192.168.117.178/KutchToday/";
+    public static final String BASE_URL_API = "http://192.168.0.195/KutchToday/";
 //    public static final String BASE_URL_APINgo = "http://192.168.29.117/ndss/";
 
     //  Interface BaseApiService
@@ -10,4 +10,3 @@ public class UtilsApi {
     }
 }
 
-//192.168.0.196
