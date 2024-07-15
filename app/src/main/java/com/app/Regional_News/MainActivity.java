@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.app.Regional_News.data.Udata;
 import com.app.Regional_News.extra.SharedPrefManager;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     Udata fp;
     public  static  String uid;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,49 +48,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        binding.appBarMain.fab.setOnClickListener(view ->
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+                        .setAction("Action", null).show());
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_event, R.id.nav_visitor, R.id.nav_notification, R.id.nav_complaint,
-                R.id.nav_addcomplaint, R.id.nav_wing, R.id.nav_staff, R.id.nav_income, R.id.nav_expense,R.id.nav_setting,R.id.nav_logout)
-                .setOpenableLayout(drawer)
+                R.id.nav_home, R.id.nav_event, R.id.nav_setting)
                 .build();
+
+
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
-        View headerView = navigationView.getHeaderView(0);
-        TextView navUsername =headerView.findViewById(R.id.tv_uname);
-        navUsername.setText(fp.getU_name());
-        TextView navemail =headerView.findViewById(R.id.tv_uemail);
-        navemail.setText(fp.getU_email());
-        ImageView navpic =headerView.findViewById(R.id.imageView);
-        String c_pic=BASE_URL_API+fp.getU_pic();
-        uid=fp.getU_id();
-        Picasso.get()
-                .load(c_pic)
-                .resize(100, 100)
-                .centerCrop()
-                .into(navpic);
 
-        navigationView.getMenu().findItem(R.id.nav_logout).setOnMenuItemClickListener(menuItem -> {
-            logout();
-            return true;
-        });
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -99,25 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    private void logout() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Logout");
-        builder.setMessage("Are u sure want to logout?");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_F_LOGIN, false);
-                Intent i=new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(i);
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
 
-        builder.show();
-    }
+
 }
