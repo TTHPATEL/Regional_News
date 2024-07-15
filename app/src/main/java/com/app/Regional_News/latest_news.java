@@ -70,6 +70,8 @@ public class latest_news extends Fragment {
         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(requireActivity(), R.dimen.item_offset);
         recyclerView.addItemDecoration(itemDecoration);
         recyclerView.addItemDecoration(new DividerItemDecoration(this.getActivity(), LinearLayout.VERTICAL));
+
+
         if (NetworkUtils.isConnected(getActivity())) {
             showProgress(true);
             getmm();
