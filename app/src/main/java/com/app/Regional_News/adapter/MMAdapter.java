@@ -69,8 +69,8 @@ public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
         // - replace the contents of the view with that element
 
         final MMlistdata song = clist.get(position);
-        holder.tv_m_name.setText(song.getSm_m_y());
-        holder.tv_m_amount.setText("Maintenance Rs."+song.getSm_m_amount());
+        holder.tv_m_name.setText(song.getNews_headline());
+        holder.tv_m_amount.setText("Maintenance Rs."+song.getNews_des_1());
 
 
         holder.cardview.setOnClickListener(new View.OnClickListener() {
@@ -78,8 +78,8 @@ public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
             public void onClick(View v) {
 
                 Intent i=new Intent(mContext, PayMActivity.class);
-                i.putExtra("mm_id",song.getSm_m_id());
-                i.putExtra("mm_m_year",song.getSm_m_y());
+                i.putExtra("mm_id",song.getNews_id());
+                i.putExtra("mm_m_year",song.getNews_headline());
 
 
                 mContext.startActivity(i);
