@@ -95,22 +95,6 @@ public class SettingFragment extends Fragment {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         navUsername.setText(fp.getU_name());
         navEmail.setText(fp.getU_email());
 
@@ -122,6 +106,7 @@ public class SettingFragment extends Fragment {
                 .resize(100, 100)
                 .centerCrop()
                 .into(navPic);
+
         return rootView;
     }
 }

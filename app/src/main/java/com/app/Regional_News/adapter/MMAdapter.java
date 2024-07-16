@@ -3,26 +3,30 @@ package com.app.Regional_News.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+import com.squareup.picasso.Callback; // Import for Picasso
 
 
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.MMlistdata;
 import com.app.Regional_News.ui.PayMActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 
 public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
 
-    private ArrayList<MMlistdata> clist;
-    private Context mContext;
+    private final ArrayList<MMlistdata> clist;
+    private final Context mContext;
 
 
     //Provide a reference to the views for each data item
@@ -32,12 +36,16 @@ public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
         //each data item is just a string in this case
         public TextView tv_m_name,tv_m_amount;
         public CardView cardview;
+        public ImageView news_images;
+
 
         public ViewHolder(View v) {
             super(v);
-            tv_m_name = v.findViewById(R.id.tv_m_name);
-            tv_m_amount = v.findViewById(R.id.tv_m_amount);
+            tv_m_name = v.findViewById(R.id.news_headline);
+            tv_m_amount = v.findViewById(R.id.news_description_1);
             cardview = v.findViewById(R.id.cardview);
+            news_images = v.findViewById(R.id.news_images); // This is where news_images ImageView is initialized
+
 
         }
     }
@@ -71,6 +79,29 @@ public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
         final MMlistdata song = clist.get(position);
         holder.tv_m_name.setText(song.getNews_headline());
         holder.tv_m_amount.setText("Maintenance Rs."+song.getNews_des_1());
+
+
+
+        // Load image using Picasso
+
+        Picasso.get()
+                .load(song.getNews_imgurl())
+                .placeholder(R.drawable.image_not_found)
+                .error(R.drawable.app_logo)
+                .into(holder.news_images, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        Log.d("Picasso", "Image loaded successfully");
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Log.e("Picasso", "Error loading image: " + e.getMessage());
+                        e.printStackTrace();
+                    }
+                });
+
+
 
 
         holder.cardview.setOnClickListener(new View.OnClickListener() {

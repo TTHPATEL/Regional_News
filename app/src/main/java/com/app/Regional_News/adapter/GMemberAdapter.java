@@ -36,7 +36,7 @@ public class GMemberAdapter extends RecyclerView.Adapter<GMemberAdapter.ViewHold
 
         public ViewHolder(View v) {
             super(v);
-            tv_m_name = v.findViewById(R.id.tv_m_name);
+            tv_m_name = v.findViewById(R.id.news_headline);
             tv_m_flatno = v.findViewById(R.id.tv_m_flatno);
             tv_m_contact = v.findViewById(R.id.tv_m_contact);
             tv_m_role = v.findViewById(R.id.tv_m_role);
