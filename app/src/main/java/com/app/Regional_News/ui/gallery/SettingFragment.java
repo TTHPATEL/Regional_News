@@ -2,6 +2,10 @@ package com.app.Regional_News.ui.gallery;
 
 import static com.app.Regional_News.extra.UtilsApi.BASE_URL_API;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -15,8 +19,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.app.Regional_News.LoginActivity;
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.Udata;
 import com.app.Regional_News.databinding.ActivityMainBinding;
@@ -54,9 +61,59 @@ public class SettingFragment extends Fragment {
         TextView navUsername = rootView.findViewById(R.id.tv_uname);
         TextView navEmail = rootView.findViewById(R.id.tv_uemail);
         ImageView navPic = rootView.findViewById(R.id.imageView);
+        LinearLayout logoutnav = rootView.findViewById(R.id.logoutnav);
+
+
+        logoutnav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                builder.setTitle("Logout");
+                builder.setMessage("Are u sure want to logout?");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_F_LOGIN, false);
+                        Intent i = new Intent(requireContext(), LoginActivity.class);
+                        startActivity(i);
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         navUsername.setText(fp.getU_name());
         navEmail.setText(fp.getU_email());
+
 
         String c_pic = BASE_URL_API + fp.getU_pic();
         uid = fp.getU_id();
