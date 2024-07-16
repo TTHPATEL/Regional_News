@@ -53,9 +53,8 @@ public class latest_news extends Fragment {
         progressBar = rootView.findViewById(R.id.progressBar);
         recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
-        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL); // set Horizontal Orientation
-        recyclerView.setLayoutManager(gridLayoutManager); // set LayoutManager to RecyclerView
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager); // set LayoutManager to RecyclerView
 
 
 
