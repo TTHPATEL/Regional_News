@@ -84,7 +84,7 @@ public class latest_news extends Fragment {
 
 
     private void getmm() {
-        mApiService.dssMMRequest("maintance_mlist")
+        mApiService.dssMMRequest("news_show")
                 .enqueue(new Callback<MMdata>() {
                     @Override
                     public void onResponse(Call<MMdata> call, Response<MMdata> response) {
@@ -96,7 +96,7 @@ public class latest_news extends Fragment {
                             if (degdata.getStatus().equals("1")){
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(getActivity(), error_message, Toast.LENGTH_SHORT).show();
-                                displayData(degdata.getMaintance_mlist());
+                                displayData(degdata.getNews_show());
                             } else {
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(getActivity(), error_message, Toast.LENGTH_SHORT).show();

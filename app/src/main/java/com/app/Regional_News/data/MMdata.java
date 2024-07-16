@@ -26,14 +26,17 @@ public class MMdata {
 
     @SerializedName("msg")
     public String msg;
-    @SerializedName("maintance_mlist")
-    public ArrayList<MMlistdata> maintance_mlist;
 
-    public ArrayList<MMlistdata> getMaintance_mlist() {
-        return maintance_mlist;
+    @SerializedName("news_show")
+    public ArrayList<MMlistdata> news_show;
+
+    public ArrayList<MMlistdata> getNews_show() {
+        return news_show;
     }
 
-    public void setMaintance_mlist(ArrayList<MMlistdata> maintance_mlist) {
-        this.maintance_mlist = maintance_mlist;
+    public void setNews_show(ArrayList<MMlistdata> news_show) {
+        this.news_show = news_show;
     }
+
+
 }
