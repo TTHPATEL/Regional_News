@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
@@ -37,15 +38,16 @@ public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
         public TextView tv_m_name,tv_m_amount;
         public CardView cardview;
         public ImageView news_images;
+        public LinearLayout news_list_layout;
 
 
         public ViewHolder(View v) {
             super(v);
             tv_m_name = v.findViewById(R.id.news_headline);
-            tv_m_amount = v.findViewById(R.id.news_description_1);
+//            tv_m_amount = v.findViewById(R.id.news_description_1);
             cardview = v.findViewById(R.id.cardview);
             news_images = v.findViewById(R.id.news_images); // This is where news_images ImageView is initialized
-
+            news_list_layout = v.findViewById(R.id.news_list_layout);
 
         }
     }
@@ -78,7 +80,7 @@ public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
 
         final MMlistdata song = clist.get(position);
         holder.tv_m_name.setText(song.getNews_headline());
-        holder.tv_m_amount.setText("Maintenance Rs."+song.getNews_des_1());
+//        holder.tv_m_amount.setText("Maintenance Rs."+song.getNews_des_1());
 
 
 
@@ -104,7 +106,7 @@ public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
 
 
 
-        holder.cardview.setOnClickListener(new View.OnClickListener() {
+        holder.news_list_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
