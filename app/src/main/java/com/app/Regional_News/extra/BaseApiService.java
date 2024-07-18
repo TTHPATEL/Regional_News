@@ -9,6 +9,7 @@ import com.app.Regional_News.data.Expensedata;
 import com.app.Regional_News.data.Incomedata;
 import com.app.Regional_News.data.MMdata;
 import com.app.Regional_News.data.Memberdata;
+import com.app.Regional_News.data.Newsdata;
 import com.app.Regional_News.data.Notidata;
 import com.app.Regional_News.data.UMdata;
 import com.app.Regional_News.data.Udata;
@@ -92,5 +93,8 @@ public interface BaseApiService {
     Call<Commondata> dsspaymRequest(@Field("dss_app") String dss_app,
                                           @Field("u_data") String u_data);
 
-
+@FormUrlEncoded
+    @POST("dss_api.php")
+    Call<Newsdata> dssNewsRequest(@Field("dss_app") String dss_app,
+                               @Field("u_data") String u_data);
 }

@@ -113,6 +113,7 @@ public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
                 Intent i=new Intent(mContext, PayMActivity.class);
                 i.putExtra("mm_id",song.getNews_id());
                 i.putExtra("mm_m_year",song.getNews_headline());
+                i.putExtra("getNews_id",song.getNews_id());
 
 
                 mContext.startActivity(i);

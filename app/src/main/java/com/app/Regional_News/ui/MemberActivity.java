@@ -55,6 +55,8 @@ public class MemberActivity extends AppCompatActivity {
         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(this, R.dimen.item_offset);
         recyclerView.addItemDecoration(itemDecoration);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+
+
         if (NetworkUtils.isConnected(this)) {
             showProgress(true);
             getmember(w_id);
@@ -62,6 +64,8 @@ public class MemberActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
         }
     }
+
+
     private void getmember(String w_id) {
         mApiService.dssMemberRequest("wing_list_user",w_id)
                 .enqueue(new Callback<Memberdata>() {
@@ -106,6 +110,8 @@ public class MemberActivity extends AppCompatActivity {
             recyclerView.setVisibility(View.VISIBLE);
         }
     }
+
+
     private void displayData(ArrayList<Memberlistdata> degree_list) {
         adapter = new MemberAdapter(MemberActivity.this, degree_list);
         recyclerView.setAdapter(adapter);

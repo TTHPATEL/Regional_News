@@ -8,23 +8,25 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.Regional_News.MainActivity;
 import com.app.Regional_News.R;
+import com.app.Regional_News.adapter.MemberAdapter;
 import com.app.Regional_News.data.Commondata;
+import com.app.Regional_News.data.Newsdata;
+import com.app.Regional_News.data.Memberlistdata;
+import com.app.Regional_News.data.Newslistdata;
 import com.app.Regional_News.data.UMdata;
 import com.app.Regional_News.extra.BaseApiService;
+import com.app.Regional_News.extra.NetworkUtils;
 import com.app.Regional_News.extra.UtilsApi;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,13 +34,8 @@ import retrofit2.Response;
 
 public class PayMActivity extends AppCompatActivity {
     BaseApiService mApiService;
-    TextView tv_m_month,tv_paydate,tv_paystatus,tv_paymode;
-    private RadioGroup radioSexGroup;
-    private RadioButton radioSexButton;
-    Button bt_pay_m;
-    LinearLayout ln_pay_m;
-    String m_u_id;
-    String ptvalue = null;
+    TextView tv_m_month,tv_paydate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,183 +43,75 @@ public class PayMActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pay_mactivity);
         Bundle extras = getIntent().getExtras();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        String getNews_id = extras.getString("getNews_id");
+
         mApiService = UtilsApi.getAPIService();
-        tv_m_month=findViewById(R.id.tv_m_month);
-        tv_paydate=findViewById(R.id.tv_paydate);
-        tv_paystatus=findViewById(R.id.tv_paystatus);
-        tv_paymode=findViewById(R.id.tv_paymode);
-        ln_pay_m=findViewById(R.id.ln_pay_m);
-        bt_pay_m=findViewById(R.id.bt_p_m);
-        radioSexGroup=findViewById(R.id.radioGroup);
+        tv_m_month = findViewById(R.id.tv_m_month);
+        tv_paydate = findViewById(R.id.tv_paydate);
 
-        String mm_id = extras.getString("mm_id");
-        String mm_m_year = extras.getString("mm_m_year");
-        tv_m_month.setText("Maintance Month:-"+mm_m_year);
-        Log.e("Pay Man id",""+mm_id);
 
-        JSONObject j1=new JSONObject();
-        try {
-            j1.put("sm_m_id",mm_id);
-            j1.put("u_id",MainActivity.uid);
-        } catch (JSONException e) {
-            e.printStackTrace();
+//        String mm_id = extras.getString("mm_id");
+//        String mm_m_year = extras.getString("mm_m_year");
+//        tv_m_month.setText("Maintance Month:-" + mm_m_year);
+//        Log.e("Pay Man id", "" + mm_id);
+
+
+        if (NetworkUtils.isConnected(this)) {
+            getnews(getNews_id);
+        } else {
+            Toast.makeText(this, getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
         }
 
-        String data=j1.toString();
-        checkmm(data);
-        radioSexGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
-                radioSexButton=findViewById(i);
-                String ptype=radioSexButton.getText().toString();
-                if(ptype.equalsIgnoreCase("Cash"))
-                {
-//                    ptvalue="1";
-                }
-                if(ptype.equalsIgnoreCase("Google Pay"))
-                {
-                    ptvalue="2";
-
-                    String upiurl = "upi://pay?pa=sonamohanty124@gmail.com&pn=8320583558&tn=TestingGpay&am=100&cu=INR";
-                    Intent i1 = new Intent(Intent.ACTION_VIEW);
-                    i1.setData(Uri.parse(upiurl));
-                    startActivity(i1);
-
-                }
-
-
-            }
-        });
-
-bt_pay_m.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-
-        int selectedId=radioSexGroup.getCheckedRadioButtonId();
-        radioSexButton=findViewById(selectedId);
-        String ptype=radioSexButton.getText().toString();
-        if(ptype.equalsIgnoreCase("Cash"))
-        {
-            ptvalue="1";
-        }
-        if(ptype.equalsIgnoreCase("Google Pay"))
-        {
-        ptvalue="2";
-        }
-
-
-        JSONObject j1=new JSONObject();
-        try {
-            j1.put("m_u_id",m_u_id);
-            j1.put("m_u_pay_mode",ptvalue);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        String data=j1.toString();
-        paymnaitnace(data);
-
-    }
-});
     }
 
-    private void paymnaitnace(String data) {
-        mApiService.dsspaymRequest("pay_maintance",data).enqueue(new Callback<Commondata>() {
-            @Override
-            public void onResponse(Call<Commondata> call, Response<Commondata> response) {
-                if (response.isSuccessful()){
 
-                    Commondata udata=response.body();
-                    if (udata.getStatus().equals("1")){
-                        String msg=udata.getMsg();
-                        ln_pay_m.setVisibility(View.GONE);
-                        tv_paystatus.setText("Pay Status:-Paid");
-                        Toast.makeText(PayMActivity.this,""+msg,Toast.LENGTH_SHORT).show();
-                        if(ptvalue.equals("1"))
-                        {
-                            tv_paymode.setText("Pay Mode:-Cash");
+    private void getnews(String getNewsId) {
+
+        mApiService.dssNewsRequest("news_list_user",getNewsId)
+                .enqueue(new Callback<Newsdata>() {
+                    @Override
+                    public void onResponse(Call<Newsdata> call, Response<Newsdata> response) {
+                        if (response.isSuccessful()){
+                            Log.e("msg",""+response.code());
+                            Newsdata degdata=response.body();
+                            Log.e("msg2",degdata.getMsg());
+                            if (degdata.getStatus().equals("1")){
+                                String error_message = degdata.getMsg();
+                                Toast.makeText(PayMActivity.this, error_message, Toast.LENGTH_SHORT).show();
+                                displayData(degdata.getNews_list_user());
+                            } else {
+                                String error_message = degdata.getMsg();
+                                Toast.makeText(PayMActivity.this, error_message, Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Log.e("msg1",""+response.code());
+                            Log.e("msg5",""+call.request().url());
                         }
-                        if(ptvalue.equals("2"))
-                        {
-                            tv_paymode.setText("Pay Mode:-Google Pay");
+                    }
+
+                    // Add this method to handle data display
+                    private void displayData(ArrayList<Newslistdata> newsListUser) {
+                        if (newsListUser != null && !newsListUser.isEmpty()) {
+                            Newslistdata firstNewsItem = newsListUser.get(0);
+                            tv_m_month.setText(firstNewsItem.getNews_headline());
+                            tv_paydate.setText(firstNewsItem.getNews_des_1());
                         }
+                        else
+                        {
+                            Toast.makeText(PayMActivity.this," Kuch to gadbad hai dayaa! Display mee", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Newsdata> call, Throwable t) {
+                        Log.e("debug", "onFailure: ERROR > " + t.toString());
 
                     }
-                    else
-                    {
-                        String msg=udata.getMsg();
-                        Toast.makeText(PayMActivity.this,""+msg,Toast.LENGTH_SHORT).show();
-                    }
-                }
-                else
-                {
-
-                }
-
-
-            }
-
-            @Override
-            public void onFailure(Call<Commondata> call, Throwable t) {
-
-            }
-        });
+                });
     }
 
-    private void checkmm(String data) {
-        mApiService.dssUMRequest("user_maintance",data).enqueue(new Callback<UMdata>() {
-            @Override
-            public void onResponse(Call<UMdata> call, Response<UMdata> response) {
-                if (response.isSuccessful()){
 
-                    UMdata udata=response.body();
-                    if (udata.getStatus().equals("1")){
-                        String msg=udata.getMsg();
-                        tv_paydate.setText("Maintenance Pay Date:-"+udata.getM_u_date());
-                        m_u_id=udata.getM_u_id();
-                        if(udata.getM_u_status().equals("0"))
-                        {
-                            ln_pay_m.setVisibility(View.VISIBLE);
-                            tv_paystatus.setText("Pay Status:-Pending");
-                            tv_paymode.setText("Pay Mode:-");
-                        }
-                        if(udata.getM_u_status().equals("1"))
-                        {
-                            ln_pay_m.setVisibility(View.GONE);
-                            tv_paystatus.setText("Pay Status:-Paid");
-
-                        }
-                        if(udata.getM_u_pay_mode().equals("1"))
-                        {
-                            tv_paymode.setText("Pay Mode:-Cash");
-                        }
-                        if(udata.getM_u_pay_mode().equals("2"))
-                        {
-                            tv_paymode.setText("Pay Mode:-Google Pay");
-                        }
-
-
-                    }
-                    else
-                    {
-                        String msg=udata.getMsg();
-                    }
-                }
-                else
-                {
-
-                }
-
-
-            }
-
-            @Override
-            public void onFailure(Call<UMdata> call, Throwable t) {
-
-            }
-        });
-    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -240,4 +129,11 @@ bt_pay_m.setOnClickListener(new View.OnClickListener() {
         }
         return false;
     }
+
+
 }
+
+
+
+
+
