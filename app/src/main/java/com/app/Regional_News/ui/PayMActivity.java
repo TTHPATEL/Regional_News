@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.app.Regional_News.data.UMdata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.NetworkUtils;
 import com.app.Regional_News.extra.UtilsApi;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +37,7 @@ import retrofit2.Response;
 public class PayMActivity extends AppCompatActivity {
     BaseApiService mApiService;
     TextView tv_m_month,tv_paydate;
+    ImageView news_images;
 
 
     @Override
@@ -45,10 +48,26 @@ public class PayMActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String getNews_id = extras.getString("getNews_id");
+        String news_imgurl = extras.getString("news_imgurl");
 
         mApiService = UtilsApi.getAPIService();
         tv_m_month = findViewById(R.id.tv_m_month);
         tv_paydate = findViewById(R.id.tv_paydate);
+        news_images = findViewById(R.id.news_images);
+
+
+        // Load image using Picasso
+        if (news_imgurl != null && !news_imgurl.isEmpty()) {
+            Picasso.get().load(news_imgurl).placeholder(R.drawable.image_not_found).into(news_images);
+        } else {
+            news_images.setImageResource(R.drawable.image_not_found); // Default image if no URL provided
+        }
+
+
+
+
+
+
 
 
 //        String mm_id = extras.getString("mm_id");
