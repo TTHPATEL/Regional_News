@@ -15,39 +15,56 @@
         app:cardElevation="3dp"
         android:layout_margin="4dp"
         app:cardUseCompatPadding="true">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <TextView
-        android:id="@+id/tv_m_titile"
-        android:text="Maintenance Detail"
-        android:textAllCaps="true"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/signupColor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_m_titile"
+            android:text="News Headline"
+            android:textAllCaps="true"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/signupColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/tv_m_month"
-        android:text="Maintenance Month:-"
+        android:text="News Description 1"
         android:textAllCaps="true"
         android:textSize="22sp"
         android:layout_marginTop="10dp"
         android:textColor="@color/purple_500"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/tv_paydate"
-        android:layout_width="match_parent"
-        android:textColor="@color/red"
-        android:textSize="18sp"
-        android:layout_marginTop="10dp"
-        android:text="Maintenance Pay  Date:-"
-        android:layout_height="wrap_content"/>
+
+
+
+        <ImageView
+            android:id="@+id/news_images"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/image_not_found"
+            android:clipToOutline="true"
+            android:scaleType="fitXY"/>
+
+
+        <TextView
+            android:id="@+id/tv_paydate"
+            android:layout_width="match_parent"
+            android:textColor="@color/red"
+            android:textSize="24sp"
+            android:layout_marginTop="10dp"
+            android:text="News Description 2"
+            android:layout_height="wrap_content"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:weightSum="2"
