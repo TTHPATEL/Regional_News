@@ -1,7 +1,7 @@
 package com.app.Regional_News.data;
 import com.google.gson.annotations.SerializedName;
 
-public class Newslistdata {
+public class News_showlistdata {
 
     @SerializedName("news_id")
     public String news_id;

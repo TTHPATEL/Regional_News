@@ -11,8 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.Regional_News.R;
-import com.app.Regional_News.data.Newsdata;
-import com.app.Regional_News.data.Newslistdata;
+import com.app.Regional_News.data.News_showdata;
+import com.app.Regional_News.data.News_showlistdata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.NetworkUtils;
 import com.app.Regional_News.extra.UtilsApi;
@@ -80,12 +80,12 @@ public class PayMActivity extends AppCompatActivity {
     private void getnews(String getNewsId) {
 
         mApiService.dssNewsRequest("news_list_user",getNewsId)
-                .enqueue(new Callback<Newsdata>() {
+                .enqueue(new Callback<News_showdata>() {
                     @Override
-                    public void onResponse(Call<Newsdata> call, Response<Newsdata> response) {
+                    public void onResponse(Call<News_showdata> call, Response<News_showdata> response) {
                         if (response.isSuccessful()){
                             Log.e("msg",""+response.code());
-                            Newsdata degdata=response.body();
+                            News_showdata degdata=response.body();
                             Log.e("msg2",degdata.getMsg());
                             if (degdata.getStatus().equals("1")){
                                 String error_message = degdata.getMsg();
@@ -102,9 +102,9 @@ public class PayMActivity extends AppCompatActivity {
                     }
 
                     // Add this method to handle data display
-                    private void displayData(ArrayList<Newslistdata> newsListUser) {
+                    private void displayData(ArrayList<News_showlistdata> newsListUser) {
                         if (newsListUser != null && !newsListUser.isEmpty()) {
-                            Newslistdata firstNewsItem = newsListUser.get(0);
+                            News_showlistdata firstNewsItem = newsListUser.get(0);
                             news_headline.setText(firstNewsItem.getNews_headline());
                             news_des_1.setText(firstNewsItem.getNews_des_1());
                             news_des_2.setText(firstNewsItem.getNews_des_2());
@@ -116,7 +116,7 @@ public class PayMActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<Newsdata> call, Throwable t) {
+                    public void onFailure(Call<News_showdata> call, Throwable t) {
                         Log.e("debug", "onFailure: ERROR > " + t.toString());
 
                     }

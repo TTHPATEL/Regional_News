@@ -1,40 +1,19 @@
 package com.app.Regional_News.ui.home;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.Regional_News.R;
-import com.app.Regional_News.adapter.MMAdapter;
-import com.app.Regional_News.data.MMdata;
-import com.app.Regional_News.data.MMlistdata;
-import com.app.Regional_News.extra.BaseApiService;
-import com.app.Regional_News.extra.ItemOffsetDecoration;
-import com.app.Regional_News.extra.NetworkUtils;
-import com.app.Regional_News.extra.UtilsApi;
 import com.app.Regional_News.latest_news;
 import com.app.Regional_News.top_news;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class HomeFragment extends Fragment {

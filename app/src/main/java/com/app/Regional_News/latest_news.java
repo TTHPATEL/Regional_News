@@ -15,9 +15,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.Regional_News.adapter.MMAdapter;
-import com.app.Regional_News.data.MMdata;
-import com.app.Regional_News.data.MMlistdata;
+import com.app.Regional_News.adapter.NewslistAdapter;
+import com.app.Regional_News.data.News_listfetch_data;
+import com.app.Regional_News.data.News_listfetch_listdata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.ItemOffsetDecoration;
 import com.app.Regional_News.extra.NetworkUtils;
@@ -35,7 +35,7 @@ public class latest_news extends Fragment {
     private ProgressBar progressBar;
     private LinearLayout lyt_not_found;
     BaseApiService mApiService;
-    MMAdapter adapter;
+    NewslistAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -76,14 +76,14 @@ public class latest_news extends Fragment {
 
 
     private void getmm() {
-        mApiService.dssMMRequest("news_list_show")
-                .enqueue(new Callback<MMdata>() {
+        mApiService.rnnewslistrequest("news_list_show")
+                .enqueue(new Callback<News_listfetch_data>() {
                     @Override
-                    public void onResponse(Call<MMdata> call, Response<MMdata> response) {
+                    public void onResponse(Call<News_listfetch_data> call, Response<News_listfetch_data> response) {
                         if (response.isSuccessful()){
                             Log.e("msg",""+response.code());
                             showProgress(false);
-                            MMdata degdata=response.body();
+                            News_listfetch_data degdata=response.body();
                             Log.e("msg2",degdata.getMsg());
                             if (degdata.getStatus().equals("1")){
                                 String error_message = degdata.getMsg();
@@ -101,7 +101,7 @@ public class latest_news extends Fragment {
                     }
 
                     @Override
-                    public void onFailure(Call<MMdata> call, Throwable t) {
+                    public void onFailure(Call<News_listfetch_data> call, Throwable t) {
                         Log.e("debug", "onFailure: ERROR > " + t.toString());
                         showProgress(false);
                     }
@@ -117,8 +117,8 @@ public class latest_news extends Fragment {
             recyclerView.setVisibility(View.VISIBLE);
         }
     }
-    private void displayData(ArrayList<MMlistdata> degree_list) {
-        adapter = new MMAdapter(getActivity(), degree_list);
+    private void displayData(ArrayList<News_listfetch_listdata> degree_list) {
+        adapter = new NewslistAdapter(getActivity(), degree_list);
         recyclerView.setAdapter(adapter);
 
         if (adapter.getItemCount() == 0) {

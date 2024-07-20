@@ -2,7 +2,7 @@ package com.app.Regional_News.data;
 
 import com.google.gson.annotations.SerializedName;
 
-public class MMlistdata {
+public class News_listfetch_listdata {
     @SerializedName("news_id")
     public String news_id;
     @SerializedName("news_headline")

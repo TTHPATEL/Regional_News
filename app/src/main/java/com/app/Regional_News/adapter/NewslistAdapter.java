@@ -17,16 +17,16 @@ import com.squareup.picasso.Callback; // Import for Picasso
 
 
 import com.app.Regional_News.R;
-import com.app.Regional_News.data.MMlistdata;
+import com.app.Regional_News.data.News_listfetch_listdata;
 import com.app.Regional_News.ui.PayMActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 
-public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
+public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHolder> {
 
-    private final ArrayList<MMlistdata> clist;
+    private final ArrayList<News_listfetch_listdata> clist;
     private final Context mContext;
 
 
@@ -53,14 +53,14 @@ public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
     }
 
     //Provide a suitable constructor
-    public MMAdapter(Context context, ArrayList<MMlistdata> songList) {
+    public NewslistAdapter(Context context, ArrayList<News_listfetch_listdata> songList) {
         this.clist = songList;
         this.mContext = context;
     }
 
     //Create new views (invoked by the layout manager)
     @Override
-    public MMAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public NewslistAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         //Creating a new view
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custome_mm, parent, false);
@@ -73,12 +73,12 @@ public class MMAdapter extends RecyclerView.Adapter<MMAdapter.ViewHolder> {
 
     //Replace the contents of a view (invoked by the layout manager
     @Override
-    public void onBindViewHolder(MMAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(NewslistAdapter.ViewHolder holder, int position) {
 
         // - get element from arraylist at this position
         // - replace the contents of the view with that element
 
-        final MMlistdata song = clist.get(position);
+        final News_listfetch_listdata song = clist.get(position);
         holder.tv_m_name.setText(song.getNews_headline());
 //        holder.tv_m_amount.setText("Maintenance Rs."+song.getNews_des_1());
 

@@ -7,9 +7,9 @@ import com.app.Regional_News.data.Complaintdata;
 import com.app.Regional_News.data.Eventdata;
 import com.app.Regional_News.data.Expensedata;
 import com.app.Regional_News.data.Incomedata;
-import com.app.Regional_News.data.MMdata;
+import com.app.Regional_News.data.News_listfetch_data;
 import com.app.Regional_News.data.Memberdata;
-import com.app.Regional_News.data.Newsdata;
+import com.app.Regional_News.data.News_showdata;
 import com.app.Regional_News.data.Notidata;
 import com.app.Regional_News.data.UMdata;
 import com.app.Regional_News.data.Udata;
@@ -63,7 +63,7 @@ public interface BaseApiService {
 
     @FormUrlEncoded
     @POST("dss_api.php")
-    Call<MMdata> dssMMRequest(@Field("dss_app") String dss_app);
+    Call<News_listfetch_data> rnnewslistrequest(@Field("dss_app") String dss_app);
 
     @FormUrlEncoded
     @POST("dss_api.php")
@@ -95,6 +95,6 @@ public interface BaseApiService {
 
 @FormUrlEncoded
     @POST("dss_api.php")
-    Call<Newsdata> dssNewsRequest(@Field("dss_app") String dss_app,
-                               @Field("u_data") String u_data);
+    Call<News_showdata> dssNewsRequest(@Field("dss_app") String dss_app,
+                                       @Field("u_data") String u_data);
 }
