@@ -11,14 +11,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.Regional_News.R;
 import com.app.Regional_News.adapter.MMAdapter;
 import com.app.Regional_News.data.MMdata;
 import com.app.Regional_News.data.MMlistdata;
@@ -26,9 +22,6 @@ import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.ItemOffsetDecoration;
 import com.app.Regional_News.extra.NetworkUtils;
 import com.app.Regional_News.extra.UtilsApi;
-import com.app.Regional_News.latest_news;
-import com.app.Regional_News.top_news;
-import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -83,7 +76,7 @@ public class latest_news extends Fragment {
 
 
     private void getmm() {
-        mApiService.dssMMRequest("news_show")
+        mApiService.dssMMRequest("news_list_show")
                 .enqueue(new Callback<MMdata>() {
                     @Override
                     public void onResponse(Call<MMdata> call, Response<MMdata> response) {
@@ -95,7 +88,7 @@ public class latest_news extends Fragment {
                             if (degdata.getStatus().equals("1")){
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(getActivity(), error_message, Toast.LENGTH_SHORT).show();
-                                displayData(degdata.getNews_show());
+                                displayData(degdata.getNews_list_show());
                             } else {
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(getActivity(), error_message, Toast.LENGTH_SHORT).show();

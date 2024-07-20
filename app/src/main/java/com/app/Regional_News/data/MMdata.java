@@ -27,15 +27,15 @@ public class MMdata {
     @SerializedName("msg")
     public String msg;
 
-    @SerializedName("news_show")
-    public ArrayList<MMlistdata> news_show;
+    @SerializedName("news_list_show")
+    public ArrayList<MMlistdata> news_list_show;
 
-    public ArrayList<MMlistdata> getNews_show() {
-        return news_show;
+    public ArrayList<MMlistdata> getNews_list_show() {
+        return news_list_show;
     }
 
-    public void setNews_show(ArrayList<MMlistdata> news_show) {
-        this.news_show = news_show;
+    public void setNews_list_show(ArrayList<MMlistdata> news_list_show) {
+        this.news_list_show = news_list_show;
     }
 
 
