@@ -39,7 +39,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/ed_username"
+                android:id="@+id/u_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
@@ -52,7 +52,7 @@
                 android:textColorHighlight="@color/cardview_dark_background" />
 
             <EditText
-                android:id="@+id/ed_email"
+                android:id="@+id/u_email"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
@@ -65,7 +65,7 @@
                 android:textColorHighlight="@color/cardview_dark_background" />
 
             <EditText
-                android:id="@+id/ed_password"
+                android:id="@+id/u_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"

@@ -166,6 +166,13 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+
+
+
+
+
+
+
     private  boolean checkAndRequestPermissions() {
         int camera = ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA);
         int storage = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
