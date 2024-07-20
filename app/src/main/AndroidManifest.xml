@@ -45,7 +45,7 @@
             android:exported="false"
             android:label="Wing Member" />
         <activity
-            android:name="com.app.Regional_News.ui.PayMActivity"
+            android:name="com.app.Regional_News.ui.NewsShowActivity"
             android:exported="false"
             android:label="Maintenance Pay Detail" />
         <activity

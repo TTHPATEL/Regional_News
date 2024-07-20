@@ -24,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PayMActivity extends AppCompatActivity {
+public class NewsShowActivity extends AppCompatActivity {
     BaseApiService mApiService;
     TextView news_headline,news_des_1,news_des_2;
     ImageView news_images;
@@ -33,7 +33,7 @@ public class PayMActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pay_mactivity);
+        setContentView(R.layout.activity_news_show);
         Bundle extras = getIntent().getExtras();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -89,11 +89,11 @@ public class PayMActivity extends AppCompatActivity {
                             Log.e("msg2",degdata.getMsg());
                             if (degdata.getStatus().equals("1")){
                                 String error_message = degdata.getMsg();
-                                Toast.makeText(PayMActivity.this, error_message, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(NewsShowActivity.this, error_message, Toast.LENGTH_SHORT).show();
                                 displayData(degdata.getNews_show());
                             } else {
                                 String error_message = degdata.getMsg();
-                                Toast.makeText(PayMActivity.this, error_message, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(NewsShowActivity.this, error_message, Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Log.e("msg1",""+response.code());
@@ -111,7 +111,7 @@ public class PayMActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            Toast.makeText(PayMActivity.this,"Display mee Kuch to gadbad hai dayaa! ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NewsShowActivity.this,"Display mee Kuch to gadbad hai dayaa! ", Toast.LENGTH_SHORT).show();
                         }
                     }
 

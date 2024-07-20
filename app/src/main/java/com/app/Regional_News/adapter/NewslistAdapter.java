@@ -18,7 +18,7 @@ import com.squareup.picasso.Callback; // Import for Picasso
 
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.News_listfetch_listdata;
-import com.app.Regional_News.ui.PayMActivity;
+import com.app.Regional_News.ui.NewsShowActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -110,7 +110,7 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
             @Override
             public void onClick(View v) {
 
-                Intent i=new Intent(mContext, PayMActivity.class);
+                Intent i=new Intent(mContext, NewsShowActivity.class);
                 i.putExtra("mm_id",song.getNews_id());
                 i.putExtra("mm_m_year",song.getNews_headline());
                 i.putExtra("getNews_id",song.getNews_id());
