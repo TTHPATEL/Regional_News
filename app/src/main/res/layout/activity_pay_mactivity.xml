@@ -13,7 +13,7 @@
         android:padding="4dp">
 
         <TextView
-            android:id="@+id/tv_m_titile"
+            android:id="@+id/news_headline"
             android:text="News Headline"
             android:textAllCaps="true"
             android:textSize="22sp"
@@ -23,15 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <TextView
-            android:id="@+id/tv_m_month"
-            android:text="News Description 1"
-            android:textAllCaps="true"
-            android:textSize="22sp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/purple_500"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+
 
         <ImageView
             android:id="@+id/news_images"
@@ -44,7 +36,16 @@
             android:scaleType="fitXY"/>
 
         <TextView
-            android:id="@+id/tv_paydate"
+            android:id="@+id/news_des_1"
+            android:text="News Description 1"
+            android:textSize="22sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/light_purple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/news_des_2"
             android:layout_width="match_parent"
             android:textColor="@color/red"
             android:textSize="24sp"

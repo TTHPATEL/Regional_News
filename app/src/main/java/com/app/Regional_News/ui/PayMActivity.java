@@ -2,8 +2,6 @@ package com.app.Regional_News.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -12,21 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.app.Regional_News.MainActivity;
 import com.app.Regional_News.R;
-import com.app.Regional_News.adapter.MemberAdapter;
-import com.app.Regional_News.data.Commondata;
 import com.app.Regional_News.data.Newsdata;
-import com.app.Regional_News.data.Memberlistdata;
 import com.app.Regional_News.data.Newslistdata;
-import com.app.Regional_News.data.UMdata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.NetworkUtils;
 import com.app.Regional_News.extra.UtilsApi;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -36,7 +26,7 @@ import retrofit2.Response;
 
 public class PayMActivity extends AppCompatActivity {
     BaseApiService mApiService;
-    TextView tv_m_month,tv_paydate;
+    TextView news_headline,news_des_1,news_des_2;
     ImageView news_images;
 
 
@@ -51,8 +41,10 @@ public class PayMActivity extends AppCompatActivity {
         String news_imgurl = extras.getString("news_imgurl");
 
         mApiService = UtilsApi.getAPIService();
-        tv_m_month = findViewById(R.id.tv_m_month);
-        tv_paydate = findViewById(R.id.tv_paydate);
+        news_headline = findViewById(R.id.news_headline);
+        news_des_1 = findViewById(R.id.news_des_1);
+        news_des_2 = findViewById(R.id.news_des_2);
+
         news_images = findViewById(R.id.news_images);
 
 
@@ -113,12 +105,13 @@ public class PayMActivity extends AppCompatActivity {
                     private void displayData(ArrayList<Newslistdata> newsListUser) {
                         if (newsListUser != null && !newsListUser.isEmpty()) {
                             Newslistdata firstNewsItem = newsListUser.get(0);
-                            tv_m_month.setText(firstNewsItem.getNews_headline());
-                            tv_paydate.setText(firstNewsItem.getNews_des_1());
+                            news_headline.setText(firstNewsItem.getNews_headline());
+                            news_des_1.setText(firstNewsItem.getNews_des_1());
+                            news_des_2.setText(firstNewsItem.getNews_des_2());
                         }
                         else
                         {
-                            Toast.makeText(PayMActivity.this," Kuch to gadbad hai dayaa! Display mee", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PayMActivity.this,"Display mee Kuch to gadbad hai dayaa! ", Toast.LENGTH_SHORT).show();
                         }
                     }
 
