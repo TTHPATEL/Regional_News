@@ -81,7 +81,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="0dp"
             android:textColor="@color/black"
-            android:buttonTint="@color/light_purple"
+            android:buttonTint="@color/purple"
             android:checked="true"/>
 
         <TextView
@@ -94,7 +94,7 @@
             android:layout_marginBottom="10dp"
             android:textColor="@color/black"
             android:layout_marginTop="0dp"
-            android:drawableTint="@color/light_purple"
+            android:drawableTint="@color/purple"
             android:drawableLeft="@drawable/ic_lock_open_black_24dp"
             android:padding="4dp"/>
     </LinearLayout>

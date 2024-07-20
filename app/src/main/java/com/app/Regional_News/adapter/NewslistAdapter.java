@@ -63,7 +63,7 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
     public NewslistAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         //Creating a new view
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custome_mm, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custome_newslist, parent, false);
 
         //set the view's size, margins, paddings and layout parameters
 
