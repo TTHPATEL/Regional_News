@@ -79,7 +79,7 @@ public class PayMActivity extends AppCompatActivity {
 
     private void getnews(String getNewsId) {
 
-        mApiService.rnNewsshowRequest("news_list_user",getNewsId)
+        mApiService.rnNewsshowRequest("news_show",getNewsId)
                 .enqueue(new Callback<News_showdata>() {
                     @Override
                     public void onResponse(Call<News_showdata> call, Response<News_showdata> response) {
@@ -90,7 +90,7 @@ public class PayMActivity extends AppCompatActivity {
                             if (degdata.getStatus().equals("1")){
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(PayMActivity.this, error_message, Toast.LENGTH_SHORT).show();
-                                displayData(degdata.getNews_list_user());
+                                displayData(degdata.getNews_show());
                             } else {
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(PayMActivity.this, error_message, Toast.LENGTH_SHORT).show();

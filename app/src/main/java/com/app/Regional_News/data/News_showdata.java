@@ -28,14 +28,14 @@ public class News_showdata {
     @SerializedName("msg")
     public String msg;
 
-    @SerializedName("news_list_user")
-    public ArrayList<News_showlistdata> news_list_user;
+    @SerializedName("news_show")
+    public ArrayList<News_showlistdata> news_show;
 
-    public ArrayList<News_showlistdata> getNews_list_user() {
-        return news_list_user;
+    public ArrayList<News_showlistdata> getNews_show() {
+        return news_show;
     }
 
-    public void setNews_list_user(ArrayList<News_showlistdata> news_list_user) {
-        this.news_list_user = news_list_user;
+    public void setNews_show(ArrayList<News_showlistdata> news_show) {
+        this.news_show = news_show;
     }
 }
