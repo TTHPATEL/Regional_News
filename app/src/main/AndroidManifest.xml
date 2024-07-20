@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="ANDROID.PERMISSION.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<!--    <uses-permission android:name="android.permission.CALL_PHONE" />-->
 
     <application
         android:allowBackup="true"
@@ -18,47 +17,50 @@
         android:theme="@style/Theme.Regional_News"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.app.Regional_News.OTPVerification"
+            android:name=".RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name="com.app.Regional_News.Login2"
+            android:name=".OTPVerification"
             android:exported="false" />
         <activity
-            android:name="com.app.Regional_News.ui.AddvisitorActivity"
+            android:name=".Login2"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AddvisitorActivity"
             android:exported="false"
             android:label="Add Visitor" />
         <activity
-            android:name="com.app.Regional_News.SwingActivity"
+            android:name=".SwingActivity"
             android:exported="false" />
         <activity
-            android:name="com.app.Regional_News.GMainActivity"
+            android:name=".GMainActivity"
             android:exported="false"
             android:label="Guard Dashboard" />
         <activity
-            android:name="com.app.Regional_News.GLoginActivity"
+            android:name=".GLoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.app.Regional_News.ui.MemberActivity"
+            android:name=".ui.MemberActivity"
             android:exported="false" />
         <activity
-            android:name="com.app.Regional_News.ui.GMemberActivity"
+            android:name=".ui.GMemberActivity"
             android:exported="false"
             android:label="Wing Member" />
         <activity
-            android:name="com.app.Regional_News.ui.NewsShowActivity"
+            android:name=".ui.NewsShowActivity"
             android:exported="false"
             android:label="Maintenance Pay Detail" />
         <activity
-            android:name="com.app.Regional_News.MainActivity"
+            android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.Regional_News.NoActionBar" />
         <activity
-            android:name="com.app.Regional_News.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="false"
             android:label="@string/app_login" />
         <activity
-            android:name="com.app.Regional_News.SplashActivity"
+            android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>

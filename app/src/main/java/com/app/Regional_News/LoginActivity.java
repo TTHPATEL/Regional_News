@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.Regional_News.data.Udata;
@@ -40,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     BaseApiService mApiService;
     SharedPrefManager sharedPrefManager;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
+    TextView registrationText; // Declare signupText
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -61,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         et_email=findViewById(R.id.ed_email);
         et_password=findViewById(R.id.ed_password);
         bt_login=findViewById(R.id.bt_login);
+        registrationText = findViewById(R.id.registrationText);
 
 //        bt_slogin=findViewById(R.id.bt_slogin);
 //        bt_play=findViewById(R.id.bt_play);
@@ -111,6 +114,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        registrationText.setOnClickListener(new View.OnClickListener() { // Set onClickListener for signupText
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
+
         checkAndRequestPermissions();
     }
 
@@ -123,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     Udata udata=response.body();
                     if (udata.getStatus().equals("1")){
-    String msg=udata.getMsg();
+                        String msg=udata.getMsg();
 //    Toast.makeText(LoginActivity.this,""+msg,Toast.LENGTH_SHORT).show();
                         Gson gson = new Gson();
                         String json = gson.toJson(udata);
