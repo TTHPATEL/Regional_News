@@ -63,9 +63,17 @@ public interface BaseApiService {
 
     @FormUrlEncoded
     @POST("dss_api.php")
-    Call<News_listfetch_data> rnnewslistrequest(@Field("dss_app") String dss_app);
+    Call<News_listfetch_data> rnNewslistRequest(@Field("dss_app") String dss_app);
+
+
 
     @FormUrlEncoded
+    @POST("dss_api.php")
+    Call<News_showdata> rnNewsshowRequest(@Field("dss_app") String dss_app,
+                                          @Field("u_data") String u_data);
+
+
+@FormUrlEncoded
     @POST("dss_api.php")
     Call<UMdata> dssUMRequest(@Field("dss_app") String dss_app,
                               @Field("u_data") String u_data);
@@ -92,9 +100,4 @@ public interface BaseApiService {
     @POST("dss_api.php")
     Call<Commondata> dsspaymRequest(@Field("dss_app") String dss_app,
                                           @Field("u_data") String u_data);
-
-@FormUrlEncoded
-    @POST("dss_api.php")
-    Call<News_showdata> dssNewsRequest(@Field("dss_app") String dss_app,
-                                       @Field("u_data") String u_data);
 }

@@ -76,7 +76,7 @@ public class latest_news extends Fragment {
 
 
     private void getmm() {
-        mApiService.rnnewslistrequest("news_list_show")
+        mApiService.rnNewslistRequest("news_list_show")
                 .enqueue(new Callback<News_listfetch_data>() {
                     @Override
                     public void onResponse(Call<News_listfetch_data> call, Response<News_listfetch_data> response) {

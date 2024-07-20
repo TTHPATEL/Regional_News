@@ -79,7 +79,7 @@ public class PayMActivity extends AppCompatActivity {
 
     private void getnews(String getNewsId) {
 
-        mApiService.dssNewsRequest("news_list_user",getNewsId)
+        mApiService.rnNewsshowRequest("news_list_user",getNewsId)
                 .enqueue(new Callback<News_showdata>() {
                     @Override
                     public void onResponse(Call<News_showdata> call, Response<News_showdata> response) {
