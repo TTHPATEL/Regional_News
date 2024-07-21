@@ -91,10 +91,6 @@ public class SettingFragment extends Fragment {
         });
 
 
-
-
-
-
         navUsername.setText(fp.getU_name());
         navEmail.setText(fp.getU_email());
 
