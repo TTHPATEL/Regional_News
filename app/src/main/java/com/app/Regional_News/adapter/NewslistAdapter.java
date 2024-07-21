@@ -89,7 +89,7 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
         Picasso.get()
                 .load(song.getNews_imgurl())
                 .placeholder(R.drawable.image_not_found)
-                .error(R.drawable.app_logo)
+                .error(R.drawable.image_not_found)
                 .into(holder.news_images, new Callback() {
                     @Override
                     public void onSuccess() {

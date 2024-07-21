@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.app.Regional_News.adapter.NewslistAdapter;
 import com.app.Regional_News.data.News_listfetch_data;
@@ -36,12 +37,15 @@ public class latest_news extends Fragment {
     private LinearLayout lyt_not_found;
     BaseApiService mApiService;
     NewslistAdapter adapter;
+    private SwipeRefreshLayout swipeRefreshLayout;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_latest_news, container, false);
         mApiService = UtilsApi.getAPIService();
 
+        swipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout);
         lyt_not_found = rootView.findViewById(R.id.lyt_not_found);
         progressBar = rootView.findViewById(R.id.progressBar);
         recyclerView = rootView.findViewById(R.id.recyclerView);
@@ -64,6 +68,19 @@ public class latest_news extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(this.getActivity(), LinearLayout.VERTICAL));
 
 
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getmm();
+            }
+        });
+
+
+
+
+
+
         if (NetworkUtils.isConnected(getActivity())) {
             showProgress(true);
             getmm();
@@ -80,6 +97,7 @@ public class latest_news extends Fragment {
                 .enqueue(new Callback<News_listfetch_data>() {
                     @Override
                     public void onResponse(Call<News_listfetch_data> call, Response<News_listfetch_data> response) {
+                        swipeRefreshLayout.setRefreshing(false);
                         if (response.isSuccessful()){
                             Log.e("msg",""+response.code());
                             showProgress(false);
@@ -102,6 +120,7 @@ public class latest_news extends Fragment {
 
                     @Override
                     public void onFailure(Call<News_listfetch_data> call, Throwable t) {
+                        swipeRefreshLayout.setRefreshing(false);
                         Log.e("debug", "onFailure: ERROR > " + t.toString());
                         showProgress(false);
                     }
