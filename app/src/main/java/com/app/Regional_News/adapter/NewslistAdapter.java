@@ -53,8 +53,8 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
     }
 
     //Provide a suitable constructor
-    public NewslistAdapter(Context context, ArrayList<News_listfetch_listdata> songList) {
-        this.clist = songList;
+    public NewslistAdapter(Context context, ArrayList<News_listfetch_listdata> data) {
+        this.clist = data;
         this.mContext = context;
     }
 
@@ -78,16 +78,16 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
         // - get element from arraylist at this position
         // - replace the contents of the view with that element
 
-        final News_listfetch_listdata song = clist.get(position);
-        holder.tv_m_name.setText(song.getNews_headline());
-//        holder.tv_m_amount.setText("Maintenance Rs."+song.getNews_des_1());
+        final News_listfetch_listdata data = clist.get(position);
+        holder.tv_m_name.setText(data.getNews_headline());
+//        holder.tv_m_amount.setText("Maintenance Rs."+data.getNews_des_1());
 
 
 
         // Load image using Picasso
 
         Picasso.get()
-                .load(song.getNews_imgurl())
+                .load(data.getNews_imgurl())
                 .placeholder(R.drawable.image_not_found)
                 .error(R.drawable.image_not_found)
                 .into(holder.news_images, new Callback() {
@@ -111,17 +111,17 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
             public void onClick(View v) {
 
                 Intent i=new Intent(mContext, NewsShowActivity.class);
-                i.putExtra("mm_id",song.getNews_id());
-                i.putExtra("mm_m_year",song.getNews_headline());
-                i.putExtra("getNews_id",song.getNews_id());
-                i.putExtra("news_imgurl",song.getNews_imgurl());
+                i.putExtra("mm_id",data.getNews_id());
+                i.putExtra("mm_m_year",data.getNews_headline());
+                i.putExtra("getNews_id",data.getNews_id());
+                i.putExtra("news_imgurl",data.getNews_imgurl());
 
 
                 mContext.startActivity(i);
 
 //                FuelPlaceFragment docofragemnt=new FuelPlaceFragment();
 //                Bundle arguments = new Bundle();
-//                arguments.putString("cat_id",song.getF_t_c_id());
+//                arguments.putString("cat_id",data.getF_t_c_id());
 //                docofragemnt.setArguments(arguments);
 //                FragmentManager manager = ((AppCompatActivity)
 //                        mContext).getSupportFragmentManager();
