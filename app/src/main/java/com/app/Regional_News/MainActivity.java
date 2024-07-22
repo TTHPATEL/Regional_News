@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     Udata fp;
     public  static  String uid;
+    NavController navController;
 
 
     @Override
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);  // Activity_main ma jee Framelayout che aaa enu id select kare che
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);

@@ -6,12 +6,12 @@
         android:title="@string/menu_home" />
     <item
         android:id="@+id/nav_event"
-        android:icon="@drawable/event"
-        android:title="@string/menu_account_setting" />
+        android:icon="@drawable/baseline_search_24"
+        android:title="@string/menu_search" />
 
     <item
         android:id="@+id/nav_setting"
-        android:icon="@drawable/ic_settings"
+        android:icon="@drawable/baseline_settings_24"
         android:title="@string/menu_setting" />
 
 </menu>
