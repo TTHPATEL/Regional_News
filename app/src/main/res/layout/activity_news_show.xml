@@ -61,18 +61,30 @@
         <TextView
             android:id="@+id/news_des_1"
             android:text="News Description 1"
-            android:textSize="22sp"
+            android:textSize="19dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="6dp"
+            android:lineSpacingMultiplier="1.2"
+            android:justificationMode="inter_word"/>
 
         <TextView
             android:id="@+id/news_des_2"
             android:layout_width="match_parent"
-            android:textSize="24sp"
+            android:textSize="19dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginTop="10dp"
+            android:textColor="@color/black"
             android:text="News Description 2"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="6dp"
+            android:lineSpacingMultiplier="1.2"
+            android:justificationMode="inter_word"/>
 
     </LinearLayout>
 </ScrollView>
