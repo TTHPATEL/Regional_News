@@ -2,9 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        android:visible="false"
-        app:showAsAction="never" />
+        android:title="Dark Mode"
+        android:id="@+id/darkmode"
+        android:icon="@drawable/baseline_mode_night_24"
+        app:showAsAction="ifRoom"/>
+
+
+    <item
+        android:title="Enewspaper"
+        android:id="@+id/Enewspaper"
+        android:icon="@drawable/ic_newspaper_white"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:title="Notification"
+        android:id="@+id/notification"
+        android:icon="@drawable/baseline_notifications_none_24"
+        app:showAsAction="ifRoom" />
 </menu>
