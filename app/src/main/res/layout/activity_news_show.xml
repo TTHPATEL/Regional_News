@@ -22,14 +22,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <TextView
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/keywordtext"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Source Location"
+                android:textColor="@color/gray"
+                android:textSize="16sp" />
+
+            <TextView
             android:id="@+id/timetext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:textSize="16sp"
-            android:text="News Time"/>
-
+            android:layout_marginStart="10dp"
+                android:textColor="@color/gray"
+                android:text="News Time"/>
+        </LinearLayout>
         <ImageView
             android:id="@+id/news_images"
             android:layout_width="match_parent"
@@ -47,14 +63,12 @@
             android:text="News Description 1"
             android:textSize="22sp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/purple"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/news_des_2"
             android:layout_width="match_parent"
-            android:textColor="@color/red"
             android:textSize="24sp"
             android:layout_marginTop="10dp"
             android:text="News Description 2"
