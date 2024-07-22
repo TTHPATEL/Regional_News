@@ -26,7 +26,7 @@ import retrofit2.Response;
 
 public class NewsShowActivity extends AppCompatActivity {
     BaseApiService mApiService;
-    TextView news_headline,news_des_1,news_des_2;
+    TextView news_headline,news_des_1,news_des_2,timetext,keywordtext;
     ImageView news_images;
 
 
@@ -44,9 +44,9 @@ public class NewsShowActivity extends AppCompatActivity {
         news_headline = findViewById(R.id.news_headline);
         news_des_1 = findViewById(R.id.news_des_1);
         news_des_2 = findViewById(R.id.news_des_2);
-
+        timetext = findViewById(R.id.timetext);
         news_images = findViewById(R.id.news_images);
-
+        keywordtext = findViewById(R.id.keywordtext);
 
         // Load image using Picasso
         if (news_imgurl != null && !news_imgurl.isEmpty()) {
@@ -54,9 +54,6 @@ public class NewsShowActivity extends AppCompatActivity {
         } else {
             news_images.setImageResource(R.drawable.image_not_found); // Default image if no URL provided
         }
-
-
-
 
 
 
@@ -108,6 +105,8 @@ public class NewsShowActivity extends AppCompatActivity {
                             news_headline.setText(firstNewsItem.getNews_headline());
                             news_des_1.setText(firstNewsItem.getNews_des_1());
                             news_des_2.setText(firstNewsItem.getNews_des_2());
+                            timetext.setText(firstNewsItem.getNews_datetime());
+                            keywordtext.setText((firstNewsItem.getKeyword()));
                         }
                         else
                         {
