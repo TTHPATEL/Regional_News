@@ -11,7 +11,7 @@
     <item
         android:title="Enewspaper"
         android:id="@+id/Enewspaper"
-        android:icon="@drawable/ic_newspaper_white"
+        android:icon="@drawable/ic_newspaper"
         app:showAsAction="ifRoom"/>
 
     <item
