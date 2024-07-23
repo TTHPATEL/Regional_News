@@ -1,38 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:theme="@style/Theme.Regional_News.AppBarOverlay">-->
+
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            android:background="@color/white"-->
+<!--            app:logo="@drawable/baseline_newspaper_24"-->
+<!--            app:title="Regional News"-->
+<!--            app:titleMarginStart="25dp"-->
+<!--            app:titleTextColor="@color/black"-->
+<!--            app:popupTheme="@style/Theme.Regional_News.PopupOverlay" />-->
+<!---->
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
     <include
-        android:id="@+id/app_bar_main"
         layout="@layout/app_bar_main"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+    <fragment
+        android:id="@+id/nav_host_fragment_content_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView" />
-
-    <FrameLayout
-        android:id="@+id/nav_host_fragment_content_main"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/app_bar_main"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_weight="1"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/mobile_navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:menu="@menu/bottom_nav_menu"
         app:itemTextColor="@color/nav_item_color_selector"
-        app:itemIconTint="@color/nav_item_color_selector"/>
+        app:itemIconTint="@color/nav_item_color_selector" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
