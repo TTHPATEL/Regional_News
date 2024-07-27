@@ -25,4 +25,5 @@
     <color name="light_gray_setting">#f3f3f3</color>
     <color name="text_black_color">#FF000000</color>
     <color name="status_bar_color">#FFFFFFFF</color>
+
 </resources>
