@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/news_headline"
-            android:textColor="@color/black"
+            android:textColor="@color/text_black_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="News Headline"

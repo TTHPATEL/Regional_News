@@ -91,7 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="એકાઉન્ટ સેટિંગસ"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_black_color"
                     android:textStyle="bold"
                     android:paddingTop="7dp"
                     android:paddingStart="12dp"/>
@@ -121,7 +121,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="તમારી પ્રોફાઇલ"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
 
@@ -129,7 +129,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="એડિટ કરો અને પ્રોફાઇલ માહિતી જુઓ"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
 
@@ -156,7 +156,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="એપ્લિકેશન સેટિંગ્સ"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_black_color"
                     android:textStyle="bold"
                     android:paddingTop="7dp"
                     android:paddingStart="12dp"/>
@@ -184,7 +184,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="ડિસ્પ્લે પસંદગી"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
 
@@ -192,7 +192,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="કૃપા કરીને તમારી ડિસ્પ્લે ગોઠવો"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
 
                     </LinearLayout>
@@ -227,7 +227,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="નોટિફિકેશન"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
 
@@ -235,7 +235,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="નોટિફિકેશન ચાલુ/બંધ કરો"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
 
@@ -246,6 +246,57 @@
                         android:layout_marginTop="12dp"
                         android:src="@drawable/ic_next"/>
                 </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_lightmode"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ડાર્ક મોડ"
+                            android:textColor="@color/text_black_color"
+                            android:textStyle="bold"
+                            android:paddingStart="10dp"/>
+
+                        <TextView
+                            android:id="@+id/modeStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ડાર્ક મોડ ચાલુ/બંધ કરો"
+                            android:textColor="@color/text_black_color"
+                            android:paddingStart="10dp"/>
+
+
+
+                    </LinearLayout>
+                    <Switch
+                        android:id="@+id/mode_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="150dp"/>
+
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -265,7 +316,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="અન્ય સર્વિસ"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_black_color"
                     android:textStyle="bold"
                     android:paddingTop="7dp"
                     android:paddingStart="12dp"/>
@@ -292,7 +343,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="સુડોકુ ગેમ"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
 
@@ -300,7 +351,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="તાર્કિક અને યોજના પર આધારિત ગેમ"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
 
@@ -335,7 +386,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="ક્વિઝ"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
 
@@ -343,7 +394,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="આપણા ક્વિઝ સાથે તમારી જ્ઞાનને પરીક્ષણ કરો"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
                     <ImageView
@@ -383,7 +434,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="ઇવેન્ટ"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
 
@@ -391,7 +442,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="એક્સાઇટેડ અને મનોરંજનનો ઇવેન્ટ"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
                     <ImageView
@@ -425,7 +476,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="શિષ્યવૃત્તિ"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
 
@@ -433,7 +484,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="શિષ્યવૃત્તિ માટે અરજી કરો"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
 
@@ -460,7 +511,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="એપ્લિકેશન માહિતી"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_black_color"
                     android:textStyle="bold"
                     android:paddingTop="7dp"
                     android:paddingStart="12dp"/>
@@ -488,7 +539,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="એપ શેર"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
 
@@ -496,7 +547,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="એપ શેર કરો"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
 
                     </LinearLayout>
@@ -531,7 +582,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="ફીડબેક"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
 
@@ -539,7 +590,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="ફીડબેક આપો"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
 
@@ -576,7 +627,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="લૉગ આઉટ"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
 
@@ -584,7 +635,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="લૉગ આઉટ કરો"
-                            android:textColor="@color/black"
+                            android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
 

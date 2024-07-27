@@ -22,8 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/light_gray_main"
-            app:tabIndicatorColor="@color/black"
-            app:tabSelectedTextColor="@color/black"
+            app:tabIndicatorColor="@color/text_black_color"
+            app:tabSelectedTextColor="@color/text_black_color"
 
             android:layout_above="@+id/recyclerView"
             app:tabMode="scrollable">
