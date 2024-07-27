@@ -35,7 +35,7 @@
                 android:textSize="36sp"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:textColor="@color/purple"/>
+                android:textColor="@color/black"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="0dp"
                     android:textColor="@color/black"
-                    android:buttonTint="@color/purple"
+                    android:buttonTint="@color/black"
                     android:checked="true"/>
 
                 <TextView
@@ -94,7 +94,7 @@
                     android:layout_marginBottom="10dp"
                     android:textColor="@color/black"
                     android:layout_marginTop="0dp"
-                    android:drawableTint="@color/purple"
+                    android:drawableTint="@color/black"
                     android:drawableLeft="@drawable/ic_lock_open_black_24dp"
                     android:padding="4dp"/>
             </LinearLayout>
@@ -105,7 +105,7 @@
                 android:id="@+id/bt_login"
                 android:text="Login"
                 android:textSize="18sp"
-                android:backgroundTint="@color/purple"
+                android:backgroundTint="@color/black"
                 app:cornerRadius = "20dp"/>
 
         </LinearLayout>
@@ -120,7 +120,7 @@
         android:textSize="14sp"
         android:textAlignment="center"
         android:id="@+id/registrationText"
-        android:textColor="@color/purple"
+        android:textColor="@color/black"
         android:layout_marginBottom="20dp"/>
 
 </LinearLayout>

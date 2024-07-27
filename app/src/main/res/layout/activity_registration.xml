@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="Register"
                 android:textAlignment="center"
-                android:textColor="@color/purple"
+                android:textColor="@color/black"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/purple"
+                android:backgroundTint="@color/black"
                 android:text="Register"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
@@ -101,7 +101,7 @@
         android:textSize="14sp"
         android:textAlignment="center"
         android:id="@+id/loginText"
-        android:textColor="@color/purple"
+        android:textColor="@color/black"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"/>
 
