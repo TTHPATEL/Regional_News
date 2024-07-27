@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -18,8 +19,10 @@ import androidx.navigation.ui.NavigationUI;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +35,8 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 
 public class SettingFragment extends Fragment {
 
@@ -39,6 +44,8 @@ public class SettingFragment extends Fragment {
     SharedPrefManager sharedPrefManager;
     Udata fp;
     public  static  String uid;
+    private Switch mode_switch;
+    private TextView modeStatus;
 
 
     public SettingFragment() {
@@ -62,6 +69,38 @@ public class SettingFragment extends Fragment {
         TextView navEmail = rootView.findViewById(R.id.tv_uemail);
         ImageView navPic = rootView.findViewById(R.id.imageView);
         LinearLayout logoutnav = rootView.findViewById(R.id.logoutnav);
+        mode_switch = rootView.findViewById(R.id.mode_switch);
+        modeStatus = rootView.findViewById(R.id.modeStatus);
+
+
+
+
+        mode_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
+                if(isChecked)
+                {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }
+                else
+                {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
 
 
         logoutnav.setOnClickListener(new View.OnClickListener() {
