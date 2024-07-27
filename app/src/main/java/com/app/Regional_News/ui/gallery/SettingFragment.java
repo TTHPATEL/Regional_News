@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -76,15 +77,15 @@ public class SettingFragment extends Fragment {
 
 
 
-        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
-            modeStatus.setText("Dark Mode");
+        // Check the current UI mode and set the switch state accordingly
+        int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
+            mode_switch.setChecked(true);
+            modeStatus.setText("ડાર્ક મોડ ચાલુ");
+        } else {
+            mode_switch.setChecked(false);
+            modeStatus.setText("ડાર્ક મોડ બંદ");
         }
-        else {
-            modeStatus.setText("Light Mode");
-        }
-
-
-
 
 
         mode_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

@@ -15,11 +15,11 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
-            app:logo="@drawable/baseline_newspaper_24"
+            android:background="@color/status_bar_color"
+            app:logo="@drawable/icon_news"
             app:title="Regional News"
             app:titleMarginStart="25dp"
-            app:titleTextColor="@color/black"
+            app:titleTextColor="@color/text_black_color"
             popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:popupTheme="@style/Theme.Regional_News.PopupOverlay" />
 
