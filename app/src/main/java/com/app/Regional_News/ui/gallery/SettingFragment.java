@@ -75,6 +75,18 @@ public class SettingFragment extends Fragment {
 
 
 
+
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            modeStatus.setText("Dark Mode");
+        }
+        else {
+            modeStatus.setText("Light Mode");
+        }
+
+
+
+
+
         mode_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
