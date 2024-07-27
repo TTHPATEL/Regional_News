@@ -35,7 +35,7 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
     //you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         //each data item is just a string in this case
-        public TextView tv_m_name,tv_m_amount;
+        public TextView tv_m_name,tv_m_amount,keywordtext;
         public CardView cardview;
         public ImageView news_images;
         public LinearLayout news_list_layout;
@@ -48,7 +48,7 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
             cardview = v.findViewById(R.id.cardview);
             news_images = v.findViewById(R.id.news_images); // This is where news_images ImageView is initialized
             news_list_layout = v.findViewById(R.id.news_list_layout);
-
+            keywordtext = v.findViewById(R.id.keywordtext);
         }
     }
 
@@ -80,6 +80,7 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
 
         final News_listfetch_listdata data = clist.get(position);
         holder.tv_m_name.setText(data.getNews_headline());
+        holder.keywordtext.setText(data.getKeyword());
 //        holder.tv_m_amount.setText("Maintenance Rs."+data.getNews_des_1());
 
 

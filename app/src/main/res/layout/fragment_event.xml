@@ -7,12 +7,247 @@
     android:id="@+id/homefragment"
     tools:context=".ui.home.HomeFragment">
 
+    <LinearLayout
+        android:id="@+id/searchlinearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp">
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="41dp"
+                android:src="@drawable/ic_modi"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintTop_toBottomOf="@+id/imageView9"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginBottom="60dp"
+                android:text="નરેન્દ્ર મોદી"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imageView7"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:alpha="0.9"
+                android:scaleType="centerCrop"
+                android:src="@drawable/outer_dark_layer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                app:layout_constraintHorizontal_bias="0.595"
+                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintTop_toBottomOf="@+id/imageView9"
+                app:layout_constraintVertical_bias="0.327"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="43dp"
+                android:src="@drawable/ic_ratan_tata"
+                app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="40dp"
+                android:alpha="0.8"
+                android:scaleType="centerCrop"
+                android:src="@drawable/outer_dark_layer"
+                app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="31dp"
+                android:src="@drawable/ic_sushant"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="28dp"
+                android:alpha="0.9"
+                android:scaleType="centerCrop"
+                android:src="@drawable/outer_dark_layer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="31dp"
+                android:src="@drawable/ic_biden"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="28dp"
+                android:alpha="0.9"
+                android:scaleType="centerCrop"
+                android:src="@drawable/outer_dark_layer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="-15dp"
+                android:layout_marginTop="73dp"
+                android:src="@drawable/ic_jaishankar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="-15dp"
+                android:layout_marginTop="72dp"
+                android:alpha="0.9"
+                android:scaleType="centerCrop"
+                android:src="@drawable/outer_dark_layer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="73dp"
+                android:layout_marginEnd="-12dp"
+                android:src="@drawable/ic_pratik"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="-12dp"
+                android:alpha="0.9"
+                android:scaleType="centerCrop"
+                android:src="@drawable/outer_dark_layer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/setting_background"
+                android:text="વાતાવરણ"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/setting_background"
+                android:text="રાજકીય"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/setting_background"
+                android:text="માર્કેટ"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/setting_background"
+                android:text="આઈ. પી. ઓ"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/setting_background"
+                android:text="વૈશ્વિક"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/setting_background"
+                android:text="અંતરીક્ષ"
+                android:textColor="@color/black"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:padding="@dimen/item_offset" />
+        android:padding="@dimen/item_offset"
+        android:layout_below="@id/searchlinearlayout"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -38,8 +273,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_no_item"
-            />
+            android:src="@drawable/ic_no_item" />
 
         <TextView
             android:layout_width="wrap_content"

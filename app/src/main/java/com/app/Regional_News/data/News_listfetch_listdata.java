@@ -11,6 +11,8 @@ public class News_listfetch_listdata {
     public String news_des_1;
     @SerializedName("news_des_2")
     public String news_des_2;
+    @SerializedName("keyword")
+    public String keyword;
     @SerializedName("news_imgurl")
     public String news_imgurl;
     @SerializedName("news_datetime")
@@ -49,6 +51,14 @@ public class News_listfetch_listdata {
 
     public void setNews_des_2(String news_des_2) {
         this.news_des_2 = news_des_2;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 
     public String getNews_imgurl() {
