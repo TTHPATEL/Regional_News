@@ -9,73 +9,50 @@
     android:orientation="vertical">
 
 
-
-    <LinearLayout
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="@color/light_gray_main"
+        app:tabIndicatorColor="@color/text_black_color"
+        app:tabSelectedTextColor="@color/text_black_color"
+        app:tabMode="scrollable">
 
-
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tablayout"
-            android:layout_width="match_parent"
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/light_gray_main"
-            app:tabIndicatorColor="@color/text_black_color"
-            app:tabSelectedTextColor="@color/text_black_color"
+            android:text="લેટેસ્ટ ન્યુઝ" />
 
-            android:layout_above="@+id/recyclerView"
-            app:tabMode="scrollable">
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="મુખ્ય સમાચાર" />
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/latest_news"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="લેટેસ્ટ ન્યુઝ"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="રામ મંદિર વિશેષ" />
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/top_news"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="મુખ્ય સમાચાર"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="સ્પોર્ટ્સ ન્યુઝ" />
 
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="મનોરંજન" />
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/ram_mandir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="રામ મંદિર વિશેષ"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="તંત્રી લેખ" />
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/sport_news"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="સ્પોર્ટ્સ ન્યુઝ"/>
+    </com.google.android.material.tabs.TabLayout>
 
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/top_news2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="મનોરંજન
-"/>
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/ram_mandir2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="તંત્રી લેખ"/>
-
-        </com.google.android.material.tabs.TabLayout>
-
-
-        <FrameLayout
-            android:id="@+id/framelayout2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </LinearLayout>
-
-
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
