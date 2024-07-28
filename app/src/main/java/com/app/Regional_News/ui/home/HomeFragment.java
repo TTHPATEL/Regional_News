@@ -9,9 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.app.Regional_News.R;
@@ -36,8 +34,8 @@ public class HomeFragment extends Fragment {
         VPAdapter vpAdapter = new VPAdapter(getChildFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         vpAdapter.addFragment(new latest_news(),"લેટેસ્ટ ન્યુઝ");
         vpAdapter.addFragment(new top_news(),"મુખ્ય સમાચાર");
-        vpAdapter.addFragment(new latest_news(),"રામ મંદિર વિશેષ");
         vpAdapter.addFragment(new latest_news(),"સ્પોર્ટ્સ ન્યુઝ");
+        vpAdapter.addFragment(new latest_news(),"રામ મંદિર વિશેષ");
         vpAdapter.addFragment(new latest_news(),"મનોરંજન");
         vpAdapter.addFragment(new latest_news(),"તંત્રી લેખ");
         viewPager.setAdapter(vpAdapter);
@@ -52,13 +50,13 @@ public class HomeFragment extends Fragment {
     private void setUpTabIcons() {
 
         int[] tabIcons = {
-                R.drawable.icon_news,
-                R.drawable.icon_news,
-                R.drawable.icon_news,
-                R.drawable.icon_news,
-                R.drawable.icon_news,
-                R.drawable.icon_news
-        };
+                R.drawable.ic_trending,
+                R.drawable.ic_news_headline,
+                R.drawable.ic_cricket,
+                R.drawable.ic_temple,
+                R.drawable.ic_entertainment,
+                R.drawable.ic_tentri_lekh        };
+
 
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
