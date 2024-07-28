@@ -16,7 +16,8 @@
         android:background="@color/light_gray_tablayout"
         app:tabIndicatorColor="@color/text_black_color"
         app:tabSelectedTextColor="@color/text_black_color"
-        app:tabMode="scrollable">
+        app:tabMode="scrollable"
+        android:elevation="2dp">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
