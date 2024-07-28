@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -41,15 +43,35 @@ public class HomeFragment extends Fragment {
         viewPager.setAdapter(vpAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
-
-
+        setUpTabIcons();
 
 
         return rootView;
     }
 
+    private void setUpTabIcons() {
 
+        int[] tabIcons = {
+                R.drawable.icon_news,
+                R.drawable.icon_news,
+                R.drawable.icon_news,
+                R.drawable.icon_news,
+                R.drawable.icon_news,
+                R.drawable.icon_news
+        };
 
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            if (tab != null) {
+                View customView = LayoutInflater.from(getContext()).inflate(R.layout.tab_item, null);
+                ImageView tabIcon = customView.findViewById(R.id.tab_icon);
+                TextView tabText = customView.findViewById(R.id.tab_text);
+                tabIcon.setImageResource(tabIcons[i]);
+                tabText.setText(tab.getText());
+                tab.setCustomView(customView);
+            }
+        }
+    }
 
 
     @Override
