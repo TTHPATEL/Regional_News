@@ -8,6 +8,10 @@ public class News_listfetch_data {
     @SerializedName("status")
     public String status;
 
+    @SerializedName("msg")
+    public String msg;
+
+
     public String getStatus() {
         return status;
     }
@@ -24,8 +28,6 @@ public class News_listfetch_data {
         this.msg = msg;
     }
 
-    @SerializedName("msg")
-    public String msg;
 
     @SerializedName("news_list_show")
     public ArrayList<News_listfetch_listdata> news_list_show;

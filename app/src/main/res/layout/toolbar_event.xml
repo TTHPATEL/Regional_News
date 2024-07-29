@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Regional_News.AppBarOverlay">
+
+
+
+        <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/toolbar_event"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/status_bar_color"
+            app:popupTheme="@style/Theme.Regional_News.PopupOverlay">
+
+
+            <EditText
+                android:id="@+id/edit_text_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_edittext_2"
+                android:drawableLeft="@drawable/baseline_search_24"
+                android:drawablePadding="8dp"
+                android:hint="Search..."
+                android:padding="8dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/gray"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:imeOptions="actionSearch"
+                android:inputType="text"/>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

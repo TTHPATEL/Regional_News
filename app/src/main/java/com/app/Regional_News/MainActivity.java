@@ -2,6 +2,8 @@ package com.app.Regional_News;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.app.Regional_News.data.Udata;
 import com.app.Regional_News.extra.SharedPrefManager;
@@ -21,22 +23,21 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     SharedPrefManager sharedPrefManager;
     Udata fp;
-    public  static  String uid;
+    public static String uid;
     private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // Ensure this points to the correct layout file
-
+        setContentView(R.layout.activity_main);
 
         sharedPrefManager = new SharedPrefManager(this);
-        String fdata=sharedPrefManager.getFdata();
+        String fdata = sharedPrefManager.getFdata();
         Gson gson = new Gson();
         fp = gson.fromJson(fdata, Udata.class);
 
         toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(findViewById(R.id.toolbar)); // Ensure this ID matches your layout
+        setSupportActionBar(toolbar);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_event, R.id.nav_setting)
@@ -47,11 +48,32 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            if (destination.getId() == R.id.nav_home) {
+                toolbar.setTitle("Regional News");
+                toolbar.setLogo(R.drawable.icon_news);
+            } else if (destination.getId() == R.id.nav_event) {
+                toolbar.setTitle("Search");
+                toolbar.setLogo(null);
+            } else if (destination.getId() == R.id.nav_setting) {
+                toolbar.setTitle("Setting");
+                toolbar.setLogo(null);
+            }
+            invalidateOptionsMenu(); // Request to recreate the options menu
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        int currentFragmentId = navController.getCurrentDestination().getId();
+        if (currentFragmentId == R.id.nav_home) {
+            getMenuInflater().inflate(R.menu.main, menu);
+        } else if (currentFragmentId == R.id.nav_event) {
+            // Do not inflate any menu here, as the fragment will handle it
+        } else if (currentFragmentId == R.id.nav_setting) {
+            // Inflate the settings menu if needed
+        }
         return true;
     }
 

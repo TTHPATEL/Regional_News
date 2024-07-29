@@ -56,10 +56,6 @@ public class latest_news extends Fragment {
 
 
 
-
-
-
-
 //     DO NOT REMOVE COMMENT  recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 //     DO NOT REMOVE COMMENT   ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(requireActivity(), R.dimen.item_offset);
 //     DO NOT REMOVE COMMENT   recyclerView.addItemDecoration(itemDecoration);

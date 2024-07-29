@@ -7,6 +7,7 @@ import com.app.Regional_News.data.Complaintdata;
 import com.app.Regional_News.data.Eventdata;
 import com.app.Regional_News.data.Expensedata;
 import com.app.Regional_News.data.Incomedata;
+import com.app.Regional_News.data.Keywords_fetch_data;
 import com.app.Regional_News.data.News_listfetch_data;
 import com.app.Regional_News.data.Memberdata;
 import com.app.Regional_News.data.News_showdata;
@@ -79,6 +80,13 @@ public interface BaseApiService {
     @POST("dss_api.php")
     Call<News_showdata> rnNewsshowRequest(@Field("dss_app") String dss_app,
                                           @Field("u_data") String u_data);
+
+
+    @FormUrlEncoded
+    @POST("dss_api.php")
+    Call<Keywords_fetch_data> rnKeywordRequest(@Field("dss_app") String dss_app);
+
+
 
 
 @FormUrlEncoded
