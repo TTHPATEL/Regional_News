@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -48,6 +49,17 @@ public class EventFragment extends Fragment {
         // Initialize ArrayAdapter with empty data
         arrayAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, new ArrayList<>());
         listView.setAdapter(arrayAdapter);
+
+        // Set an item click listener on the ListView
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the clicked item's text
+                String selectedItem = (String) parent.getItemAtPosition(position);
+                // Display a Toast message with the selected item's text
+                Toast.makeText(requireContext(), "Selected item: " + selectedItem, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         setHasOptionsMenu(true); // Important to notify that the fragment has its own menu
 
