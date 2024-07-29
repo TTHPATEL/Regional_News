@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -69,7 +70,7 @@ public class SettingFragment extends Fragment {
         TextView navUsername = rootView.findViewById(R.id.tv_uname);
         TextView navEmail = rootView.findViewById(R.id.tv_uemail);
         ImageView navPic = rootView.findViewById(R.id.imageView);
-        LinearLayout logoutnav = rootView.findViewById(R.id.logoutnav);
+        RelativeLayout logoutnav = rootView.findViewById(R.id.logoutnav);
         mode_switch = rootView.findViewById(R.id.mode_switch);
         modeStatus = rootView.findViewById(R.id.modeStatus);
 
