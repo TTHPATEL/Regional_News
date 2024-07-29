@@ -2,6 +2,9 @@ package com.app.Regional_News;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
 
 import com.app.Regional_News.data.Udata;
 import com.app.Regional_News.extra.SharedPrefManager;
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         fp = gson.fromJson(fdata, Udata.class);
 
         toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(findViewById(R.id.toolbar)); // Ensure this ID matches your layout
+        setSupportActionBar(toolbar); // Ensure this ID matches your layout
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_event, R.id.nav_setting)
@@ -47,7 +50,32 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
+
+
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            if (destination.getId() == R.id.nav_home) {
+                toolbar.setTitle("Regional News");
+                toolbar.setLogo(R.drawable.icon_news);
+                toolbar.getMenu().clear();
+                getMenuInflater().inflate(R.menu.main, toolbar.getMenu());
+            } else if (destination.getId() == R.id.nav_event) {
+                toolbar.setTitle("");
+                toolbar.setLogo(null);
+                toolbar.getMenu().clear();
+                getMenuInflater().inflate(R.menu.event_menu, toolbar.getMenu());
+                View searchView = toolbar.getMenu().findItem(R.id.action_search).getActionView();
+                // Add listeners or any additional setup for searchView
+            } else if (destination.getId() == R.id.nav_setting) {
+                toolbar.setTitle("Setting");
+                toolbar.setLogo(null);
+                toolbar.getMenu().clear();
+            }
+        });
+        
+        
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
