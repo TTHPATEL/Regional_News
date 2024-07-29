@@ -48,6 +48,7 @@ public class EventFragment extends Fragment {
     private ArrayAdapter<String> arrayAdapter;
     private String[] name = {"Stock Market", "Cricket", "UG Result", "Budget", "Civil Services", "Politics", "Scholarship", "Education", "Banking Sector", "Pharma Sector", "Olympics", "Electronics", "Business", "Social Media"};
 
+    private LinearLayout searchLinearLayout;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -59,6 +60,8 @@ public class EventFragment extends Fragment {
 //        progressBar = rootView.findViewById(R.id.progressBar);
 //        recyclerView = rootView.findViewById(R.id.recyclerView);
 //        recyclerView.setHasFixedSize(true);
+
+        searchLinearLayout = rootView.findViewById(R.id.searchlinearlayout);
 
 
         listView = rootView.findViewById(R.id.listview);
@@ -98,6 +101,36 @@ public class EventFragment extends Fragment {
         inflater.inflate(R.menu.event_menu, menu);
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
+
+
+
+        searchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hide searchLinearLayout and make listView match_parent
+                searchLinearLayout.setVisibility(View.GONE);
+                ViewGroup.LayoutParams params = listView.getLayoutParams();
+                params.height = ViewGroup.LayoutParams.MATCH_PARENT;
+                params.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                listView.setLayoutParams(params);
+            }
+        });
+
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                // Show searchLinearLayout and restore listView size
+                searchLinearLayout.setVisibility(View.VISIBLE);
+                ViewGroup.LayoutParams params = listView.getLayoutParams();
+                params.height = getResources().getDimensionPixelSize(R.dimen.original_listview_height);
+                params.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                listView.setLayoutParams(params);
+                return false;
+            }
+        });
+
+
+
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
