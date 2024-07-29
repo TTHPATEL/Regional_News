@@ -1,5 +1,4 @@
 <resources>
     <dimen name="fab_margin">48dp</dimen>
-    <dimen name="original_listview_height">250dp</dimen>
 
 </resources>
