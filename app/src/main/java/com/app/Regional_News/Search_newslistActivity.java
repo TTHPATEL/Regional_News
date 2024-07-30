@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -53,6 +54,17 @@ public class Search_newslistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_newslist);
 
+        // USE FOR DISPLAT SYSTEM INBUILT BACK NAVIGATION ARROW
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // INTENT GETTING KEYWORD
+        Intent intent = getIntent();
+        String keyword = intent.getStringExtra("keyword");
+        // Set the toolbar title
+        getSupportActionBar().setTitle(keyword);
+
+
+
         mApiService = UtilsApi.getAPIService();
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         lyt_not_found = findViewById(R.id.lyt_not_found);
@@ -64,13 +76,6 @@ public class Search_newslistActivity extends AppCompatActivity {
 
 
 
-//        keywordDetail = findViewById(R.id.keywordDetail);
-
-        Intent intent = getIntent();
-        if (intent != null) {
-            String keyword = intent.getStringExtra("keyword");
-//            keywordDetail.setText(keyword);
-        }
 
         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(this, R.dimen.item_offset);
         recyclerView.addItemDecoration(itemDecoration);
@@ -172,4 +177,6 @@ public class Search_newslistActivity extends AppCompatActivity {
         }
         return false;
     }
+
+
 }
