@@ -40,6 +40,8 @@ public class Search_newslistActivity extends AppCompatActivity {
     BaseApiService mApiService;
     SearchNewslistAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    String new_keyword = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +54,18 @@ public class Search_newslistActivity extends AppCompatActivity {
         // INTENT GETTING KEYWORD
         Intent intent = getIntent();
         String keyword = intent.getStringExtra("keyword");
+        String Image_direct_keyword = intent.getStringExtra("Image_direct_keyword");
+
+        // Determine which value to use
+
+        if (keyword != null && !keyword.isEmpty()) {
+            new_keyword = keyword;
+        } else if (Image_direct_keyword != null && !Image_direct_keyword.isEmpty()) {
+            new_keyword = Image_direct_keyword;
+        }
+
         // Set the toolbar title
-        getSupportActionBar().setTitle(keyword);
+        getSupportActionBar().setTitle(new_keyword);
 
         mApiService = UtilsApi.getAPIService();
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
@@ -71,13 +83,13 @@ public class Search_newslistActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getmm(keyword);
+                getmm(new_keyword);
             }
         });
 
         if (NetworkUtils.isConnected(this)) {
             showProgress(true);
-            getmm(keyword);
+            getmm(new_keyword);
         } else {
             Toast.makeText(this, getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
         }

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ public class EventFragment extends Fragment {
     private ListView listView;
     private ArrayAdapter<String> arrayAdapter;
     private LinearLayout searchLinearLayout;
+    public ImageView tv_Narendra_Modi,tv_Sushant_Singh_Rajput,S_Jaishankar,tv_ratan_tata,tv_pratik,tv_Joe_Biden ;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,6 +49,13 @@ public class EventFragment extends Fragment {
 
         searchLinearLayout = rootView.findViewById(R.id.searchlinearlayout);
         listView = rootView.findViewById(R.id.listview);
+        tv_Narendra_Modi = rootView.findViewById(R.id.tv_Narendra_Modi);
+        tv_Sushant_Singh_Rajput = rootView.findViewById(R.id.tv_Sushant_Singh_Rajput);
+        S_Jaishankar = rootView.findViewById(R.id.S_Jaishankar);
+        tv_ratan_tata = rootView.findViewById(R.id.tv_ratan_tata);
+        tv_pratik = rootView.findViewById(R.id.tv_pratik);
+        tv_Joe_Biden = rootView.findViewById(R.id.tv_Joe_Biden);
+
 
         // Initialize ArrayAdapter with empty data
         arrayAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, new ArrayList<>());
@@ -68,6 +77,75 @@ public class EventFragment extends Fragment {
         });
 
         setHasOptionsMenu(true); // Important to notify that the fragment has its own menu
+
+
+
+
+        // Set click listener on tv_Narendra_Modi
+        tv_Narendra_Modi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
+                intent.putExtra("Image_direct_keyword", "Narendra Modi");
+                startActivity(intent);
+            }
+        });
+
+
+        // Set click listener on tv_Sushant_Singh_Rajput
+        tv_Sushant_Singh_Rajput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
+                intent.putExtra("Image_direct_keyword", "Sushant Singh Rajput");
+                startActivity(intent);
+            }
+        });
+
+
+        // Set click listener on S_Jaishankar
+        S_Jaishankar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
+                intent.putExtra("Image_direct_keyword", "S Jaishankar");
+                startActivity(intent);
+            }
+        });
+
+        // Set click listener on tv_ratan_tata
+        tv_ratan_tata.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
+                intent.putExtra("Image_direct_keyword", "Ratan Tata");
+                startActivity(intent);
+            }
+        });
+
+        // Set click listener on tv_pratik
+        tv_pratik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
+                intent.putExtra("Image_direct_keyword", "Pratik");
+                startActivity(intent);
+            }
+        });
+
+        // Set click listener on tv_Joe_Biden
+        tv_Joe_Biden.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
+                intent.putExtra("Image_direct_keyword", "Joe Biden");
+                startActivity(intent);
+            }
+        });
+
+
+
+
 
         if (NetworkUtils.isConnected(getActivity())) {
             fetchKeywords();
