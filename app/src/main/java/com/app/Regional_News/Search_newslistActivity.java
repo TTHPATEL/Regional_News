@@ -1,5 +1,6 @@
 package com.app.Regional_News;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -8,23 +9,17 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.content.Intent;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.app.Regional_News.adapter.NewslistAdapter;
-import com.app.Regional_News.data.News_listfetch_data;
-import com.app.Regional_News.data.News_listfetch_listdata;
+import com.app.Regional_News.adapter.SearchNewslistAdapter;
+import com.app.Regional_News.data.Search_News_listfetch_data;
+import com.app.Regional_News.data.Search_News_listfetch_listdata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.ItemOffsetDecoration;
 import com.app.Regional_News.extra.NetworkUtils;
@@ -38,23 +33,20 @@ import retrofit2.Response;
 
 public class Search_newslistActivity extends AppCompatActivity {
 
-
-
     private TextView keywordDetail;
     public RecyclerView recyclerView;
     private ProgressBar progressBar;
     private LinearLayout lyt_not_found;
     BaseApiService mApiService;
-    NewslistAdapter adapter;
+    SearchNewslistAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_newslist);
 
-        // USE FOR DISPLAT SYSTEM INBUILT BACK NAVIGATION ARROW
+        // USE FOR DISPLAY SYSTEM INBUILT BACK NAVIGATION ARROW
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // INTENT GETTING KEYWORD
@@ -62,8 +54,6 @@ public class Search_newslistActivity extends AppCompatActivity {
         String keyword = intent.getStringExtra("keyword");
         // Set the toolbar title
         getSupportActionBar().setTitle(keyword);
-
-
 
         mApiService = UtilsApi.getAPIService();
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
@@ -74,30 +64,23 @@ public class Search_newslistActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager); // set LayoutManager to RecyclerView
 
-
-
-
         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(this, R.dimen.item_offset);
         recyclerView.addItemDecoration(itemDecoration);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
 
-
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getmm();
+                getmm(keyword);
             }
         });
 
-
         if (NetworkUtils.isConnected(this)) {
             showProgress(true);
-            getmm();
+            getmm(keyword);
         } else {
             Toast.makeText(this, getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
         }
-
-        
     }
 
     private void showProgress(boolean show) {
@@ -111,45 +94,43 @@ public class Search_newslistActivity extends AppCompatActivity {
         }
     }
 
-    private void getmm() {
-
-        mApiService.rnNewslistRequest("news_list_show")
-                .enqueue(new Callback<News_listfetch_data>() {
+    private void getmm(String keyword) {
+        mApiService.rnSearchNewslistRequest("search_news_list_show", keyword)
+                .enqueue(new Callback<Search_News_listfetch_data>() {
                     @Override
-                    public void onResponse(Call<News_listfetch_data> call, Response<News_listfetch_data> response) {
+                    public void onResponse(Call<Search_News_listfetch_data> call, Response<Search_News_listfetch_data> response) {
                         swipeRefreshLayout.setRefreshing(false);
-                        if (response.isSuccessful()){
-                            Log.e("msg",""+response.code());
+                        if (response.isSuccessful()) {
+                            Log.e("msg", "" + response.code());
                             showProgress(false);
-                            News_listfetch_data degdata=response.body();
-                            Log.e("msg2",degdata.getMsg());
-                            if (degdata.getStatus().equals("1")){
+                            Search_News_listfetch_data degdata = response.body();
+                            Log.e("msg2", degdata.getMsg());
+                            if (degdata.getStatus().equals("1")) {
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(Search_newslistActivity.this, error_message, Toast.LENGTH_SHORT).show();
-                                displayData(degdata.getNews_list_show());
+                                displayData(degdata.getSearch_news_list_show());
                             } else {
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(Search_newslistActivity.this, error_message, Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Log.e("msg1",""+response.code());
-                            Log.e("msg5",""+call.request().url());
+                            Log.e("msg1", "" + response.code());
+                            Log.e("msg5", "" + call.request().url());
                             showProgress(false);
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<News_listfetch_data> call, Throwable t) {
+                    public void onFailure(Call<Search_News_listfetch_data> call, Throwable t) {
                         swipeRefreshLayout.setRefreshing(false);
                         Log.e("debug", "onFailure: ERROR > " + t.toString());
                         showProgress(false);
                     }
                 });
-        
     }
 
-    private void displayData(ArrayList<News_listfetch_listdata> degree_list) {
-        adapter = new NewslistAdapter(this, degree_list);
+    private void displayData(ArrayList<Search_News_listfetch_listdata> degree_list) {
+        adapter = new SearchNewslistAdapter(this, degree_list);
         recyclerView.setAdapter(adapter);
 
         if (adapter.getItemCount() == 0) {
@@ -157,26 +138,23 @@ public class Search_newslistActivity extends AppCompatActivity {
         } else {
             lyt_not_found.setVisibility(View.GONE);
         }
-
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            // your code
-            return super.onKeyDown(keyCode, event);
+            finish();
+            return true;
         }
-
         return super.onKeyDown(keyCode, event);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
+            finish();
             return true;
         }
-        return false;
+        return super.onOptionsItemSelected(item);
     }
-
-
 }
