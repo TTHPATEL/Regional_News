@@ -12,7 +12,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.app.Regional_News.EditorialFragment;
+import com.app.Regional_News.EntertainmentFragment;
 import com.app.Regional_News.R;
+import com.app.Regional_News.Ram_mandirFragment;
 import com.app.Regional_News.SportsFragment;
 import com.app.Regional_News.StockMarketFragment;
 import com.app.Regional_News.adapter.VPAdapter;
@@ -36,9 +39,9 @@ public class HomeFragment extends Fragment {
         vpAdapter.addFragment(new latest_news(),"લેટેસ્ટ ન્યુઝ");
         vpAdapter.addFragment(new StockMarketFragment(),"સ્ટોક માર્કેટ");
         vpAdapter.addFragment(new SportsFragment(),"સ્પોર્ટ્સ ન્યુઝ");
-        vpAdapter.addFragment(new latest_news(),"રામ મંદિર વિશેષ");
-        vpAdapter.addFragment(new latest_news(),"મનોરંજન");
-        vpAdapter.addFragment(new latest_news(),"તંત્રી લેખ");
+        vpAdapter.addFragment(new Ram_mandirFragment(),"રામ મંદિર વિશેષ");
+        vpAdapter.addFragment(new EntertainmentFragment(),"મનોરંજન");
+        vpAdapter.addFragment(new EditorialFragment(),"તંત્રી લેખ");
         viewPager.setAdapter(vpAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
