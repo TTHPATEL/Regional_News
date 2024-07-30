@@ -1,5 +1,6 @@
 package com.app.Regional_News.ui.gallery;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 import com.app.Regional_News.R;
+import com.app.Regional_News.Search_newslistActivity;
 import com.app.Regional_News.data.Keywords_fetch_data;
 import com.app.Regional_News.data.Keywords_fetch_listdata;
 import com.app.Regional_News.extra.BaseApiService;
@@ -58,6 +60,10 @@ public class EventFragment extends Fragment {
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 // Display a Toast message with the selected item's text
                 Toast.makeText(requireContext(), "Selected item: " + selectedItem, Toast.LENGTH_SHORT).show();
+                // Start the KeywordDetailActivity and pass the selected item's text
+                Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
+                intent.putExtra("keyword", selectedItem);
+                startActivity(intent);
             }
         });
 
