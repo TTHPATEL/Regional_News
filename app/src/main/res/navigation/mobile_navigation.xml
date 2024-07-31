@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_event"
-        android:name="com.app.Regional_News.ui.gallery.EventFragment"
+        android:name="com.app.Regional_News.ui.gallery.SearchFragment"
         android:label="@string/menu_account_setting"
-        tools:layout="@layout/fragment_event" />
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/nav_visitor"

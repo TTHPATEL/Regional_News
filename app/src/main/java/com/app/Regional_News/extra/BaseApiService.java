@@ -4,7 +4,6 @@ package com.app.Regional_News.extra;
 
 import com.app.Regional_News.data.Commondata;
 import com.app.Regional_News.data.Complaintdata;
-import com.app.Regional_News.data.Eventdata;
 import com.app.Regional_News.data.Expensedata;
 import com.app.Regional_News.data.Incomedata;
 import com.app.Regional_News.data.Keywords_fetch_data;
@@ -39,9 +38,6 @@ public interface BaseApiService {
     Call<Registrationdata> rnsRegistrationRequest(@Field("dss_app") String dss_app,
                                                   @Field("u_data") String u_data);
 
-    @FormUrlEncoded
-    @POST("dss_api.php")
-    Call<Eventdata> dsseventRequest(@Field("dss_app") String dss_app);
 
     @FormUrlEncoded
     @POST("dss_api.php")
