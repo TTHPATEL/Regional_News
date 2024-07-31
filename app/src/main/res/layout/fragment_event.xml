@@ -13,6 +13,7 @@
 
 
 
+
     <LinearLayout
         android:id="@+id/searchlinearlayout"
         android:layout_width="match_parent"
@@ -192,10 +193,17 @@
     </LinearLayout>
 
 
-    <ListView
-        android:id="@+id/listview"
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="250dp"/>
+        android:layout_height="300dp">
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 

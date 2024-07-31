@@ -19,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.app.Regional_News.R;
 import com.app.Regional_News.Search_newslistActivity;
@@ -41,6 +42,8 @@ public class EventFragment extends Fragment {
     private ArrayAdapter<String> arrayAdapter;
     private LinearLayout searchLinearLayout;
     public ImageView tv_Narendra_Modi,tv_Sushant_Singh_Rajput,S_Jaishankar,tv_ratan_tata,tv_pratik,tv_Joe_Biden ;
+    private SwipeRefreshLayout swipeRefreshLayout;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -55,8 +58,16 @@ public class EventFragment extends Fragment {
         tv_ratan_tata = rootView.findViewById(R.id.tv_ratan_tata);
         tv_pratik = rootView.findViewById(R.id.tv_pratik);
         tv_Joe_Biden = rootView.findViewById(R.id.tv_Joe_Biden);
+        swipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout);
 
 
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fetchKeywords();
+            }
+        });
         // Initialize ArrayAdapter with empty data
         arrayAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, new ArrayList<>());
         listView.setAdapter(arrayAdapter);
@@ -86,7 +97,7 @@ public class EventFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Narendra Modi");
+                intent.putExtra("Image_direct_keyword", "Politics");
                 startActivity(intent);
             }
         });
@@ -97,7 +108,7 @@ public class EventFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Sushant Singh Rajput");
+                intent.putExtra("Image_direct_keyword", "Entertainment");
                 startActivity(intent);
             }
         });
@@ -108,7 +119,7 @@ public class EventFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "S Jaishankar");
+                intent.putExtra("Image_direct_keyword", "Politics");
                 startActivity(intent);
             }
         });
@@ -118,7 +129,7 @@ public class EventFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Ratan Tata");
+                intent.putExtra("Image_direct_keyword", "Business");
                 startActivity(intent);
             }
         });
@@ -128,7 +139,7 @@ public class EventFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Pratik");
+                intent.putExtra("Image_direct_keyword", "Entertainment");
                 startActivity(intent);
             }
         });
@@ -138,7 +149,7 @@ public class EventFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Joe Biden");
+                intent.putExtra("Image_direct_keyword", "Politics");
                 startActivity(intent);
             }
         });
@@ -161,6 +172,7 @@ public class EventFragment extends Fragment {
                 .enqueue(new Callback<Keywords_fetch_data>() {
                     @Override
                     public void onResponse(Call<Keywords_fetch_data> call, Response<Keywords_fetch_data> response) {
+                        swipeRefreshLayout.setRefreshing(false);
                         if (response.isSuccessful() && response.body() != null) {
                             Keywords_fetch_data data = response.body();
                             if (data.getStatus().equals("1")) {
