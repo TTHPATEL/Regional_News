@@ -2,7 +2,6 @@ package com.app.Regional_News.ui.gallery;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,7 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EventFragment extends Fragment {
+public class SearchFragment extends Fragment {
 
     BaseApiService mApiService;
     private ListView listView;
@@ -47,7 +46,7 @@ public class EventFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_event, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_search, container, false);
         mApiService = UtilsApi.getAPIService();
 
         searchLinearLayout = rootView.findViewById(R.id.searchlinearlayout);
