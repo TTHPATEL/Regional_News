@@ -12,6 +12,7 @@ import com.app.Regional_News.data.Memberdata;
 import com.app.Regional_News.data.News_showdata;
 import com.app.Regional_News.data.Notidata;
 import com.app.Regional_News.data.Registrationdata;
+import com.app.Regional_News.data.Scholarship_listfetch_data;
 import com.app.Regional_News.data.Search_News_listfetch_data;
 import com.app.Regional_News.data.UMdata;
 import com.app.Regional_News.data.Udata;
@@ -70,6 +71,11 @@ public interface BaseApiService {
     @FormUrlEncoded
     @POST("dss_api.php")
     Call<News_listfetch_data> rnNewslistRequest(@Field("dss_app") String dss_app);
+
+
+    @FormUrlEncoded
+    @POST("dss_api.php")
+    Call<Scholarship_listfetch_data> rnScholarshiplistRequest(@Field("dss_app") String dss_app);
 
 
 

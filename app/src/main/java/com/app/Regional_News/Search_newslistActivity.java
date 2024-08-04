@@ -82,13 +82,13 @@ public class Search_newslistActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getmm(new_keyword);
+                getdata(new_keyword);
             }
         });
 
         if (NetworkUtils.isConnected(this)) {
             showProgress(true);
-            getmm(new_keyword);
+            getdata(new_keyword);
         } else {
             Toast.makeText(this, getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
         }
@@ -105,7 +105,7 @@ public class Search_newslistActivity extends AppCompatActivity {
         }
     }
 
-    private void getmm(String keyword) {
+    private void getdata(String keyword) {
         mApiService.rnSearchNewslistRequest("search_news_list_show", keyword)
                 .enqueue(new Callback<Search_News_listfetch_data>() {
                     @Override
