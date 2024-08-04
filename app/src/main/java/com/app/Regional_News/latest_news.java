@@ -68,7 +68,7 @@ public class latest_news extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getmm();
+                getdata();
             }
         });
 
@@ -79,7 +79,7 @@ public class latest_news extends Fragment {
 
         if (NetworkUtils.isConnected(getActivity())) {
             showProgress(true);
-            getmm();
+            getdata();
         } else {
             Toast.makeText(getActivity(), getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
         }
@@ -88,7 +88,7 @@ public class latest_news extends Fragment {
 
 
 
-    private void getmm() {
+    private void getdata() {
         mApiService.rnNewslistRequest("news_list_show")
                 .enqueue(new Callback<News_listfetch_data>() {
                     @Override

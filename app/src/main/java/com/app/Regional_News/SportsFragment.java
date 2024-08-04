@@ -79,13 +79,13 @@ public class SportsFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getmm(new_keyword);
+                getdata(new_keyword);
             }
         });
 
         if (NetworkUtils.isConnected(getActivity())) {
             showProgress(true);
-            getmm(new_keyword);
+            getdata(new_keyword);
         } else {
             Toast.makeText(getActivity(), getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
         }
@@ -112,7 +112,7 @@ public class SportsFragment extends Fragment {
     }
 
 
-    private void getmm(String keyword) {
+    private void getdata(String keyword) {
         mApiService.rnSearchNewslistRequest("search_news_list_show", keyword)
                 .enqueue(new Callback<Search_News_listfetch_data>() {
                     @Override

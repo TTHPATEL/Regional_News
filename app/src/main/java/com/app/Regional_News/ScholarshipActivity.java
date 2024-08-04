@@ -19,11 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.app.Regional_News.adapter.NewslistAdapter;
+import com.app.Regional_News.adapter.ScholarshiplistAdapter;
 import com.app.Regional_News.adapter.SearchNewslistAdapter;
-import com.app.Regional_News.data.News_listfetch_data;
-import com.app.Regional_News.data.News_listfetch_listdata;
-import com.app.Regional_News.data.Search_News_listfetch_data;
-import com.app.Regional_News.data.Search_News_listfetch_listdata;
+import com.app.Regional_News.data.Scholarship_listfetch_data;
+import com.app.Regional_News.data.Scholarship_listfetch_listdata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.NetworkUtils;
 import com.app.Regional_News.extra.UtilsApi;
@@ -41,7 +40,7 @@ public class ScholarshipActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private LinearLayout lyt_not_found;
     BaseApiService mApiService;
-    NewslistAdapter adapter;
+    ScholarshiplistAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
 
 
@@ -72,34 +71,34 @@ public class ScholarshipActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getmm();
+                getdata();
             }
         });
 
         if (NetworkUtils.isConnected(this)) {
             showProgress(true);
-            getmm();
+            getdata();
         } else {
             Toast.makeText(this, getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    private void getmm() {
-        mApiService.rnNewslistRequest("news_list_show")
-                .enqueue(new Callback<News_listfetch_data>() {
+    private void getdata() {
+        mApiService.rnScholarshiplistRequest("scholarship_list_show")
+                .enqueue(new Callback<Scholarship_listfetch_data>() {
                     @Override
-                    public void onResponse(Call<News_listfetch_data> call, Response<News_listfetch_data> response) {
+                    public void onResponse(Call<Scholarship_listfetch_data> call, Response<Scholarship_listfetch_data> response) {
                         swipeRefreshLayout.setRefreshing(false);
                         if (response.isSuccessful()){
                             Log.e("msg",""+response.code());
                             showProgress(false);
-                            News_listfetch_data degdata=response.body();
+                            Scholarship_listfetch_data degdata=response.body();
                             Log.e("msg2",degdata.getMsg());
                             if (degdata.getStatus().equals("1")){
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(ScholarshipActivity.this, error_message, Toast.LENGTH_SHORT).show();
-                                displayData(degdata.getNews_list_show());
+                                displayData(degdata.getScholarship_list_show());
                             } else {
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(ScholarshipActivity.this, error_message, Toast.LENGTH_SHORT).show();
@@ -112,7 +111,7 @@ public class ScholarshipActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<News_listfetch_data> call, Throwable t) {
+                    public void onFailure(Call<Scholarship_listfetch_data> call, Throwable t) {
                         swipeRefreshLayout.setRefreshing(false);
                         Log.e("debug", "onFailure: ERROR > " + t.toString());
                         showProgress(false);
@@ -129,8 +128,8 @@ public class ScholarshipActivity extends AppCompatActivity {
             recyclerView.setVisibility(View.VISIBLE);
         }
     }
-    private void displayData(ArrayList<News_listfetch_listdata> degree_list) {
-        adapter = new NewslistAdapter(ScholarshipActivity.this, degree_list);
+    private void displayData(ArrayList<Scholarship_listfetch_listdata> degree_list) {
+        adapter = new ScholarshiplistAdapter(ScholarshipActivity.this, degree_list);
         recyclerView.setAdapter(adapter);
 
         if (adapter.getItemCount() == 0) {
