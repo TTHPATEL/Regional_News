@@ -2,6 +2,7 @@ package com.app.Regional_News.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +29,7 @@ public class ScholarshiplistAdapter extends RecyclerView.Adapter<Scholarshiplist
 
     // Provide a reference to the views for each data item
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_scholarship_name, keywordtext,s_date_from,s_date_to,s_status;
+        public TextView tv_scholarship_name, keywordtext,s_date_from,s_date_to,s_status,link;
         public ImageView s_images;
         public LinearLayout Scholarship_list_layout;
 
@@ -41,6 +42,7 @@ public class ScholarshiplistAdapter extends RecyclerView.Adapter<Scholarshiplist
             s_date_from = v.findViewById(R.id.s_date_from);
             s_date_to = v.findViewById(R.id.s_date_to);
             s_status = v.findViewById(R.id.s_status);
+            link = v.findViewById(R.id.link);
         }
     }
 
@@ -55,7 +57,9 @@ public class ScholarshiplistAdapter extends RecyclerView.Adapter<Scholarshiplist
     public ScholarshiplistAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Creating a new view
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_scholarship, parent, false);
-        return new ScholarshiplistAdapter.ViewHolder(v);
+
+        ViewHolder vh = new ViewHolder(v);
+        return vh;
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -96,16 +100,32 @@ public class ScholarshiplistAdapter extends RecyclerView.Adapter<Scholarshiplist
                     }
                 });
 
-        holder.Scholarship_list_layout.setOnClickListener(new View.OnClickListener() {
+//        holder.Scholarship_list_layout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(mContext, NewsShowActivity.class);
+//                i.putExtra("mm_id", data.getScholarship_id());
+//                i.putExtra("mm_m_year", data.getScholarship_name());
+//                i.putExtra("getNews_id", data.getScholarship_id());
+//                i.putExtra("news_imgurl", data.getS_imgurl());
+//
+//                mContext.startActivity(i);
+//            }
+//        });
+
+
+
+        // Add OnClickListener to the link TextView
+        holder.link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(mContext, NewsShowActivity.class);
-                i.putExtra("mm_id", data.getScholarship_id());
-                i.putExtra("mm_m_year", data.getScholarship_name());
-                i.putExtra("getNews_id", data.getScholarship_id());
-                i.putExtra("news_imgurl", data.getS_imgurl());
-
-                mContext.startActivity(i);
+                String url = data.getScholarship_link(); // assuming you have a getLink() method in Scholarship_listfetch_listdata
+                if (url != null && !url.isEmpty()) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    mContext.startActivity(browserIntent);
+                } else {
+                    Log.e("Link Error", "Link is empty or null");
+                }
             }
         });
     }
