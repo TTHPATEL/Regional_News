@@ -9,18 +9,13 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.app.Regional_News.adapter.NewslistAdapter;
 import com.app.Regional_News.adapter.ScholarshiplistAdapter;
-import com.app.Regional_News.adapter.SearchNewslistAdapter;
 import com.app.Regional_News.data.Scholarship_listfetch_data;
 import com.app.Regional_News.data.Scholarship_listfetch_listdata;
 import com.app.Regional_News.extra.BaseApiService;

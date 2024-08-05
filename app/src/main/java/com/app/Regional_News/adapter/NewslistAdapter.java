@@ -65,6 +65,7 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
         //Creating a new view
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custome_newslist, parent, false);
 
+
         //set the view's size, margins, paddings and layout parameters
 
         ViewHolder vh = new ViewHolder(v);
@@ -112,8 +113,6 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
             public void onClick(View v) {
 
                 Intent i=new Intent(mContext, NewsShowActivity.class);
-                i.putExtra("mm_id",data.getNews_id());
-                i.putExtra("mm_m_year",data.getNews_headline());
                 i.putExtra("getNews_id",data.getNews_id());
                 i.putExtra("news_imgurl",data.getNews_imgurl());
 
