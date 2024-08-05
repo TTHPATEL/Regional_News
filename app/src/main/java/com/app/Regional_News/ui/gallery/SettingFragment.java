@@ -28,6 +28,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.Regional_News.EventActivity;
 import com.app.Regional_News.LoginActivity;
 import com.app.Regional_News.R;
 import com.app.Regional_News.ScholarshipActivity;
@@ -49,7 +50,7 @@ public class SettingFragment extends Fragment {
     public  static  String uid;
     private Switch mode_switch;
     private TextView modeStatus;
-    RelativeLayout scholarship_lay;
+    RelativeLayout scholarship_lay,event_lay;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -75,7 +76,7 @@ public class SettingFragment extends Fragment {
         mode_switch = rootView.findViewById(R.id.mode_switch);
         modeStatus = rootView.findViewById(R.id.modeStatus);
         scholarship_lay = rootView.findViewById(R.id.scholarship_lay);
-
+        event_lay = rootView.findViewById(R.id.event_lay);
 
 
 
@@ -119,7 +120,13 @@ public class SettingFragment extends Fragment {
             }
         });
 
-
+        event_lay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(requireContext(), EventActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 
