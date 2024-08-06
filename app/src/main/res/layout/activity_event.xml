@@ -12,5 +12,7 @@
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:eventsEnabled="true"/>
+        app:eventsEnabled="true"
+        app:headerColor="@color/calender_header"
+        app:headerLabelColor="@color/white"/>
 </LinearLayout>
