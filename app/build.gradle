@@ -58,6 +58,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"
     implementation 'com.applandeo:material-calendar-view:1.9.2'
+    androidTestImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 
 
 }
