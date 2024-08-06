@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 
-import com.app.Regional_News.data.Event_cal_listdata;
 import com.app.Regional_News.data.Event_cal_data;
+import com.app.Regional_News.data.Event_cal_listdata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.UtilsApi;
 
@@ -87,8 +87,9 @@ public class EventActivity extends AppCompatActivity {
             Event_cal_listdata eventData = eventDetailsMap.get(clickedDate);
 
             if (eventData != null) {
-                String eventDetails = "Event Name: " + eventData.getEvent_name() + "\n\n" + // Double newline after event name
-                        "Description: " + eventData.getEvent_desc() + "\n\n"; // Double newline after description
+                String eventDetails = "Event Date: " + eventData.getEvent_date() + "\n\n" + // Double newline after event name
+                        "Event Name: " + eventData.getEvent_name() + "\n\n" + // Double newline after event name
+                        "Description: "+ "\n" + eventData.getEvent_desc() + "\n\n"; // Double newline after description
 
                 new AlertDialog.Builder(EventActivity.this)
                         .setTitle("Event Details")
