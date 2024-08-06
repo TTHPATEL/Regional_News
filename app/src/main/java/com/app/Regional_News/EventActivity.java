@@ -40,9 +40,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EventActivity extends AppCompatActivity {
+
     private CalendarView calendarView;
     private BaseApiService mApiService;
     private Map<String, Event_cal_listdata> eventDetailsMap;
+
     public RecyclerView recyclerView;
     private ProgressBar progressBar;
     private LinearLayout lyt_not_found;
