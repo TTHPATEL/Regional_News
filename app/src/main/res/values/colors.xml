@@ -28,6 +28,7 @@
     <color name="light_gray_tablayout">#fdfdfd </color>
     <color name="ic_search_color">#FF000000 </color>
     <color name="calender_header">#000000</color>
+    <color name="separate_line">#D3C7E6</color>
 
 
 </resources>

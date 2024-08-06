@@ -14,6 +14,9 @@ public class Event_cal_listdata {
     public String event_date;
     @SerializedName("event_status")
     public String event_status;
+    @SerializedName("event_imgurl")
+    public String event_imgurl;
+
 
     public String getEvent_id() {
         return event_id;
@@ -53,5 +56,13 @@ public class Event_cal_listdata {
 
     public void setEvent_status(String event_status) {
         this.event_status = event_status;
+    }
+
+    public String getEvent_imgurl() {
+        return event_imgurl;
+    }
+
+    public void setEvent_imgurl(String event_imgurl) {
+        this.event_imgurl = event_imgurl;
     }
 }
