@@ -80,6 +80,7 @@ public class EventActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 getdata();
+                fetchEventDates();
             }
         });
 
