@@ -129,14 +129,23 @@ public class SettingFragment extends Fragment {
             }
         });
 
+//        sudoko_lay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(requireContext(), SudokuActivity.class);
+//                startActivity(i);
+//            }
+//        });
+
+
         sudoko_lay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(requireContext(), SudokuActivity.class);
-                startActivity(i);
+                Intent intent = new Intent();
+                intent.setClassName("de.dlyt.yanndroid.sudoku", "de.dlyt.yanndroid.sudoku.SplashActivity_s");
+                startActivity(intent);
             }
         });
-
 
 
 

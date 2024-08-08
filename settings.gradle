@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Regional_News"
 include ':app'
+include ':app.sudoku'
