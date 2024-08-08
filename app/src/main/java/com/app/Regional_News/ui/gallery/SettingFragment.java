@@ -5,42 +5,30 @@ import static com.app.Regional_News.extra.UtilsApi.BASE_URL_API;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.app.Regional_News.EventActivity;
 import com.app.Regional_News.LoginActivity;
+import com.app.Regional_News.QuizActivity;
 import com.app.Regional_News.R;
 import com.app.Regional_News.ScholarshipActivity;
-import com.app.Regional_News.SudokuActivity;
 import com.app.Regional_News.data.Udata;
-import com.app.Regional_News.databinding.ActivityMainBinding;
 import com.app.Regional_News.extra.SharedPrefManager;
-import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 
 public class SettingFragment extends Fragment {
@@ -51,7 +39,7 @@ public class SettingFragment extends Fragment {
     public  static  String uid;
     private Switch mode_switch;
     private TextView modeStatus;
-    RelativeLayout scholarship_lay,event_lay,sudoko_lay;
+    RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -79,7 +67,7 @@ public class SettingFragment extends Fragment {
         scholarship_lay = rootView.findViewById(R.id.scholarship_lay);
         event_lay = rootView.findViewById(R.id.event_lay);
         sudoko_lay = rootView.findViewById(R.id.sudoko_lay);
-
+        quiz_lay = rootView.findViewById(R.id.quiz_lay);
 
 
         // Check the current UI mode and set the switch state accordingly
@@ -129,13 +117,13 @@ public class SettingFragment extends Fragment {
             }
         });
 
-//        sudoko_lay.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(requireContext(), SudokuActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        quiz_lay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(requireContext(), QuizActivity.class);
+                startActivity(i);
+            }
+        });
 
 
         sudoko_lay.setOnClickListener(new View.OnClickListener() {
