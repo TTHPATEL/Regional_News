@@ -15,6 +15,9 @@ public class Pdf_listdata {
     public String enews_pdf_data;
     @SerializedName("enews_date")
     public String enews_date;
+    @SerializedName("enewspaper_status")
+    public String enewspaper_status;
+
 
     public String getEnewspaper_id() {
         return enewspaper_id;
@@ -54,5 +57,13 @@ public class Pdf_listdata {
 
     public void setEnews_pdf_name(String enews_pdf_name) {
         this.enews_pdf_name = enews_pdf_name;
+    }
+
+    public String getEnewspaper_status() {
+        return enewspaper_status;
+    }
+
+    public void setEnewspaper_status(String enewspaper_status) {
+        this.enewspaper_status = enewspaper_status;
     }
 }
