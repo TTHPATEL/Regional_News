@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:textColor="@color/text_black_color"
+            android:textColor="@color/green"
             android:text="Date"/>
 
     </LinearLayout>
@@ -88,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:textColor="@color/text_black_color"
+                android:textColor="@color/red"
                 android:text="Date"/>
 
         </LinearLayout>

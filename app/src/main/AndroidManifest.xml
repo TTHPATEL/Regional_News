@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Regional_News"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".QuizWebViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".QuizActivity"
             android:exported="false" />
         <activity

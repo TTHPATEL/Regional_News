@@ -13,8 +13,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.Regional_News.QuizWebViewActivity;
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.Quiz_listdata;
+import com.app.Regional_News.ui.NewsShowActivity;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -63,6 +65,32 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
         holder.tv_quiz_name.setText(data.getQuiz_name());
         holder.tv_quiz_from_date.setText(data.getQuiz_start_date());
         holder.tv_quiz_end_date.setText(data.getQuiz_end_date());
+
+
+        holder.quiz_list_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(mContext, QuizWebViewActivity.class);
+                i.putExtra("Quiz_Link",data.getQuiz_link());
+
+
+                mContext.startActivity(i);
+
+//                FuelPlaceFragment docofragemnt=new FuelPlaceFragment();
+//                Bundle arguments = new Bundle();
+//                arguments.putString("cat_id",data.getF_t_c_id());
+//                docofragemnt.setArguments(arguments);
+//                FragmentManager manager = ((AppCompatActivity)
+//                        mContext).getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = manager.beginTransaction();
+//                fragmentTransaction.replace(R.id.nav_host_fragment_content_main,  docofragemnt);
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
+
+
+            }
+        });
 
 
     }
