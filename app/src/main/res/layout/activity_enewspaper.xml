@@ -5,9 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuizActivity"
+    tools:context=".EnewspaperActivity"
     android:orientation="vertical">
-
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
@@ -55,5 +54,4 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:textColor="@color/black" />
     </LinearLayout>
-
 </LinearLayout>

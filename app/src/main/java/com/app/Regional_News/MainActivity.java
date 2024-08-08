@@ -1,7 +1,9 @@
 package com.app.Regional_News;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.app.Regional_News.data.Udata;
 import com.app.Regional_News.extra.SharedPrefManager;
@@ -73,6 +75,21 @@ public class MainActivity extends AppCompatActivity {
             // Inflate the settings menu if needed
         }
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.Enewspaper) {
+            // Open the new activity when Enewspaper is clicked
+            Intent intent = new Intent(this, EnewspaperActivity.class); // Replace 'EnewspaperActivity' with your target activity
+            startActivity(intent);
+            return true;
+        }
+
+        // Handle other menu item clicks if needed
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

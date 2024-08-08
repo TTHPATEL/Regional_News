@@ -12,6 +12,7 @@ import com.app.Regional_News.data.News_listfetch_data;
 import com.app.Regional_News.data.Memberdata;
 import com.app.Regional_News.data.News_showdata;
 import com.app.Regional_News.data.Notidata;
+import com.app.Regional_News.data.Pdf_data;
 import com.app.Regional_News.data.Quiz_data;
 import com.app.Regional_News.data.Registrationdata;
 import com.app.Regional_News.data.Scholarship_listfetch_data;
@@ -106,6 +107,9 @@ public interface BaseApiService {
                                                              @Field("u_data") String u_data);
 
 
+    @FormUrlEncoded
+    @POST("dss_api.php")
+    Call<Pdf_data> fetchAllPdfs(@Field("dss_app") String dss_app);
 
 
     @FormUrlEncoded
