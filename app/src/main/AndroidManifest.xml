@@ -16,6 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Regional_News"
         android:usesCleartextTraffic="true">
+
+
         <activity
             android:name=".SudokuActivity"
             android:exported="false" />
@@ -81,6 +83,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
     </application>
 
 </manifest>
