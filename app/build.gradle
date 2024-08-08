@@ -60,5 +60,10 @@ dependencies {
     implementation 'com.applandeo:material-calendar-view:1.9.2'
     androidTestImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+//      implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
+
+
 
 }
