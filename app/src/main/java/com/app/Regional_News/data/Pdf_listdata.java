@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class Pdf_listdata {
     @SerializedName("enewspaper_id")
     public String enewspaper_id;
+    @SerializedName("enewspaper_title")
+    public String enewspaper_title;
     @SerializedName("enews_pdf_name")
     public String enews_pdf_name;
     @SerializedName("enews_pdf_data")
@@ -22,6 +24,13 @@ public class Pdf_listdata {
         this.enewspaper_id = enewspaper_id;
     }
 
+    public String getEnewspaper_title() {
+        return enewspaper_title;
+    }
+
+    public void setEnewspaper_title(String enewspaper_title) {
+        this.enewspaper_title = enewspaper_title;
+    }
 
     public String getEnews_pdf_data() {
         return enews_pdf_data;
