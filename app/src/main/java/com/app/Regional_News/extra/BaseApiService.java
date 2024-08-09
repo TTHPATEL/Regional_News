@@ -4,6 +4,7 @@ package com.app.Regional_News.extra;
 
 import com.app.Regional_News.data.Commondata;
 import com.app.Regional_News.data.Complaintdata;
+import com.app.Regional_News.data.Enewspaper_list_data;
 import com.app.Regional_News.data.Event_cal_data;
 import com.app.Regional_News.data.Expensedata;
 import com.app.Regional_News.data.Incomedata;
@@ -12,7 +13,6 @@ import com.app.Regional_News.data.News_listfetch_data;
 import com.app.Regional_News.data.Memberdata;
 import com.app.Regional_News.data.News_showdata;
 import com.app.Regional_News.data.Notidata;
-import com.app.Regional_News.data.Pdf_data;
 import com.app.Regional_News.data.Quiz_data;
 import com.app.Regional_News.data.Registrationdata;
 import com.app.Regional_News.data.Scholarship_listfetch_data;
@@ -110,12 +110,12 @@ public interface BaseApiService {
 
     @FormUrlEncoded
     @POST("dss_api.php")
-    Call<Pdf_data> fetchAllPdfs(@Field("dss_app") String dss_app);
+    Call<Enewspaper_list_data> rnEnewspaperlistRequest(@Field("dss_app") String dss_app);
 
     @FormUrlEncoded
     @POST("dss_api.php")
-    Call<Selected_pdf_data> fetchselectedpdf(@Field("dss_app") String dss_app,
-                                             @Field("u_data") String u_data);
+    Call<Selected_pdf_data> rnEnewspaperPDFRequest(@Field("dss_app") String dss_app,
+                                                   @Field("u_data") String u_data);
 
 
     @FormUrlEncoded

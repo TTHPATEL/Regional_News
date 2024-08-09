@@ -67,7 +67,7 @@ public class EnewspaperShowActivity extends AppCompatActivity {
         showProgress(true);
 
         // Make the API call with the specified parameters
-        mApiService.fetchselectedpdf("fetch_selected_pdf", enewspaperId)
+        mApiService.rnEnewspaperPDFRequest("fetch_selected_pdf", enewspaperId)
                 .enqueue(new Callback<Selected_pdf_data>() {
                     @Override
                     public void onResponse(Call<Selected_pdf_data> call, Response<Selected_pdf_data> response) {
