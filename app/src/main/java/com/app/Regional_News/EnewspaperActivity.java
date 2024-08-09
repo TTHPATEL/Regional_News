@@ -80,7 +80,7 @@ public class EnewspaperActivity extends AppCompatActivity {
     }
 
     private void getdata() {
-        mApiService.rnEnewspaperlistRequest("fetch_all_pdfs")
+        mApiService.rnEnewspaperlistRequest("Enewspaper_list")
                 .enqueue(new Callback<Enewspaper_list_data>() {
                     @Override
                     public void onResponse(Call<Enewspaper_list_data> call, Response<Enewspaper_list_data> response) {

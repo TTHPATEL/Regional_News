@@ -17,7 +17,7 @@ import com.app.Regional_News.data.Quiz_data;
 import com.app.Regional_News.data.Registrationdata;
 import com.app.Regional_News.data.Scholarship_listfetch_data;
 import com.app.Regional_News.data.Search_News_listfetch_data;
-import com.app.Regional_News.data.Selected_pdf_data;
+import com.app.Regional_News.data.Enewspaper_PDF_data;
 import com.app.Regional_News.data.UMdata;
 import com.app.Regional_News.data.Udata;
 import com.app.Regional_News.data.Visitordata;
@@ -114,8 +114,8 @@ public interface BaseApiService {
 
     @FormUrlEncoded
     @POST("dss_api.php")
-    Call<Selected_pdf_data> rnEnewspaperPDFRequest(@Field("dss_app") String dss_app,
-                                                   @Field("u_data") String u_data);
+    Call<Enewspaper_PDF_data> rnEnewspaperPDFRequest(@Field("dss_app") String dss_app,
+                                                     @Field("u_data") String u_data);
 
 
     @FormUrlEncoded

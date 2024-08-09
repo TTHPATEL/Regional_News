@@ -2,7 +2,7 @@ package com.app.Regional_News.data;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Selected_pdf_listdata {
+public class Enewspaper_PDF_listdata {
     @SerializedName("enewspaper_id")
     public String enewspaper_id;
     @SerializedName("enewspaper_title")

@@ -12,7 +12,7 @@ public class Enewspaper_list_data
     @SerializedName("msg")
     public String msg;
 
-    @SerializedName("fetch_all_pdfs")
+    @SerializedName("Enewspaper_list")
     public ArrayList<Enewspaper_list_listdata> Enewspaper_list_listdata;
 
     public String getStatus() {
