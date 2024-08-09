@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.ColorRes;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -139,7 +140,7 @@ public class FeedbackActivity extends AppCompatActivity {
         success_img.setVisibility(View.VISIBLE);
         cardview.setVisibility(View.GONE);
 //        main.setBackground(null);
-        main.setBackgroundColor(ContextCompat.getColor(FeedbackActivity.this, android.R.color.white));
+        main.setBackgroundColor(ContextCompat.getColor(FeedbackActivity.this, R.color.background_of_success_img));
 
     }
 

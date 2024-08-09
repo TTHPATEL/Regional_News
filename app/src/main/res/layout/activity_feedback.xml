@@ -10,7 +10,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:layout_margin="30dp"
         app:cardCornerRadius="30dp"
@@ -22,7 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="24dp"
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -34,45 +35,64 @@
                 android:textStyle="bold"
                 android:textColor="@color/text_black_color"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="140dp"
+                android:textColor="@color/text_black_color"
+                android:text="Feedback Title"
+                android:textSize="14sp"/>
+
             <EditText
+                android:id="@+id/feedback_title"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/feedback_title"
-                android:background="@drawable/custom_edittext"
-                android:drawablePadding="8dp"
-                android:hint="Feedback Title"
+                android:ems="10"
                 android:padding="8dp"
                 android:textColor="@color/text_black_color"
-                android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="10dp"/>
+                android:backgroundTint="@color/text_black_color"
+                android:inputType="textPersonName"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="140dp"
+                android:textColor="@color/text_black_color"
+                android:text="Feedback Description"
+                android:textSize="14sp"/>
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="300dp"
                 android:ems="10"
                 android:gravity="start|top"
+                android:layout_marginTop="10dp"
                 android:inputType="textMultiLine"
                 android:id="@+id/feedback_desc"
                 android:background="@drawable/custom_edittext"
                 android:drawablePadding="8dp"
-                android:hint="Feedback Description"
                 android:padding="8dp"
                 android:textColor="@color/text_black_color"
-                android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="20dp"/>
+                android:textColorHighlight="@color/cardview_dark_background"/>
+
 
 
 
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
                 android:id="@+id/bt_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="13dp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
                 android:text="Submit"
-                android:textSize="18sp"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="@color/text_black_color"
-                app:cornerRadius="20dp"/>
+                android:backgroundTint="@color/black"
+                android:textSize="16dp"
+                />
 
 
         </LinearLayout>
