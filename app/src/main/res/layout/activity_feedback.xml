@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FeedbackActivity"
-    android:background="@drawable/loginbkg"
-    >
+    android:background="@drawable/loginbkg">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -16,7 +15,8 @@
         android:layout_margin="30dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
-        android:background="@drawable/custom_edittext">
+        android:background="@drawable/custom_edittext"
+        android:id="@+id/cardview">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,5 +78,13 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/success_img"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_success"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 
 </RelativeLayout>

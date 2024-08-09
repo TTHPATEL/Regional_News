@@ -7,12 +7,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -38,6 +42,9 @@ public class FeedbackActivity extends AppCompatActivity {
     BaseApiService mApiService;
     Udata fp;
     SharedPrefManager sharedPrefManager;
+    ImageView success_img;
+    CardView cardview;
+    RelativeLayout main;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
 
@@ -63,8 +70,9 @@ public class FeedbackActivity extends AppCompatActivity {
         feedback_title=findViewById(R.id.feedback_title);
         feedback_desc=findViewById(R.id.feedback_desc);
         bt_submit=findViewById(R.id.bt_submit);
-
-
+        success_img = findViewById(R.id.success_img);
+        cardview = findViewById(R.id.cardview);
+        main = findViewById(R.id.main);
 
         bt_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +116,7 @@ public class FeedbackActivity extends AppCompatActivity {
                     if (udata.getStatus().equals("1")){
                         String msg=udata.getMsg();
                         Toast.makeText(FeedbackActivity.this,""+msg,Toast.LENGTH_SHORT).show();
+                        successMessage();
                         feedback_title.setText("");
                         feedback_desc.setText("");
                     }
@@ -117,9 +126,6 @@ public class FeedbackActivity extends AppCompatActivity {
                         Toast.makeText(FeedbackActivity.this,""+msg,Toast.LENGTH_SHORT).show();
                     }
                 }
-
-
-
             }
 
             @Override
@@ -127,6 +133,14 @@ public class FeedbackActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void successMessage() {
+        success_img.setVisibility(View.VISIBLE);
+        cardview.setVisibility(View.GONE);
+//        main.setBackground(null);
+        main.setBackgroundColor(ContextCompat.getColor(FeedbackActivity.this, android.R.color.white));
+
     }
 
 
