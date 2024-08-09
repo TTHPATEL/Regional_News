@@ -86,9 +86,9 @@ public class EnewspaperActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Pdf_data> call, Response<Pdf_data> response) {
                         swipeRefreshLayout.setRefreshing(false);
-                        showProgress(false); // Hide the progress bar after getting the response
 
                         if (response.isSuccessful()) {
+                            showProgress(false); // Hide the progress bar after getting the response
                             Pdf_data degdata = response.body();
                             Log.e("msg2", degdata.getMsg());
                             Log.e("size", "List size: " + degdata.getPdf_listdata().size());
