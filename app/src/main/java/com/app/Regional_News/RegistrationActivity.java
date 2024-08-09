@@ -110,8 +110,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
 
-
-
         loginText.setOnClickListener(new View.OnClickListener() { // Set onClickListener for signupText
             @Override
             public void onClick(View v) {

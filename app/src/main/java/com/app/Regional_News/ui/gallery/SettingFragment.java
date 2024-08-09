@@ -19,8 +19,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.Regional_News.EventActivity;
+import com.app.Regional_News.FeedbackActivity;
 import com.app.Regional_News.LoginActivity;
 import com.app.Regional_News.QuizActivity;
 import com.app.Regional_News.R;
@@ -39,7 +41,7 @@ public class SettingFragment extends Fragment {
     public  static  String uid;
     private Switch mode_switch;
     private TextView modeStatus;
-    RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay;
+    RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay,feedback_lay;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -68,7 +70,7 @@ public class SettingFragment extends Fragment {
         event_lay = rootView.findViewById(R.id.event_lay);
         sudoko_lay = rootView.findViewById(R.id.sudoko_lay);
         quiz_lay = rootView.findViewById(R.id.quiz_lay);
-
+        feedback_lay = rootView.findViewById(R.id.feedback_lay);
 
         // Check the current UI mode and set the switch state accordingly
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
@@ -136,6 +138,13 @@ public class SettingFragment extends Fragment {
         });
 
 
+        feedback_lay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(requireContext(), FeedbackActivity.class);
+                startActivity(i);
+            }
+        });
 
         logoutnav.setOnClickListener(new View.OnClickListener() {
             @Override
