@@ -7,6 +7,7 @@ import com.app.Regional_News.data.Complaintdata;
 import com.app.Regional_News.data.Enewspaper_list_data;
 import com.app.Regional_News.data.Event_cal_data;
 import com.app.Regional_News.data.Expensedata;
+import com.app.Regional_News.data.Feedbackdata;
 import com.app.Regional_News.data.Incomedata;
 import com.app.Regional_News.data.Keywords_fetch_data;
 import com.app.Regional_News.data.News_listfetch_data;
@@ -116,6 +117,11 @@ public interface BaseApiService {
     @POST("dss_api.php")
     Call<Enewspaper_PDF_data> rnEnewspaperPDFRequest(@Field("dss_app") String dss_app,
                                                      @Field("u_data") String u_data);
+
+    @FormUrlEncoded
+    @POST("dss_api.php")
+    Call<Feedbackdata> rnsFeedbackRequest(@Field("dss_app") String dss_app,
+                                              @Field("u_data") String u_data);
 
 
     @FormUrlEncoded

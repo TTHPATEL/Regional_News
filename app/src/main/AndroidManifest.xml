@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Regional_News"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".FeedbackActivity"
+            android:exported="false" />
+        <activity
             android:name=".EnewspaperShowActivity"
             android:exported="false" />
         <activity
@@ -27,9 +30,6 @@
             android:exported="false" />
         <activity
             android:name=".QuizActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SudokuActivity"
             android:exported="false" />
         <activity
             android:name=".EventActivity"

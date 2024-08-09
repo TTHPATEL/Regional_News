@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 import com.app.Regional_News.data.Udata;
 import com.app.Regional_News.extra.SharedPrefManager;
+import com.app.Regional_News.ui.gallery.AddComplainFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 
@@ -87,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
+
+
 
         // Handle other menu item clicks if needed
         return super.onOptionsItemSelected(item);
