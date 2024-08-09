@@ -23,12 +23,14 @@
 
 
     <color name="light_gray_setting">#f3f3f3</color>
+    <color name="background_of_success_img">#FFFFFFFF</color>
     <color name="text_black_color">#FF000000</color>
     <color name="status_bar_color">#FFFFFFFF</color>
     <color name="light_gray_tablayout">#fdfdfd </color>
     <color name="ic_search_color">#FF000000 </color>
     <color name="calender_header">#000000</color>
     <color name="separate_line">#D3C7E6</color>
+
 
 
 </resources>
