@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -17,8 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.app.Regional_News.adapter.eNewspaperAdapter;
-import com.app.Regional_News.data.Pdf_data;
-import com.app.Regional_News.data.Pdf_listdata;
+import com.app.Regional_News.data.Enewspaper_list_data;
+import com.app.Regional_News.data.Enewspaper_list_listdata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.ItemOffsetDecoration;
 import com.app.Regional_News.extra.NetworkUtils;
@@ -81,20 +80,20 @@ public class EnewspaperActivity extends AppCompatActivity {
     }
 
     private void getdata() {
-        mApiService.fetchAllPdfs("fetch_all_pdfs")
-                .enqueue(new Callback<Pdf_data>() {
+        mApiService.rnEnewspaperlistRequest("Enewspaper_list")
+                .enqueue(new Callback<Enewspaper_list_data>() {
                     @Override
-                    public void onResponse(Call<Pdf_data> call, Response<Pdf_data> response) {
+                    public void onResponse(Call<Enewspaper_list_data> call, Response<Enewspaper_list_data> response) {
                         swipeRefreshLayout.setRefreshing(false);
 
                         if (response.isSuccessful()) {
                             showProgress(false); // Hide the progress bar after getting the response
-                            Pdf_data degdata = response.body();
+                            Enewspaper_list_data degdata = response.body();
                             Log.e("msg2", degdata.getMsg());
-                            Log.e("size", "List size: " + degdata.getPdf_listdata().size());
+                            Log.e("size", "List size: " + degdata.getEnewspaper_list_listdata().size());
 
                             if (degdata.getStatus().equals("1")) {
-                                displayData(degdata.getPdf_listdata());
+                                displayData(degdata.getEnewspaper_list_listdata());
                             } else {
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(EnewspaperActivity.this, error_message, Toast.LENGTH_SHORT).show();
@@ -106,7 +105,7 @@ public class EnewspaperActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<Pdf_data> call, Throwable t) {
+                    public void onFailure(Call<Enewspaper_list_data> call, Throwable t) {
                         swipeRefreshLayout.setRefreshing(false);
                         Log.e("debug", "onFailure: ERROR > " + t.toString());
                         showProgress(false); // Hide the progress bar in case of failure
@@ -125,7 +124,7 @@ public class EnewspaperActivity extends AppCompatActivity {
         }
     }
 
-    private void displayData(ArrayList<Pdf_listdata> degree_list) {
+    private void displayData(ArrayList<Enewspaper_list_listdata> degree_list) {
         adapter = new eNewspaperAdapter(EnewspaperActivity.this, degree_list);
         recyclerView.setAdapter(adapter);
 

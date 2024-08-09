@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.Regional_News.EnewspaperShowActivity;
 import com.app.Regional_News.R;
-import com.app.Regional_News.data.Pdf_listdata;
+import com.app.Regional_News.data.Enewspaper_list_listdata;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class eNewspaperAdapter extends RecyclerView.Adapter<eNewspaperAdapter.ViewHolder> {
 
-    private final ArrayList<Pdf_listdata> clist;
+    private final ArrayList<Enewspaper_list_listdata> clist;
     private final Context mContext;
 
     // Provide a reference to the views for each data item
@@ -40,7 +40,7 @@ public class eNewspaperAdapter extends RecyclerView.Adapter<eNewspaperAdapter.Vi
     }
 
     // Provide a suitable constructor
-    public eNewspaperAdapter(Context context, ArrayList<Pdf_listdata> data) {
+    public eNewspaperAdapter(Context context, ArrayList<Enewspaper_list_listdata> data) {
         this.clist = data;
         this.mContext = context;
     }
@@ -58,7 +58,7 @@ public class eNewspaperAdapter extends RecyclerView.Adapter<eNewspaperAdapter.Vi
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(eNewspaperAdapter.ViewHolder holder, int position) {
-        final Pdf_listdata data = clist.get(position);
+        final Enewspaper_list_listdata data = clist.get(position);
         Log.e("Adapter", "Binding item at position: " + position); // Log item binding
         holder.tv_enewspaper_title.setText(data.getEnewspaper_title());
         holder.tv_enewspaper_date.setText(data.getEnews_date());

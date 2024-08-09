@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.app.Regional_News.data.Selected_pdf_data;
-import com.app.Regional_News.data.Selected_pdf_listdata;
+import com.app.Regional_News.data.Enewspaper_PDF_data;
+import com.app.Regional_News.data.Enewspaper_PDF_listdata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.UtilsApi;
 import com.github.barteksc.pdfviewer.PDFView;
@@ -67,19 +67,19 @@ public class EnewspaperShowActivity extends AppCompatActivity {
         showProgress(true);
 
         // Make the API call with the specified parameters
-        mApiService.fetchselectedpdf("fetch_selected_pdf", enewspaperId)
-                .enqueue(new Callback<Selected_pdf_data>() {
+        mApiService.rnEnewspaperPDFRequest("Enewspaper_fetch_PDF", enewspaperId)
+                .enqueue(new Callback<Enewspaper_PDF_data>() {
                     @Override
-                    public void onResponse(Call<Selected_pdf_data> call, Response<Selected_pdf_data> response) {
+                    public void onResponse(Call<Enewspaper_PDF_data> call, Response<Enewspaper_PDF_data> response) {
                         showProgress(false);
                         if (response.isSuccessful()) {
-                            Selected_pdf_data pdfData = response.body();
+                            Enewspaper_PDF_data pdfData = response.body();
                             if (pdfData != null && pdfData.getStatus().equals("1")) {
                                 // Get the list of PDFs
-                                ArrayList<Selected_pdf_listdata> pdfList = pdfData.getSelected_pdf_listdata();
+                                ArrayList<Enewspaper_PDF_listdata> pdfList = pdfData.getSelected_pdf_listdata();
                                 if (pdfList != null && !pdfList.isEmpty()) {
                                     // Assuming you want to display the first PDF in the list
-                                    Selected_pdf_listdata selectedPdf = pdfList.get(0);
+                                    Enewspaper_PDF_listdata selectedPdf = pdfList.get(0);
                                     String base64PdfData = selectedPdf.getEnews_pdf_data();
                                     displayPDF(base64PdfData);
                                 } else {
@@ -98,7 +98,7 @@ public class EnewspaperShowActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<Selected_pdf_data> call, Throwable t) {
+                    public void onFailure(Call<Enewspaper_PDF_data> call, Throwable t) {
                         Log.e("EnewspaperShowActivity", "API call failed: " + t.getMessage());
                         Toast.makeText(EnewspaperShowActivity.this, "Failed to load PDF data", Toast.LENGTH_SHORT).show();
                         showProgress(false);

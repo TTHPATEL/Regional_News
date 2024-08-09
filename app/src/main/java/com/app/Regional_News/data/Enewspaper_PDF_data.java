@@ -4,16 +4,15 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-public class Pdf_data
-{
+public class Enewspaper_PDF_data {
     @SerializedName("status")
     public String status;
 
     @SerializedName("msg")
     public String msg;
 
-    @SerializedName("fetch_all_pdfs")
-    public ArrayList<Pdf_listdata> Pdf_listdata;
+    @SerializedName("Enewspaper_fetch_PDF")
+    public ArrayList<Enewspaper_PDF_listdata> Enewspaper_PDF_listdata;
 
     public String getStatus() {
         return status;
@@ -31,11 +30,11 @@ public class Pdf_data
         this.msg = msg;
     }
 
-    public ArrayList<com.app.Regional_News.data.Pdf_listdata> getPdf_listdata() {
-        return Pdf_listdata;
+    public ArrayList<Enewspaper_PDF_listdata> getSelected_pdf_listdata() {
+        return Enewspaper_PDF_listdata;
     }
 
-    public void setPdf_listdata(ArrayList<com.app.Regional_News.data.Pdf_listdata> pdf_listdata) {
-        Pdf_listdata = pdf_listdata;
+    public void setSelected_pdf_listdata(ArrayList<Enewspaper_PDF_listdata> enewspaperPDF_listdata) {
+        Enewspaper_PDF_listdata = enewspaperPDF_listdata;
     }
 }
