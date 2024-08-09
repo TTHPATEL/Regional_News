@@ -30,7 +30,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class EnewspaperActivity extends AppCompatActivity {
 
     public RecyclerView recyclerView;
@@ -68,38 +67,40 @@ public class EnewspaperActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                showProgress(true); // Show the progress bar when refreshing
                 getdata();
             }
         });
 
         if (NetworkUtils.isConnected(this)) {
-            showProgress(true);
+            showProgress(true); // Show the progress bar when loading the page
             getdata();
         } else {
             Toast.makeText(this, getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
         }
-
-
-
     }
+
     private void getdata() {
         mApiService.fetchAllPdfs("fetch_all_pdfs")
                 .enqueue(new Callback<Pdf_data>() {
                     @Override
                     public void onResponse(Call<Pdf_data> call, Response<Pdf_data> response) {
                         swipeRefreshLayout.setRefreshing(false);
-                        if (response.isSuccessful()){
-                            showProgress(false);
+                        showProgress(false); // Hide the progress bar after getting the response
+
+                        if (response.isSuccessful()) {
                             Pdf_data degdata = response.body();
                             Log.e("msg2", degdata.getMsg());
-                            Log.e("size", "List size: " + degdata.getPdf_listdata().size()); // Check size here
-                            if (degdata.getStatus().equals("1")){
+                            Log.e("size", "List size: " + degdata.getPdf_listdata().size());
+
+                            if (degdata.getStatus().equals("1")) {
                                 displayData(degdata.getPdf_listdata());
                             } else {
                                 String error_message = degdata.getMsg();
                                 Toast.makeText(EnewspaperActivity.this, error_message, Toast.LENGTH_SHORT).show();
                             }
                         } else {
+                            // Hide the progress bar even if the response is not successful
                             showProgress(false);
                         }
                     }
@@ -108,10 +109,11 @@ public class EnewspaperActivity extends AppCompatActivity {
                     public void onFailure(Call<Pdf_data> call, Throwable t) {
                         swipeRefreshLayout.setRefreshing(false);
                         Log.e("debug", "onFailure: ERROR > " + t.toString());
-                        showProgress(false);
+                        showProgress(false); // Hide the progress bar in case of failure
                     }
                 });
     }
+
     private void showProgress(boolean show) {
         if (show) {
             progressBar.setVisibility(View.VISIBLE);
@@ -122,6 +124,7 @@ public class EnewspaperActivity extends AppCompatActivity {
             recyclerView.setVisibility(View.VISIBLE);
         }
     }
+
     private void displayData(ArrayList<Pdf_listdata> degree_list) {
         adapter = new eNewspaperAdapter(EnewspaperActivity.this, degree_list);
         recyclerView.setAdapter(adapter);
