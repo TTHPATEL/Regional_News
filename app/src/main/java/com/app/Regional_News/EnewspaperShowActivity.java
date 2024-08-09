@@ -12,13 +12,24 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.app.Regional_News.data.Selected_pdf_data;
+import com.app.Regional_News.data.Selected_pdf_listdata;
+import com.app.Regional_News.extra.BaseApiService;
+import com.app.Regional_News.extra.UtilsApi;
 import com.github.barteksc.pdfviewer.PDFView;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EnewspaperShowActivity extends AppCompatActivity {
     private PDFView pdfView;
     private ProgressBar progressBar;
     private LinearLayout lyt_not_found;
-    private String getEnews_pdf_data, getEnewspaper_title;
+    private String getEnewspaper_title, getEnewspaper_id;
+    BaseApiService mApiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +39,10 @@ public class EnewspaperShowActivity extends AppCompatActivity {
         // Retrieve data from Intent
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            getEnews_pdf_data = extras.getString("getEnews_pdf_data");
             getEnewspaper_title = extras.getString("getEnewspaper_title");
+            getEnewspaper_id = extras.getString("getEnewspaper_id");
         }
-
+        mApiService = UtilsApi.getAPIService();
         // Initialize views
         pdfView = findViewById(R.id.pdfView);
         progressBar = findViewById(R.id.progressBar);
@@ -40,18 +51,62 @@ public class EnewspaperShowActivity extends AppCompatActivity {
         // Set up ActionBar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("eNewspaper " + getEnewspaper_title);
+            getSupportActionBar().setTitle(getEnewspaper_title + " eNewspaper ");
         }
 
-        // Decode and display PDF
-        if (getEnews_pdf_data != null) {
-            showProgress(true);
-            displayPDF(getEnews_pdf_data);
+        // Fetch and display the PDF data using the specific API method
+        if (getEnewspaper_id != null) {
+            fetchPdfData(getEnewspaper_id);
         } else {
-            Toast.makeText(this, "No PDF data available", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No eNewspaper ID provided", Toast.LENGTH_SHORT).show();
             lyt_not_found.setVisibility(View.VISIBLE);
         }
     }
+
+    private void fetchPdfData(String enewspaperId) {
+        showProgress(true);
+
+        // Make the API call with the specified parameters
+        mApiService.fetchselectedpdf("fetch_selected_pdf", enewspaperId)
+                .enqueue(new Callback<Selected_pdf_data>() {
+                    @Override
+                    public void onResponse(Call<Selected_pdf_data> call, Response<Selected_pdf_data> response) {
+                        showProgress(false);
+                        if (response.isSuccessful()) {
+                            Selected_pdf_data pdfData = response.body();
+                            if (pdfData != null && pdfData.getStatus().equals("1")) {
+                                // Get the list of PDFs
+                                ArrayList<Selected_pdf_listdata> pdfList = pdfData.getSelected_pdf_listdata();
+                                if (pdfList != null && !pdfList.isEmpty()) {
+                                    // Assuming you want to display the first PDF in the list
+                                    Selected_pdf_listdata selectedPdf = pdfList.get(0);
+                                    String base64PdfData = selectedPdf.getEnews_pdf_data();
+                                    displayPDF(base64PdfData);
+                                } else {
+                                    Toast.makeText(EnewspaperShowActivity.this, "PDF data not found for the provided ID", Toast.LENGTH_SHORT).show();
+                                    lyt_not_found.setVisibility(View.VISIBLE);
+                                }
+                            } else {
+                                Toast.makeText(EnewspaperShowActivity.this, "Error: " + pdfData.getMsg(), Toast.LENGTH_SHORT).show();
+                                lyt_not_found.setVisibility(View.VISIBLE);
+                            }
+                        } else {
+                            Log.e("EnewspaperShowActivity", "Response code: " + response.code());
+                            Toast.makeText(EnewspaperShowActivity.this, "Failed to load PDF data", Toast.LENGTH_SHORT).show();
+                            lyt_not_found.setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Selected_pdf_data> call, Throwable t) {
+                        Log.e("EnewspaperShowActivity", "API call failed: " + t.getMessage());
+                        Toast.makeText(EnewspaperShowActivity.this, "Failed to load PDF data", Toast.LENGTH_SHORT).show();
+                        showProgress(false);
+                        lyt_not_found.setVisibility(View.VISIBLE);
+                    }
+                });
+    }
+
 
     private void displayPDF(String base64PdfData) {
         try {

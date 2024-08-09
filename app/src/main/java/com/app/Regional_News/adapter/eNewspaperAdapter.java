@@ -72,8 +72,9 @@ public class eNewspaperAdapter extends RecyclerView.Adapter<eNewspaperAdapter.Vi
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(mContext, EnewspaperShowActivity.class);
-                i.putExtra("getEnews_pdf_data", data.getEnews_pdf_data());
+//                i.putExtra("getEnews_pdf_data", data.getEnews_pdf_data());
                 i.putExtra("getEnewspaper_title", data.getEnewspaper_title());
+                i.putExtra("getEnewspaper_id",data.getEnewspaper_id());
                 mContext.startActivity(i);
             }
         });
