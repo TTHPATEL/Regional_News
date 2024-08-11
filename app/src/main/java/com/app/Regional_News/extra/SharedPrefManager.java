@@ -62,4 +62,11 @@ public class SharedPrefManager {
     public Boolean getUserLogin(){
         return sp.getBoolean(SP_F_LOGIN, false);
     }
+
+    // New method to save updated user data
+    // Added this method to save the updated user data as a JSON string
+    public void saveFdata(String fdata) {
+        spEditor.putString(F_ldata, fdata);
+        spEditor.commit();
+    }
 }
