@@ -43,7 +43,8 @@ public class SettingFragment extends Fragment {
     private Switch mode_switch;
     private TextView modeStatus;
     RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay,feedback_lay,profile_lay;
-
+    TextView navUsername,navEmail;
+    ImageView navPic;
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -61,9 +62,9 @@ public class SettingFragment extends Fragment {
         fp = gson.fromJson(fdata, Udata.class);
 
         // Find the views and set data
-        TextView navUsername = rootView.findViewById(R.id.tv_uname);
-        TextView navEmail = rootView.findViewById(R.id.tv_uemail);
-        ImageView navPic = rootView.findViewById(R.id.imageView);
+        navUsername = rootView.findViewById(R.id.tv_uname);
+        navEmail = rootView.findViewById(R.id.tv_uemail);
+        navPic = rootView.findViewById(R.id.imageView);
         RelativeLayout logoutnav = rootView.findViewById(R.id.logoutnav);
         mode_switch = rootView.findViewById(R.id.mode_switch);
         modeStatus = rootView.findViewById(R.id.modeStatus);
@@ -73,6 +74,8 @@ public class SettingFragment extends Fragment {
         quiz_lay = rootView.findViewById(R.id.quiz_lay);
         feedback_lay = rootView.findViewById(R.id.feedback_lay);
         profile_lay = rootView.findViewById(R.id.profile_lay);
+
+        getCurrentUserdata();
 
         // Check the current UI mode and set the switch state accordingly
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
@@ -194,5 +197,34 @@ public class SettingFragment extends Fragment {
                 .into(navPic);
 
         return rootView;
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getCurrentUserdata(); // Refresh data when the fragment is visible again
+    }
+
+    private void getCurrentUserdata() {
+
+
+        // DATA FETCHING FROM USER
+        String fdata = sharedPrefManager.getFdata();
+        Gson gson = new Gson();
+        fp = gson.fromJson(fdata, Udata.class);
+
+
+        navUsername.setText(fp.getU_name());
+        navEmail.setText(fp.getU_email());
+
+
+        String c_pic = BASE_URL_API + fp.getU_pic();
+        uid = fp.getU_id();
+        Picasso.get()
+                .load(c_pic)
+                .resize(100, 100)
+                .centerCrop()
+                .into(navPic);
     }
 }
