@@ -65,26 +65,6 @@ public class LoginActivity extends AppCompatActivity {
         bt_login=findViewById(R.id.bt_login);
         registrationText = findViewById(R.id.registrationText);
 
-//        bt_slogin=findViewById(R.id.bt_slogin);
-//        bt_play=findViewById(R.id.bt_play);
-//        bt_play.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String url = "https://www.agame.com/games/mobile__tablet_games";
-//                Intent i = new Intent(Intent.ACTION_VIEW);
-//                i.setData(Uri.parse(url));
-//                startActivity(i);
-//
-//            }
-//        });
-//        bt_slogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i=new Intent(LoginActivity.this,GLoginActivity.class);
-//                startActivity(i);
-//            }
-//        });
-
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
