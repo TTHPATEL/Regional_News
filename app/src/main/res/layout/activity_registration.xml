@@ -47,6 +47,7 @@
                 android:drawableLeft="@drawable/baseline_supervised_user_circle_24"
                 android:drawablePadding="8dp"
                 android:hint="Name"
+                android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColor="@color/text_black_color"
                 android:textColorHighlight="@color/cardview_dark_background" />
@@ -60,6 +61,7 @@
                 android:drawableLeft="@drawable/ic_phone_android_black_24dp"
                 android:drawablePadding="8dp"
                 android:hint="Email Id"
+                android:inputType="textEmailAddress"
                 android:padding="8dp"
                 android:textColor="@color/text_black_color"
                 android:textColorHighlight="@color/cardview_dark_background" />
