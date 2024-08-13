@@ -118,8 +118,9 @@ public class RegistrationActivity extends AppCompatActivity {
                         String u_name = et_name.getText().toString();
                         String u_email = et_email.getText().toString();
                         String u_pwd = et_pwd.getText().toString();
+                        String u_pic = "dss_pic/user.png";
 
-                        sharedPrefManager.saveUserData(u_name, u_email, u_pwd);
+                        sharedPrefManager.saveUserData(u_name, u_email, u_pwd, u_pic);
                         sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_F_LOGIN, true);
 
                         startActivity(new Intent(RegistrationActivity.this, MainActivity.class)

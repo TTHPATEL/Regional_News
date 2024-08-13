@@ -81,6 +81,8 @@ public class ProfileUpdationActivation extends AppCompatActivity {
         current_email = findViewById(R.id.current_email);
         imageView = findViewById(R.id.imageView);
 
+        Toast.makeText(ProfileUpdationActivation.this, fp.getU_id(), Toast.LENGTH_SHORT).show();
+
         getCurrentUserdata();
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -88,6 +90,7 @@ public class ProfileUpdationActivation extends AppCompatActivity {
             public void onRefresh() {
                 getCurrentUserdata();
             }
+
         });
 
         update_btn.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +99,7 @@ public class ProfileUpdationActivation extends AppCompatActivity {
                 // Create JSON Object with only filled fields
                 JSONObject j1 = new JSONObject();
                 try {
-                    j1.put("sm_u_id", fp.getU_id());
+                    j1.put("u_id", fp.getU_id());
                     boolean hasData = false; // Flag to check if any field has data
 
                     if (!u_name.getText().toString().isEmpty()) {
