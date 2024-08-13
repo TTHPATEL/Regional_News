@@ -163,7 +163,7 @@ public class SettingFragment extends Fragment {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
                 builder.setTitle("Logout");
-                builder.setMessage("Are u sure want to logout?");
+                builder.setMessage("Are you sure want to logout?");
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
