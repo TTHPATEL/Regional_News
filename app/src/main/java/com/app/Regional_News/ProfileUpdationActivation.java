@@ -1,5 +1,7 @@
 package com.app.Regional_News;
 
+import static com.app.Regional_News.extra.UtilsApi.BASE_URL_API;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -19,11 +21,12 @@ import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.app.Regional_News.data.Profile_Updationdata;
-import com.app.Regional_News.data.Udata;
+import com.app.Regional_News.data.RN_Udata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.SharedPrefManager;
 import com.app.Regional_News.extra.UtilsApi;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,13 +40,15 @@ public class ProfileUpdationActivation extends AppCompatActivity {
     Button update_btn;
     EditText u_name, u_email, u_pwd;
     BaseApiService mApiService;
-    Udata fp;
+    RN_Udata fp;
     SharedPrefManager sharedPrefManager;
-    ImageView success_img;
+    ImageView success_img,imageView;
     CardView cardview;
     RelativeLayout main;
     private SwipeRefreshLayout swipeRefreshLayout;
     TextView current_name, current_email;
+    public  static  String uid;
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -62,7 +67,7 @@ public class ProfileUpdationActivation extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
         String fdata = sharedPrefManager.getFdata();
         Gson gson = new Gson();
-        fp = gson.fromJson(fdata, Udata.class);
+        fp = gson.fromJson(fdata, RN_Udata.class);
 
         u_name = findViewById(R.id.u_name);
         u_email = findViewById(R.id.u_email);
@@ -74,6 +79,8 @@ public class ProfileUpdationActivation extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         current_name = findViewById(R.id.current_name);
         current_email = findViewById(R.id.current_email);
+        imageView = findViewById(R.id.imageView);
+
 
         getCurrentUserdata();
 
@@ -82,6 +89,7 @@ public class ProfileUpdationActivation extends AppCompatActivity {
             public void onRefresh() {
                 getCurrentUserdata();
             }
+
         });
 
         update_btn.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +98,7 @@ public class ProfileUpdationActivation extends AppCompatActivity {
                 // Create JSON Object with only filled fields
                 JSONObject j1 = new JSONObject();
                 try {
-                    j1.put("sm_u_id", fp.getU_id());
+                    j1.put("u_id", fp.getU_id());
                     boolean hasData = false; // Flag to check if any field has data
 
                     if (!u_name.getText().toString().isEmpty()) {
@@ -125,8 +133,16 @@ public class ProfileUpdationActivation extends AppCompatActivity {
         // DATA FETCHING FROM USER
         String fdata = sharedPrefManager.getFdata();
         Gson gson = new Gson();
-        fp = gson.fromJson(fdata, Udata.class);
+        fp = gson.fromJson(fdata, RN_Udata.class);
         swipeRefreshLayout.setRefreshing(false);
+
+        String c_pic = BASE_URL_API + fp.getU_pic();
+        uid = fp.getU_id();
+        Picasso.get()
+                .load(c_pic)
+                .resize(100, 100)
+                .centerCrop()
+                .into(imageView);
         current_name.setText(fp.getU_name());
         current_email.setText(fp.getU_email());
     }
@@ -136,9 +152,9 @@ public class ProfileUpdationActivation extends AppCompatActivity {
             @Override
             public void onResponse(Call<Profile_Updationdata> call, Response<Profile_Updationdata> response) {
                 if (response.isSuccessful()) {
-                    Profile_Updationdata udata = response.body();
-                    if (udata.getStatus().equals("1")) {
-                        String msg = udata.getMsg();
+                    Profile_Updationdata RN_Udata = response.body();
+                    if (RN_Udata.getStatus().equals("1")) {
+                        String msg = RN_Udata.getMsg();
                         Toast.makeText(ProfileUpdationActivation.this, "" + msg, Toast.LENGTH_SHORT).show();
                         successMessage();
 
@@ -164,7 +180,7 @@ public class ProfileUpdationActivation extends AppCompatActivity {
                         // Refresh UI with updated data
                         getCurrentUserdata();
                     } else {
-                        String msg = udata.getMsg();
+                        String msg = RN_Udata.getMsg();
                         Toast.makeText(ProfileUpdationActivation.this, "" + msg, Toast.LENGTH_SHORT).show();
                     }
                 }

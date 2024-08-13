@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.app.Regional_News.data.Udata;
+import com.app.Regional_News.data.RN_Udata;
 import com.app.Regional_News.extra.SharedPrefManager;
 import com.app.Regional_News.ui.gallery.AddComplainFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private NavController navController;
     SharedPrefManager sharedPrefManager;
-    Udata fp;
+    RN_Udata fp;
     public static String uid;
     private Toolbar toolbar;
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
         String fdata = sharedPrefManager.getFdata();
         Gson gson = new Gson();
-        fp = gson.fromJson(fdata, Udata.class);
+        fp = gson.fromJson(fdata, RN_Udata.class);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

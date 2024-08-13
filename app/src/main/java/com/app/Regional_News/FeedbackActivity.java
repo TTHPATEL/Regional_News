@@ -86,7 +86,7 @@ public class FeedbackActivity extends AppCompatActivity {
                 {
                     JSONObject j1=new JSONObject();
                     try {
-                        j1.put("sm_u_id",fp.getU_id());
+                        j1.put("u_id",fp.getU_id());
                         j1.put("f_title",f_title);
                         j1.put("f_desc",f_desc);
                     } catch (JSONException e) {
