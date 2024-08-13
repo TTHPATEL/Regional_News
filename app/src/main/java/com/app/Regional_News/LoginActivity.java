@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.app.Regional_News.data.Udata;
+import com.app.Regional_News.data.RN_Udata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.SharedPrefManager;
 import com.app.Regional_News.extra.UtilsApi;
@@ -127,17 +127,17 @@ public class LoginActivity extends AppCompatActivity {
 
     private void checklogin(String data) {
         Log.e("Login Data",data);
-        mApiService.dssloginRequest("user_login",data).enqueue(new Callback<Udata>() {
+        mApiService.rnsLoginRequest("rns_user_login",data).enqueue(new Callback<RN_Udata>() {
             @Override
-            public void onResponse(Call<Udata> call, Response<Udata> response) {
+            public void onResponse(Call<RN_Udata> call, Response<RN_Udata> response) {
                 if (response.isSuccessful()){
 
-                    Udata udata=response.body();
-                    if (udata.getStatus().equals("1")){
-                        String msg=udata.getMsg();
+                    RN_Udata RN_Udata=response.body();
+                    if (RN_Udata.getStatus().equals("1")){
+                        String msg=RN_Udata.getMsg();
 //    Toast.makeText(LoginActivity.this,""+msg,Toast.LENGTH_SHORT).show();
                         Gson gson = new Gson();
-                        String json = gson.toJson(udata);
+                        String json = gson.toJson(RN_Udata);
                         sharedPrefManager.saveSPString(SharedPrefManager.F_ldata, json);
                         sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_F_LOGIN, true);
                         startActivity(new Intent(LoginActivity.this, MainActivity.class)
@@ -147,7 +147,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     else
                     {
-                        String msg=udata.getMsg();
+                        String msg=RN_Udata.getMsg();
                         Toast.makeText(LoginActivity.this,""+msg,Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -160,7 +160,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Udata> call, Throwable t) {
+            public void onFailure(Call<RN_Udata> call, Throwable t) {
 
             }
         });

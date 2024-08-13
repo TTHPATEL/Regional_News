@@ -82,7 +82,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 String u_name= et_name.getText().toString();
                 String u_email= et_email.getText().toString();
-                String u_pwd= et_email.getText().toString();
+                String u_pwd= et_pwd.getText().toString();
 
                 if(!u_name.isEmpty()&&!u_email.isEmpty()&&!u_pwd.isEmpty())
                 {

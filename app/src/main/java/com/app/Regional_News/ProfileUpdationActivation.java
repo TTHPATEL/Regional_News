@@ -1,5 +1,7 @@
 package com.app.Regional_News;
 
+import static com.app.Regional_News.extra.UtilsApi.BASE_URL_API;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -24,6 +26,7 @@ import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.SharedPrefManager;
 import com.app.Regional_News.extra.UtilsApi;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,11 +42,13 @@ public class ProfileUpdationActivation extends AppCompatActivity {
     BaseApiService mApiService;
     Udata fp;
     SharedPrefManager sharedPrefManager;
-    ImageView success_img;
+    ImageView success_img,imageView;
     CardView cardview;
     RelativeLayout main;
     private SwipeRefreshLayout swipeRefreshLayout;
     TextView current_name, current_email;
+    public  static  String uid;
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -74,6 +79,7 @@ public class ProfileUpdationActivation extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         current_name = findViewById(R.id.current_name);
         current_email = findViewById(R.id.current_email);
+        imageView = findViewById(R.id.imageView);
 
         getCurrentUserdata();
 
@@ -127,6 +133,14 @@ public class ProfileUpdationActivation extends AppCompatActivity {
         Gson gson = new Gson();
         fp = gson.fromJson(fdata, Udata.class);
         swipeRefreshLayout.setRefreshing(false);
+
+        String c_pic = BASE_URL_API + fp.getU_pic();
+        uid = fp.getU_id();
+        Picasso.get()
+                .load(c_pic)
+                .resize(100, 100)
+                .centerCrop()
+                .into(imageView);
         current_name.setText(fp.getU_name());
         current_email.setText(fp.getU_email());
     }

@@ -44,6 +44,7 @@
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_phone_android_black_24dp"
                 android:drawablePadding="8dp"
+                android:inputType="textEmailAddress"
                 android:hint="Email Id"
                 android:padding="8dp"
                 android:textColor="@color/text_black_color"
