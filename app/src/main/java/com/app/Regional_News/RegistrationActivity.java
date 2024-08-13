@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.app.Regional_News.data.Registrationdata;
+import com.app.Regional_News.data.User_id_fetch_data;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.SharedPrefManager;
 import com.app.Regional_News.extra.UtilsApi;
@@ -42,6 +43,8 @@ public class RegistrationActivity extends AppCompatActivity {
     BaseApiService mApiService;
     SharedPrefManager sharedPrefManager;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
+    public static String u_id;
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -114,18 +117,9 @@ public class RegistrationActivity extends AppCompatActivity {
                         String msg = registrationData.getMsg();
                         Toast.makeText(RegistrationActivity.this, msg, Toast.LENGTH_SHORT).show();
 
-                        // Save registration data in SharedPreferences
-                        String u_name = et_name.getText().toString();
                         String u_email = et_email.getText().toString();
-                        String u_pwd = et_pwd.getText().toString();
-                        String u_pic = "dss_pic/user.png";
-
-                        sharedPrefManager.saveUserData(u_name, u_email, u_pwd, u_pic);
-                        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_F_LOGIN, true);
-
-                        startActivity(new Intent(RegistrationActivity.this, MainActivity.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                        finish();
+                        Fetch_u_id(u_email);
+//
                     } else {
                         String msg = registrationData.getMsg();
                         Toast.makeText(RegistrationActivity.this, msg, Toast.LENGTH_SHORT).show();
@@ -139,6 +133,47 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onFailure(Call<Registrationdata> call, Throwable t) {
                 Toast.makeText(RegistrationActivity.this, "Network error. Please try again.", Toast.LENGTH_SHORT).show();
                 Log.e("Registration Error", t.getMessage());
+            }
+        });
+    }
+
+    private void Fetch_u_id(String email) {
+
+        mApiService.rnsfetchUid("fetchUid",email).enqueue(new Callback<User_id_fetch_data>() {
+            @Override
+            public void onResponse(Call<User_id_fetch_data> call, Response<User_id_fetch_data> response) {
+                if (response.isSuccessful()) {
+                    User_id_fetch_data userData = response.body();
+                    Log.d("Fetch_u_id Response", new Gson().toJson(userData)); // Log the response
+                    if (userData != null  && userData.getStatus().equals("1")) {
+                        String u_id = userData.getUser_id_fetch_listdata().get(0).getU_id();
+                        Toast.makeText(RegistrationActivity.this, "Fetched u_id: " + u_id, Toast.LENGTH_SHORT).show();
+
+                        // Save the u_id and other user data in SharedPreferences
+                        String u_name = et_name.getText().toString();
+                        String u_email = et_email.getText().toString();
+                        String u_pwd = et_pwd.getText().toString();
+                        String u_pic = "dss_pic/user.png";
+
+                        sharedPrefManager.saveUserData(u_name, u_email, u_pwd, u_pic, u_id);
+                        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_F_LOGIN, true);
+                        // Redirect to MainActivity
+                        startActivity(new Intent(RegistrationActivity.this, MainActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
+
+                    } else {
+                        Toast.makeText(RegistrationActivity.this, "Failed to fetch u_id: " + userData.getMsg(), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Log.e("Fetch_u_id Error", "Response Code: " + response.code());
+                    Toast.makeText(RegistrationActivity.this, "Response unsuccessful", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User_id_fetch_data> call, Throwable t) {
+                Toast.makeText(RegistrationActivity.this, "Failed to fetch u_id: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

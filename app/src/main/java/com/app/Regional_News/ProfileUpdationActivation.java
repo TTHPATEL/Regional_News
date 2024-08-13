@@ -81,7 +81,6 @@ public class ProfileUpdationActivation extends AppCompatActivity {
         current_email = findViewById(R.id.current_email);
         imageView = findViewById(R.id.imageView);
 
-        Toast.makeText(ProfileUpdationActivation.this, fp.getU_id(), Toast.LENGTH_SHORT).show();
 
         getCurrentUserdata();
 

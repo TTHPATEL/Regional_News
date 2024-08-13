@@ -73,13 +73,14 @@ public class SharedPrefManager {
         spEditor.commit();
     }
 
-    public void saveUserData(String name, String email, String pwd, String u_pic) {
+    public void saveUserData(String name, String email, String pwd, String u_pic, String u_id) {
         try {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("u_name", name);
             jsonObject.put("u_email", email);
             jsonObject.put("u_pwd", pwd);
             jsonObject.put("u_pic", u_pic);
+            jsonObject.put("u_id", u_id);
 
             String jsonString = jsonObject.toString();
             saveSPString(F_ldata, jsonString);
@@ -87,5 +88,6 @@ public class SharedPrefManager {
             e.printStackTrace();
         }
     }
+
 
 }
