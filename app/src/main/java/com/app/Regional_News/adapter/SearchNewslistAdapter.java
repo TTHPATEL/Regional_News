@@ -2,10 +2,12 @@ package com.app.Regional_News.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,6 +27,8 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
 
     private final ArrayList<Search_News_listfetch_listdata> clist;
     private final Context mContext;
+    private SharedPreferences sharedPreferences;
+
 
     // Provide a reference to the views for each data item
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -32,6 +36,8 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
         public CardView cardview;
         public ImageView news_images;
         public LinearLayout news_list_layout;
+        public CheckBox save_check;
+
 
         public ViewHolder(View v) {
             super(v);
@@ -40,6 +46,8 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
             news_images = v.findViewById(R.id.news_images); // This is where news_images ImageView is initialized
             news_list_layout = v.findViewById(R.id.news_list_layout);
             keywordtext = v.findViewById(R.id.keywordtext);
+            save_check = v.findViewById(R.id.save_check);
+
         }
     }
 
@@ -47,6 +55,8 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
     public SearchNewslistAdapter(Context context, ArrayList<Search_News_listfetch_listdata> data) {
         this.clist = data;
         this.mContext = context;
+        this.sharedPreferences = context.getSharedPreferences("favorites", Context.MODE_PRIVATE);
+
     }
 
     // Create new views (invoked by the layout manager)
@@ -83,6 +93,17 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
                         e.printStackTrace();
                     }
                 });
+
+
+        // Check if this item is already saved
+        boolean isChecked = sharedPreferences.getBoolean(data.getNews_id(), false);
+        holder.save_check.setChecked(isChecked);
+
+        holder.save_check.setOnCheckedChangeListener((buttonView, isChecked1) -> {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(data.getNews_id(), isChecked1);
+            editor.apply();
+        });
 
         holder.news_list_layout.setOnClickListener(new View.OnClickListener() {
             @Override
