@@ -2,10 +2,12 @@ package com.app.Regional_News.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,6 +34,8 @@ public class SavednewsAdapater  extends RecyclerView.Adapter<SavednewsAdapater.V
         public CardView cardview;
         public ImageView news_images;
         public LinearLayout news_list_layout;
+        public CheckBox news_checkbox; // Add CheckBox
+
 
         public ViewHolder(View v) {
             super(v);
@@ -40,6 +44,8 @@ public class SavednewsAdapater  extends RecyclerView.Adapter<SavednewsAdapater.V
             news_images = v.findViewById(R.id.news_images); // This is where news_images ImageView is initialized
             news_list_layout = v.findViewById(R.id.news_list_layout);
             keywordtext = v.findViewById(R.id.keywordtext);
+            news_checkbox = v.findViewById(R.id.save_check); // Initialize CheckBox
+
         }
     }
 
@@ -65,6 +71,19 @@ public class SavednewsAdapater  extends RecyclerView.Adapter<SavednewsAdapater.V
         final Saved_news_datalist data = clist.get(position);
         holder.tv_m_name.setText(data.getNews_headline());
         holder.keywordtext.setText(data.getKeyword());
+
+        holder.news_checkbox.setChecked(true); // Set the checkbox to checked
+        holder.news_checkbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (!isChecked) {
+                // If the checkbox is unchecked, remove the item from SharedPreferences and the list
+                SharedPreferences.Editor editor = mContext.getSharedPreferences("favorites", Context.MODE_PRIVATE).edit();
+                editor.remove(data.getNews_id());
+                editor.apply();
+                clist.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, clist.size());
+            }
+        });
 
         // Load image using Picasso
         Picasso.get()
