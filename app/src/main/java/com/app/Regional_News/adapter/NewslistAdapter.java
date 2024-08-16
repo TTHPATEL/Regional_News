@@ -75,6 +75,9 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
                 .error(R.drawable.image_not_found)
                 .into(holder.news_images);
 
+        // Temporarily remove the listener to prevent it from being triggered when recycling views
+        holder.save_check.setOnCheckedChangeListener(null);
+
         // Check if this item is already saved
         boolean isChecked = sharedPreferences.getBoolean(data.getNews_id(), false);
         holder.save_check.setChecked(isChecked);
@@ -89,6 +92,7 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
             Intent i = new Intent(mContext, NewsShowActivity.class);
             i.putExtra("getNews_id", data.getNews_id());
             i.putExtra("news_imgurl", data.getNews_imgurl());
+            i.putExtra("isChecked", sharedPreferences.getBoolean(data.getNews_id(), false));
             mContext.startActivity(i);
         });
     }

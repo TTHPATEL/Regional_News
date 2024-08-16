@@ -95,6 +95,9 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
                 });
 
 
+            // Temporarily remove the listener to prevent it from being triggered when recycling views
+        holder.save_check.setOnCheckedChangeListener(null);
+
         // Check if this item is already saved
         boolean isChecked = sharedPreferences.getBoolean(data.getNews_id(), false);
         holder.save_check.setChecked(isChecked);
@@ -113,6 +116,8 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
                 i.putExtra("mm_m_year", data.getNews_headline());
                 i.putExtra("getNews_id", data.getNews_id());
                 i.putExtra("news_imgurl", data.getNews_imgurl());
+                i.putExtra("isChecked", sharedPreferences.getBoolean(data.getNews_id(), false));
+
                 mContext.startActivity(i);
             }
         });

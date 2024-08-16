@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.News_showdata;
@@ -28,6 +30,8 @@ public class NewsShowActivity extends AppCompatActivity {
     BaseApiService mApiService;
     TextView news_headline,news_des_1,news_des_2,timetext,keywordtext;
     ImageView news_images;
+    CheckBox save_check;
+
 
 
     @Override
@@ -39,6 +43,8 @@ public class NewsShowActivity extends AppCompatActivity {
 
         String getNews_id = extras.getString("getNews_id");
         String news_imgurl = extras.getString("news_imgurl");
+        boolean isChecked = extras.getBoolean("isChecked");
+
 
         mApiService = UtilsApi.getAPIService();
         news_headline = findViewById(R.id.news_headline);
@@ -47,6 +53,8 @@ public class NewsShowActivity extends AppCompatActivity {
         timetext = findViewById(R.id.timetext);
         news_images = findViewById(R.id.news_images);
         keywordtext = findViewById(R.id.keywordtext);
+        save_check = findViewById(R.id.save_check);
+
 
         // Load image using Picasso
         if (news_imgurl != null && !news_imgurl.isEmpty()) {
@@ -55,7 +63,16 @@ public class NewsShowActivity extends AppCompatActivity {
             news_images.setImageResource(R.drawable.image_not_found); // Default image if no URL provided
         }
 
+            // Initialize the checkbox based on the passed state
+        save_check.setChecked(isChecked);
 
+        // Set up checkbox listener to update SharedPreferences
+        save_check.setOnCheckedChangeListener((buttonView, isChecked1) -> {
+            SharedPreferences sharedPreferences = getSharedPreferences("favorites", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(getNews_id, isChecked1);
+            editor.apply();
+        });
 
 
 

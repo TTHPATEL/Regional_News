@@ -143,7 +143,11 @@ public class latest_news extends Fragment {
         }
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        getdata();// Refresh data when the fragment is visible again
+    }
 
 
     @Override
