@@ -144,6 +144,7 @@
 
 
                 <RelativeLayout
+                    android:id="@+id/savenews_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
@@ -151,11 +152,11 @@
 
                     <ImageView
                         android:id="@+id/ic_brightness"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="26.9dp"
+                        android:layout_height="26.9dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="20dp"
-                        android:src="@drawable/ic_brightness"/>
+                        android:src="@drawable/ic_saved_newspaper"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -166,7 +167,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="ડિસ્પ્લે પસંદગી"
+                            android:text="સેવ ન્યુઝ"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
@@ -174,7 +175,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="કૃપા કરીને તમારી ડિસ્પ્લે ગોઠવો"
+                            android:text="તમારી સેવ ન્યુઝ જુવો"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>

@@ -16,19 +16,17 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.Regional_News.R;
-import com.app.Regional_News.data.Search_News_listfetch_listdata;
+import com.app.Regional_News.data.Saved_news_datalist;
 import com.app.Regional_News.ui.NewsShowActivity;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAdapter.ViewHolder> {
+public class SavednewsAdapater  extends RecyclerView.Adapter<SavednewsAdapater.ViewHolder>{
 
-    private final ArrayList<Search_News_listfetch_listdata> clist;
+    private final ArrayList<Saved_news_datalist> clist;
     private final Context mContext;
-    private SharedPreferences sharedPreferences;
-
 
     // Provide a reference to the views for each data item
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -36,7 +34,7 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
         public CardView cardview;
         public ImageView news_images;
         public LinearLayout news_list_layout;
-        public CheckBox save_check;
+        public CheckBox news_checkbox; // Add CheckBox
 
 
         public ViewHolder(View v) {
@@ -46,35 +44,46 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
             news_images = v.findViewById(R.id.news_images); // This is where news_images ImageView is initialized
             news_list_layout = v.findViewById(R.id.news_list_layout);
             keywordtext = v.findViewById(R.id.keywordtext);
-            save_check = v.findViewById(R.id.save_check);
+            news_checkbox = v.findViewById(R.id.save_check); // Initialize CheckBox
 
         }
     }
 
     // Provide a suitable constructor
-    public SearchNewslistAdapter(Context context, ArrayList<Search_News_listfetch_listdata> data) {
+    public SavednewsAdapater(Context context, ArrayList<Saved_news_datalist> data) {
         this.clist = data;
         this.mContext = context;
-        this.sharedPreferences = context.getSharedPreferences("favorites", Context.MODE_PRIVATE);
-
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public SearchNewslistAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SavednewsAdapater.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Creating a new view
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custome_newslist, parent, false);
-        return new ViewHolder(v);
+        return new SavednewsAdapater.ViewHolder(v);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(SearchNewslistAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(SavednewsAdapater.ViewHolder holder, int position) {
         // - get element from arraylist at this position
         // - replace the contents of the view with that element
-        final Search_News_listfetch_listdata data = clist.get(position);
+        final Saved_news_datalist data = clist.get(position);
         holder.tv_m_name.setText(data.getNews_headline());
         holder.keywordtext.setText(data.getKeyword());
+
+        holder.news_checkbox.setChecked(true); // Set the checkbox to checked
+        holder.news_checkbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (!isChecked) {
+                // If the checkbox is unchecked, remove the item from SharedPreferences and the list
+                SharedPreferences.Editor editor = mContext.getSharedPreferences("favorites", Context.MODE_PRIVATE).edit();
+                editor.remove(data.getNews_id());
+                editor.apply();
+                clist.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, clist.size());
+            }
+        });
 
         // Load image using Picasso
         Picasso.get()
@@ -94,30 +103,12 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
                     }
                 });
 
-
-            // Temporarily remove the listener to prevent it from being triggered when recycling views
-        holder.save_check.setOnCheckedChangeListener(null);
-
-        // Check if this item is already saved
-        boolean isChecked = sharedPreferences.getBoolean(data.getNews_id(), false);
-        holder.save_check.setChecked(isChecked);
-
-        holder.save_check.setOnCheckedChangeListener((buttonView, isChecked1) -> {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean(data.getNews_id(), isChecked1);
-            editor.apply();
-        });
-
         holder.news_list_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(mContext, NewsShowActivity.class);
-                i.putExtra("mm_id", data.getNews_id());
-                i.putExtra("mm_m_year", data.getNews_headline());
                 i.putExtra("getNews_id", data.getNews_id());
                 i.putExtra("news_imgurl", data.getNews_imgurl());
-                i.putExtra("isChecked", sharedPreferences.getBoolean(data.getNews_id(), false));
-
                 mContext.startActivity(i);
             }
         });

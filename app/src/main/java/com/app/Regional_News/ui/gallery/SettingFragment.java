@@ -27,6 +27,7 @@ import com.app.Regional_News.LoginActivity;
 import com.app.Regional_News.ProfileUpdationActivation;
 import com.app.Regional_News.QuizActivity;
 import com.app.Regional_News.R;
+import com.app.Regional_News.SavedNewsActivity;
 import com.app.Regional_News.ScholarshipActivity;
 import com.app.Regional_News.data.Udata;
 import com.app.Regional_News.extra.SharedPrefManager;
@@ -42,7 +43,7 @@ public class SettingFragment extends Fragment {
     public  static  String uid;
     private Switch mode_switch;
     private TextView modeStatus;
-    RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay,feedback_lay,profile_lay;
+    RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay,feedback_lay,profile_lay,savenews_lay;
     TextView navUsername,navEmail;
     ImageView navPic;
     public SettingFragment() {
@@ -74,6 +75,7 @@ public class SettingFragment extends Fragment {
         quiz_lay = rootView.findViewById(R.id.quiz_lay);
         feedback_lay = rootView.findViewById(R.id.feedback_lay);
         profile_lay = rootView.findViewById(R.id.profile_lay);
+        savenews_lay = rootView.findViewById(R.id.savenews_lay);
 
         getCurrentUserdata();
 
@@ -105,6 +107,13 @@ public class SettingFragment extends Fragment {
         });
 
 
+        savenews_lay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(requireContext(), SavedNewsActivity.class);
+                startActivity(i);
+            }
+        });
 
         profile_lay.setOnClickListener(new View.OnClickListener() {
             @Override

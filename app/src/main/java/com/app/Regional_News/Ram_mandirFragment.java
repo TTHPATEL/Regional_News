@@ -152,7 +152,11 @@ public class Ram_mandirFragment extends Fragment {
     }
 
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        getdata(new_keyword);// Refresh data when the fragment is visible again
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
