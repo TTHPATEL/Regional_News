@@ -206,7 +206,7 @@
                         android:layout_height="27dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginStart="20dp"
-                        android:src="@drawable/ic_ringing_modified"/>
+                        android:src="@drawable/ic_languages"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -217,7 +217,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="નોટિફિકેશન"
+                            android:text="ભાષા બદલો"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="8.5dp"/>
@@ -225,18 +225,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="નોટિફિકેશન ચાલુ/બંધ કરો"
+                            android:text="અંગ્રેજી / ગુજરાતી કરો"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="8.5dp"/>
                     </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                    <Switch
+                        android:id="@+id/language_mode_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="15dp"
-                        android:src="@drawable/ic_next"/>
+                        android:layout_marginEnd="10dp"/>
                 </RelativeLayout>
 
 
