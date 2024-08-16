@@ -49,8 +49,6 @@ public class SavedNewsActivity extends AppCompatActivity {
     SavednewsAdapater adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ArrayList<Saved_news_datalist> savedNewsList = new ArrayList<>(); // List to store all saved news
-    private int pendingFetches = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
