@@ -71,26 +71,32 @@
             <LinearLayout
                 android:id="@+id/savenav"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:orientation="horizontal">
 
+
+
+
                 <CheckBox
-                    android:layout_width="15dp"
-                    android:layout_height="18dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="3dp"
-                    android:button="@drawable/fav_selector"
-                    app:useMaterialThemeColors="false"
-                    android:id="@+id/fav_check" />
-
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginStart="4dp"
+                    android:button="@drawable/fav_selector"
                     android:text="Save"
-                    android:textColor="@color/gray" />
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="2dp"
+                    android:textColor="@color/gray"
+                    app:useMaterialThemeColors="false"
+                    android:id="@+id/save_check" />
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginStart="4dp"-->
+<!--                    android:text="Save"-->
+<!--                    android:textColor="@color/gray" />-->
             </LinearLayout>
 
             <LinearLayout
