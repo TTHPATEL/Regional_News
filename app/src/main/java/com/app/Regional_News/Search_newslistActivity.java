@@ -168,4 +168,10 @@ public class Search_newslistActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getdata(new_keyword);// Refresh data when the fragment is visible again
+    }
 }
