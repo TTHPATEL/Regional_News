@@ -52,13 +52,14 @@ public class MainActivity extends AppCompatActivity {
 
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             if (destination.getId() == R.id.nav_home) {
-                toolbar.setTitle("Regional News");
+                toolbar.setTitle(R.string.app_name);
+
                 toolbar.setLogo(R.drawable.icon_news);
             } else if (destination.getId() == R.id.nav_event) {
-                toolbar.setTitle("Search");
+                toolbar.setTitle(R.string.menu_search);
                 toolbar.setLogo(null);
             } else if (destination.getId() == R.id.nav_setting) {
-                toolbar.setTitle("Setting");
+                toolbar.setTitle(R.string.menu_setting);
                 toolbar.setLogo(null);
             }
             invalidateOptionsMenu(); // Request to recreate the options menu

@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/nav_event"
         android:name="com.app.Regional_News.ui.gallery.SearchFragment"
-        android:label="@string/menu_account_setting"
+        android:label="@string/menu_search"
         tools:layout="@layout/fragment_search" />
 
     <fragment
@@ -61,7 +61,7 @@
     <fragment
         android:id="@+id/nav_setting"
         android:name="com.app.Regional_News.ui.gallery.SettingFragment"
-        android:label="Setting"
+        android:label="@string/menu_setting"
         tools:layout="@layout/fragment_setting" />
 
 

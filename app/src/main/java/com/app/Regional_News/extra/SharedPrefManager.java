@@ -2,6 +2,7 @@ package com.app.Regional_News.extra;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.BaseBundle;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +19,7 @@ public class SharedPrefManager {
 
     public static final String SP_P_LOGIN = "pLogin";
     public static final String SP_F_LOGIN = "fLogin";
+    public static final String SP_LANGUAGE = "spLanguage";
 
 
     SharedPreferences sp;
@@ -32,6 +34,14 @@ public class SharedPrefManager {
         spEditor.putString(keySP, value);
         spEditor.commit();
     }
+
+    // New method specifically for saving the language preference
+    public void saveLanguagePreference(String keySP, boolean value) {
+        spEditor.putBoolean(keySP, value);
+        spEditor.commit();
+    }
+
+
 
     public void saveSPInt(String keySP, int value){
         spEditor.putInt(keySP, value);
@@ -73,6 +83,8 @@ public class SharedPrefManager {
         spEditor.commit();
     }
 
+
+
     public void saveUserData(String name, String email, String pwd, String u_pic, String u_id) {
         try {
             JSONObject jsonObject = new JSONObject();
@@ -87,6 +99,11 @@ public class SharedPrefManager {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public Boolean getLanguagePreference() {
+        return sp.getBoolean(SP_LANGUAGE, false); // Default is English (false)
     }
 
 
