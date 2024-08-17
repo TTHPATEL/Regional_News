@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:text="Quiz Name :"/>
+            android:text="@string/quizname"/>
 
         <TextView
             android:id="@+id/tv_quiz_name"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Quiz Start Date :"/>
+            android:text="@string/quizstartdate"/>
 
 
 
@@ -73,13 +73,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-          android:layout_marginStart="80dp">
+          android:layout_marginStart="60dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="Quiz End Date :"/>
+                android:text="@string/quizenddate"/>
 
 
 

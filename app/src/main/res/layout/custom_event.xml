@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
-                android:text="Event Date :"/>
+                android:text="@string/eventdate"/>
 
 
 
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="Event Name :"/>
+                android:text="@string/eventname"/>
 
             <TextView
                 android:id="@+id/tv_event_name"

@@ -48,4 +48,12 @@
 
     <string name="newlistsave">સેવ</string>
     <string name="newlistshare">શેર</string>
+
+    <string name="eventname">ઇવેન્ટ નું નામ</string>
+    <string name="eventdate">ઇવેન્ટ ની તારીખ</string>
+
+    <string name="quizname">ક્વિઝ નું નામ</string>
+    <string name="quizstartdate">ક્વિઝની શરૂઆત કરવાની તારીખ :</string>
+    <string name="quizenddate">ક્વિઝની સમાપ્તિની તારીખ :</string>
+
 </resources>

@@ -73,6 +73,13 @@
     <string name="newlistsave">Save</string>
     <string name="newlistshare">Share</string>
 
+    <string name="eventname">Event Name :</string>
+    <string name="eventdate">Event Date :</string>
+
+    <string name="quizname">Quiz Name :</string>
+    <string name="quizstartdate">Quiz Start Date :</string>
+    <string name="quizenddate">Quiz End Date :</string>
+
 
 
 </resources>
