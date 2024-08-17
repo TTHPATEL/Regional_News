@@ -80,6 +80,13 @@
     <string name="quizstartdate">Quiz Start Date :</string>
     <string name="quizenddate">Quiz End Date :</string>
 
+    <string name="scholarstatus">Status :</string>
+    <string name="scholarstartdate">Date from :</string>
+    <string name="scholarenddate">Date to      :</string>
+    <string name="scholarapplytv">Apply link :</string>
+    <string name="scholarlink">Visit website</string>
+
+
 
 
 </resources>

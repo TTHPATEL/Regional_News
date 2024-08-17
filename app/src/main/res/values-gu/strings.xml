@@ -54,6 +54,12 @@
 
     <string name="quizname">ક્વિઝ નું નામ</string>
     <string name="quizstartdate">ક્વિઝની શરૂઆત કરવાની તારીખ :</string>
-    <string name="quizenddate">ક્વિઝની સમાપ્તિની તારીખ :</string>
+    <string name="quizenddate">ક્વિઝની આખરી તારીખ :</string>
+
+    <string name="scholarstatus">સ્ટેટસ</string>
+    <string name="scholarstartdate">શિષ્યવૃત્તિ ની શરૂઆતની તારીખ :</string>
+    <string name="scholarenddate">શિષ્યવૃત્તિ ની આખરી તારીખ :</string>
+    <string name="scholarapplytv">અહીં અરજી કરો :</string>
+    <string name="scholarlink">વેબસાઇટ જુઓ</string>
 
 </resources>
