@@ -191,12 +191,12 @@ public class EventActivity extends AppCompatActivity {
             Event_cal_listdata eventData = eventDetailsMap.get(clickedDate);
 
             if (eventData != null) {
-                String eventDetails = "Event Date: " + formatDate(eventData.getEvent_date()) + "\n\n" +
-                        "Event Name: " + eventData.getEvent_name() + "\n\n" +
-                        "Description: " + "\n" + eventData.getEvent_desc() + "\n\n";
+                String eventDetails = getString(R.string.eventdate) + formatDate(eventData.getEvent_date()) + "\n\n" +
+                        getString(R.string.eventname) + eventData.getEvent_name() + "\n\n" +
+                        getString(R.string.eventdesc) + "\n" + eventData.getEvent_desc() + "\n\n";
 
                 new AlertDialog.Builder(EventActivity.this)
-                        .setTitle("Event Details")
+                        .setTitle(getString(R.string.eventdialogboxtitle))
                         .setMessage(eventDetails)
                         .setPositiveButton(android.R.string.ok, null)
                         .show();
