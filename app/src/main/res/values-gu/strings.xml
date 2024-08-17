@@ -36,4 +36,16 @@
     <string name="terms_and_cond">નિયમો અને શરતો</string>
 
 
+    <string name="home_tab_latest_news">લેટેસ્ટ ન્યુઝ</string>
+    <string name="home_stock_news">સ્ટોક માર્કેટ</string>
+    <string name="home_sport_news">સ્પોર્ટ્સ ન્યુઝ</string>
+    <string name="home_rammandir_news">રામ મંદિર વિશેષ</string>
+    <string name="home_entertainment_news">મનોરંજન</string>
+    <string name="home_editoral_news">તંત્રી લેખ</string>
+
+    <string name="enewspaperby">ઈ-ન્યુઝ પેપર દ્વારા :</string>
+    <string name="enewspaperdate">તારીખ</string>
+
+    <string name="newlistsave">સેવ</string>
+    <string name="newlistshare">શેર</string>
 </resources>

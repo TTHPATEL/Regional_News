@@ -41,8 +41,6 @@
     <string name="setting_app_set_shd_3_info">Turn dark mode on/off</string>
     <string name="setting_darkmode">Turn off dark mode</string>
     <string name="setting_lightmode">Turn on dark mode</string>
-
-
     <string name="setting_oth_ser_hd">Other services</string>
     <string name="setting_oth_ser_shd_1">Sudoku games</string>
     <string name="setting_oth_ser_shd_1_info">Game thats all about logic and strategy</string>
@@ -60,6 +58,21 @@
     <string name="setting_app_info_shd_3">Log out</string>
     <string name="setting_app_info_shd_3_info">Make logout</string>
     <string name="terms_and_cond">Terms and Conditions</string>
+
+
+    <string name="home_tab_latest_news">Latest News</string>
+    <string name="home_stock_news">Stock Market</string>
+    <string name="home_sport_news">Sports News</string>
+    <string name="home_rammandir_news">Ram Mandir</string>
+    <string name="home_entertainment_news">Entertainment</string>
+    <string name="home_editoral_news">Editorial News</string>
+
+    <string name="enewspaperby">eNewspaper By :</string>
+    <string name="enewspaperdate">Date :</string>
+
+    <string name="newlistsave">Save</string>
+    <string name="newlistshare">Share</string>
+
 
 
 </resources>

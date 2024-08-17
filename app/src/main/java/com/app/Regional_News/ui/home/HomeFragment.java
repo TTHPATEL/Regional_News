@@ -36,12 +36,12 @@ public class HomeFragment extends Fragment {
         viewPager = rootView.findViewById(R.id.viewpager);
 
         VPAdapter vpAdapter = new VPAdapter(getChildFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        vpAdapter.addFragment(new latest_news(),"લેટેસ્ટ ન્યુઝ");
-        vpAdapter.addFragment(new StockMarketFragment(),"સ્ટોક માર્કેટ");
-        vpAdapter.addFragment(new SportsFragment(),"સ્પોર્ટ્સ ન્યુઝ");
-        vpAdapter.addFragment(new Ram_mandirFragment(),"રામ મંદિર વિશેષ");
-        vpAdapter.addFragment(new EntertainmentFragment(),"મનોરંજન");
-        vpAdapter.addFragment(new EditorialFragment(),"તંત્રી લેખ");
+        vpAdapter.addFragment(new latest_news(),getString(R.string.home_tab_latest_news));
+        vpAdapter.addFragment(new StockMarketFragment(),getString(R.string.home_stock_news));
+        vpAdapter.addFragment(new SportsFragment(),getString(R.string.home_sport_news));
+        vpAdapter.addFragment(new Ram_mandirFragment(),getString(R.string.home_rammandir_news));
+        vpAdapter.addFragment(new EntertainmentFragment(),getString(R.string.home_entertainment_news));
+        vpAdapter.addFragment(new EditorialFragment(),getString(R.string.home_editoral_news));
         viewPager.setAdapter(vpAdapter);
         tabLayout.setupWithViewPager(viewPager);
 

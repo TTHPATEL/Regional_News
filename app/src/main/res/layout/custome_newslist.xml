@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:button="@drawable/fav_selector"
-                    android:text="Save"
+                    android:text="@string/newlistsave"
                     android:paddingBottom="5dp"
                     android:paddingLeft="2dp"
                     android:textColor="@color/gray"
@@ -117,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="Share"
+                    android:text="@string/newlistshare"
                     android:textColor="@color/gray" />
             </LinearLayout>
         </LinearLayout>
