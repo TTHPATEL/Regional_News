@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Feedback"
+                android:text="@string/feedbacktv"
                 android:id="@+id/loginText"
                 android:textSize="32sp"
                 android:textAlignment="center"
@@ -41,7 +41,7 @@
                 android:layout_marginTop="35dp"
                 android:layout_marginEnd="140dp"
                 android:textColor="@color/text_black_color"
-                android:text="Feedback Title"
+                android:text="@string/feedbacktitleeditext"
                 android:textSize="14sp"/>
 
             <EditText
@@ -61,7 +61,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="140dp"
                 android:textColor="@color/text_black_color"
-                android:text="Feedback Description"
+                android:text="@string/feedbackdes"
                 android:textSize="14sp"/>
 
             <EditText
@@ -89,7 +89,7 @@
                 android:layout_marginTop="13dp"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
-                android:text="Submit"
+                android:text="@string/feedbackbtn"
                 android:backgroundTint="@color/black"
                 android:textSize="16dp"
                 />

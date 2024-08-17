@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">રીજ્નલ ન્યુઝ</string>
+    <string name="app_nameversion">રીજ્નલ ન્યુઝ v1.0</string>
+    <string name="menu_setting">સેટિંગ</string>
+    <string name="menu_home">હોમ</string>
+    <string name="menu_search">સર્ચ</string>
+    <string name="setting_ac_hd">એકાઉન્ટ સેટિંગસ</string>
+    <string name="setting_ac_shd_1">તમારી પ્રોફાઇલ</string>
+    <string name="setting_ac_shd_1_info">એડિટ કરો અને પ્રોફાઇલ માહિતી જુઓ</string>
+    <string name="setting_app_set_hd">એપ્લિકેશન સેટિંગ્સ</string>
+    <string name="setting_app_set_shd_1">સેવ ન્યુઝ</string>
+    <string name="setting_app_set_shd_1_info">તમારી સેવ ન્યુઝ જુવો</string>
+    <string name="setting_app_set_shd_2">ભાષા બદલો</string>
+    <string name="setting_app_set_shd_2_info">અંગ્રેજી / ગુજરાતી કરો</string>
+    <string name="setting_app_set_shd_3">ડાર્ક મોડ</string>
+    <string name="setting_app_set_shd_3_info">ડાર્ક મોડ ચાલુ/બંધ કરો</string>
+    <string name="setting_darkmode">ડાર્ક મોડ બંદ કરો </string>
+    <string name="setting_lightmode">ડાર્ક મોડ ચાલુ કરો</string>
+    <string name="setting_oth_ser_hd">અન્ય સર્વિસ</string>
+    <string name="setting_oth_ser_shd_1">સુડોકુ ગેમ</string>
+    <string name="setting_oth_ser_shd_1_info">તાર્કિક અને યોજના પર આધારિત ગેમ</string>
+    <string name="setting_oth_ser_shd_2">ક્વિઝ</string>
+    <string name="setting_oth_ser_shd_2_info">આપણા ક્વિઝ સાથે તમારી જ્ઞાનને પરીક્ષણ કરો</string>
+    <string name="setting_oth_ser_shd_3">ઇવેન્ટ</string>
+    <string name="setting_oth_ser_shd_3_info">એક્સાઇટેડ અને મનોરંજનનો ઇવેન્ટ</string>
+    <string name="setting_oth_ser_shd_4">શિષ્યવૃત્તિ</string>
+    <string name="setting_oth_ser_shd_4_info">શિષ્યવૃત્તિ માટે અરજી કરો</string>
+    <string name="setting_app_info_hd">એપ્લિકેશન માહિતી</string>
+    <string name="setting_app_info_shd_1">એપ શેર</string>
+    <string name="setting_app_info_shd_1_info">એપ શેર કરો</string>
+    <string name="setting_app_info_shd_2">ફીડબેક</string>
+    <string name="setting_app_info_shd_2_info">ફીડબેક આપ</string>
+    <string name="setting_app_info_shd_3">લૉગ આઉટ</string>
+    <string name="setting_app_info_shd_3_info">લૉગ આઉટ કરો</string>
+    <string name="terms_and_cond">નિયમો અને શરતો</string>
+
+
+    <string name="home_tab_latest_news">લેટેસ્ટ ન્યુઝ</string>
+    <string name="home_stock_news">સ્ટોક માર્કેટ</string>
+    <string name="home_sport_news">સ્પોર્ટ્સ ન્યુઝ</string>
+    <string name="home_rammandir_news">રામ મંદિર વિશેષ</string>
+    <string name="home_entertainment_news">મનોરંજન</string>
+    <string name="home_editoral_news">તંત્રી લેખ</string>
+
+    <string name="enewspaperby">ઈ-ન્યુઝ પેપર દ્વારા :</string>
+    <string name="enewspaperdate">તારીખ</string>
+
+    <string name="newlistsave">સેવ</string>
+    <string name="newlistshare">શેર</string>
+
+    <string name="eventname">ઇવેન્ટ નું નામ</string>
+    <string name="eventdate">ઇવેન્ટ ની તારીખ</string>
+
+    <string name="quizname">ક્વિઝ નું નામ</string>
+    <string name="quizstartdate">ક્વિઝની શરૂઆત કરવાની તારીખ :</string>
+    <string name="quizenddate">ક્વિઝની આખરી તારીખ :</string>
+
+    <string name="scholarstatus">સ્ટેટસ</string>
+    <string name="scholarstartdate">શિષ્યવૃત્તિ ની શરૂઆતની તારીખ :</string>
+    <string name="scholarenddate">શિષ્યવૃત્તિ ની આખરી તારીખ :</string>
+    <string name="scholarapplytv">અહીં અરજી કરો :</string>
+    <string name="scholarlink">વેબસાઇટ જુઓ</string>
+
+
+
+    <string name="newsshowtitle">ન્યુઝ જુઓ</string>
+    <string name="Enewstitle">ઈ-ન્યુઝ</string>
+
+    <string name="feedbacktitle">ફીડબેક</string>
+    <string name="feedbacktv">ફીડબેક</string>
+    <string name="feedbacktitleeditext">ફીડબેક ટાઇટલ</string>
+    <string name="feedbackdes">ફીડબેક વર્ણન</string>
+    <string name="feedbackbtn">સબમિટ</string>
+
+
+    <string name="profiletitle">પ્રોફાઇલ અપડેટ</string>
+    <string name="profiletitletv">વ્યક્તિગત માહિતી</string>
+    <string name="profilecurrentdata">વર્તમાન વિગત</string>
+    <string name="profilename">પૂરું નામ</string>
+    <string name="profileemail">ઈ-મેલ આઈડી</string>
+    <string name="profilepass">પાસવર્ડ</string>
+    <string name="profilebtn">અપડેટ</string>
+
+    <string name="quiztitle">ક્વિઝ</string>
+    <string name="scholarshiptitle">શિષ્યવૃત્તિ</string>
+    <string name="eventtitle">ઇવેન્ટ</string>
+    <string name="newshowtitle">ન્યુઝ જુઓ</string>
+
+    <string name="savednewstitle">સેવ ન્યુઝ</string>
+
+
+</resources>

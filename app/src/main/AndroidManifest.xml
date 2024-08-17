@@ -45,7 +45,7 @@
             android:exported="false" />
         <activity
             android:name=".Search_newslistActivity"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".RegistrationActivity"
             android:exported="false" />
@@ -78,8 +78,7 @@
             android:label="Wing Member" />
         <activity
             android:name=".ui.NewsShowActivity"
-            android:exported="false"
-            android:label="News Show" />
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="false"

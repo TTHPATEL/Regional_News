@@ -58,7 +58,8 @@ public class SavedNewsActivity extends AppCompatActivity {
         // USE FOR DISPLAY SYSTEM INBUILT BACK NAVIGATION ARROW
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Set the toolbar title
-        getSupportActionBar().setTitle("Saved News");
+        getSupportActionBar().setTitle(R.string.savednewstitle);
+
         // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences("favorites", Context.MODE_PRIVATE);
 

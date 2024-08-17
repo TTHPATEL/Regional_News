@@ -61,7 +61,8 @@ public class ProfileUpdationActivation extends AppCompatActivity {
         // USE FOR DISPLAY SYSTEM INBUILT BACK NAVIGATION ARROW
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Set the toolbar title
-        getSupportActionBar().setTitle("Profile Updation");
+        getSupportActionBar().setTitle(R.string.profiletitle);
+
 
         // DATA FETCHING FROM USER
         sharedPrefManager = new SharedPrefManager(this);

@@ -50,7 +50,7 @@ public class ScholarshipActivity extends AppCompatActivity {
         // USE FOR DISPLAY SYSTEM INBUILT BACK NAVIGATION ARROW
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Set the toolbar title
-        getSupportActionBar().setTitle("Scholarships");
+        getSupportActionBar().setTitle(R.string.scholarshiptitle);
 
 
 

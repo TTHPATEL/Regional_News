@@ -46,7 +46,7 @@ public class EnewspaperActivity extends AppCompatActivity {
         // USE FOR DISPLAY SYSTEM INBUILT BACK NAVIGATION ARROW
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Set the toolbar title
-        getSupportActionBar().setTitle("E Newspaper");
+        getSupportActionBar().setTitle(R.string.Enewstitle);
 
         mApiService = UtilsApi.getAPIService();
 

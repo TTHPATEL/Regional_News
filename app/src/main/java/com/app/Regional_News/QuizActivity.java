@@ -58,7 +58,8 @@ public class QuizActivity extends AppCompatActivity {
         // USE FOR DISPLAY SYSTEM INBUILT BACK NAVIGATION ARROW
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Set the toolbar title
-        getSupportActionBar().setTitle("Quiz");
+        getSupportActionBar().setTitle(R.string.quiztitle);
+
 
         mApiService = UtilsApi.getAPIService();
 
