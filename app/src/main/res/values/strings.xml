@@ -28,4 +28,38 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+    <string name="setting_ac_hd">Account settings</string>
+    <string name="setting_ac_shd_1">Your profile</string>
+    <string name="setting_ac_shd_1_info">Edit and view profile info</string>
+    <string name="setting_app_set_hd">App settings</string>
+    <string name="setting_app_set_shd_1">Save news</string>
+    <string name="setting_app_set_shd_1_info">View your saved news</string>
+    <string name="setting_app_set_shd_2">Change language</string>
+    <string name="setting_app_set_shd_2_info">Do English / Gujarati </string>
+    <string name="setting_app_set_shd_3">Dark Mode</string>
+    <string name="setting_app_set_shd_3_info">Turn dark mode on/off</string>
+    <string name="setting_darkmode">Turn off dark mode</string>
+    <string name="setting_lightmode">Turn on dark mode</string>
+
+
+    <string name="setting_oth_ser_hd">Other services</string>
+    <string name="setting_oth_ser_shd_1">Sudoku games</string>
+    <string name="setting_oth_ser_shd_1_info">Game thats all about logic and strategy</string>
+    <string name="setting_oth_ser_shd_2">Quiz</string>
+    <string name="setting_oth_ser_shd_2_info">Put your knowledge to the test with our engaging quiz</string>
+    <string name="setting_oth_ser_shd_3">Events</string>
+    <string name="setting_oth_ser_shd_3_info">Event of excitement and entertainment </string>
+    <string name="setting_oth_ser_shd_4">Scholarships</string>
+    <string name="setting_oth_ser_shd_4_info">Apply scholarships</string>
+    <string name="setting_app_info_hd">App info</string>
+    <string name="setting_app_info_shd_1">App share</string>
+    <string name="setting_app_info_shd_1_info">Share application</string>
+    <string name="setting_app_info_shd_2">Feedback</string>
+    <string name="setting_app_info_shd_2_info">Submit valuable feedback</string>
+    <string name="setting_app_info_shd_3">Log out</string>
+    <string name="setting_app_info_shd_3_info">Make logout</string>
+    <string name="terms_and_cond">Terms and Conditions</string>
+
+
 </resources>

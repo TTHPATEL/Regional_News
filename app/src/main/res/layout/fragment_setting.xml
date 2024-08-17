@@ -66,7 +66,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="એકાઉન્ટ સેટિંગસ"
+                    android:text="@string/setting_ac_hd"
                     android:textColor="@color/text_black_color"
                     android:textStyle="bold"
                     android:paddingTop="7dp"
@@ -97,7 +97,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="તમારી પ્રોફાઇલ"
+                            android:text="@string/setting_ac_shd_1"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
@@ -105,7 +105,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="એડિટ કરો અને પ્રોફાઇલ માહિતી જુઓ"
+                            android:text="@string/setting_ac_shd_1_info"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
@@ -135,7 +135,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="એપ્લિકેશન સેટિંગ્સ"
+                    android:text="@string/setting_app_set_hd"
                     android:textColor="@color/text_black_color"
                     android:textStyle="bold"
                     android:paddingTop="7dp"
@@ -167,7 +167,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="સેવ ન્યુઝ"
+                            android:text="@string/setting_app_set_shd_1"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
@@ -175,7 +175,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="તમારી સેવ ન્યુઝ જુવો"
+                            android:text="@string/setting_app_set_shd_1_info"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
@@ -217,7 +217,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ભાષા બદલો"
+                            android:text="@string/setting_app_set_shd_2"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="8.5dp"/>
@@ -226,7 +226,7 @@
                             android:id="@+id/lang_status"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="અંગ્રેજી / ગુજરાતી કરો"
+                            android:text="@string/setting_app_set_shd_2_info"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="8.5dp"/>
                     </LinearLayout>
@@ -271,7 +271,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ડાર્ક મોડ"
+                            android:text="@string/setting_app_set_shd_3"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
@@ -280,7 +280,7 @@
                             android:id="@+id/modeStatus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ડાર્ક મોડ ચાલુ/બંધ કરો"
+                            android:text="@string/setting_app_set_shd_3_info"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
@@ -319,7 +319,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="અન્ય સર્વિસ"
+                    android:text="@string/setting_oth_ser_hd"
                     android:textColor="@color/text_black_color"
                     android:textStyle="bold"
                     android:paddingTop="7dp"
@@ -349,7 +349,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="સુડોકુ ગેમ"
+                            android:text="@string/setting_oth_ser_shd_1"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
@@ -357,7 +357,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="તાર્કિક અને યોજના પર આધારિત ગેમ"
+                            android:text="@string/setting_oth_ser_shd_1_info"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
@@ -395,7 +395,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ક્વિઝ"
+                            android:text="@string/setting_oth_ser_shd_2"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
@@ -403,7 +403,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="આપણા ક્વિઝ સાથે તમારી જ્ઞાનને પરીક્ષણ કરો"
+                            android:text="@string/setting_oth_ser_shd_2_info"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
@@ -441,7 +441,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ઇવેન્ટ"
+                            android:text="@string/setting_oth_ser_shd_3"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
@@ -449,7 +449,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="એક્સાઇટેડ અને મનોરંજનનો ઇવેન્ટ"
+                            android:text="@string/setting_oth_ser_shd_3_info"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
@@ -487,7 +487,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="શિષ્યવૃત્તિ"
+                            android:text="@string/setting_oth_ser_shd_4"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
@@ -495,7 +495,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="શિષ્યવૃત્તિ માટે અરજી કરો"
+                            android:text="@string/setting_oth_ser_shd_4_info"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
@@ -527,7 +527,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="એપ્લિકેશન માહિતી"
+                    android:text="@string/setting_app_info_hd"
                     android:textColor="@color/text_black_color"
                     android:textStyle="bold"
                     android:paddingTop="7dp"
@@ -556,7 +556,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="એપ શેર"
+                            android:text="@string/setting_app_info_shd_1"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
@@ -564,7 +564,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="એપ શેર કરો"
+                            android:text="@string/setting_app_info_shd_1_info"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
@@ -602,7 +602,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ફીડબેક"
+                            android:text="@string/setting_app_info_shd_2"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
@@ -610,7 +610,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ફીડબેક આપો"
+                            android:text="@string/setting_app_info_shd_2_info"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
@@ -648,7 +648,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="લૉગ આઉટ"
+                            android:text="@string/setting_app_info_shd_3"
                             android:textColor="@color/text_black_color"
                             android:textStyle="bold"
                             android:paddingStart="10dp"/>
@@ -656,7 +656,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="લૉગ આઉટ કરો"
+                            android:text="@string/setting_app_info_shd_3_info"
                             android:textColor="@color/text_black_color"
                             android:paddingStart="10dp"/>
                     </LinearLayout>
@@ -677,7 +677,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Terms and Conditions"
+                android:text="@string/terms_and_cond"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"/>
 

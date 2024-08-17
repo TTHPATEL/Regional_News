@@ -116,10 +116,14 @@
             int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
             if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
                 mode_switch.setChecked(true);
-                modeStatus.setText("ડાર્ક મોડ ચાલુ");
+//                modeStatus.setText("ડાર્ક મોડ ચાલુ");
+                modeStatus.setText(R.string.setting_darkmode); // Use string resource here
+
             } else {
                 mode_switch.setChecked(false);
-                modeStatus.setText("ડાર્ક મોડ બંદ");
+//                modeStatus.setText("ડાર્ક મોડ બંદ");
+                modeStatus.setText(R.string.setting_lightmode); // Use string resource here
+
             }
 
 
