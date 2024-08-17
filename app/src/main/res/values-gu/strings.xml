@@ -89,5 +89,27 @@
 
     <string name="savednewstitle">સેવ ન્યુઝ</string>
 
+    <string name="logouttite">લૉગ આઉટ</string>
+    <string name="logoutdes">શું તમે ખરેખર લૉગઆઉટ કરવા માંગો છો?</string>
+    <string name="logoutcancel">કેનસલ</string>
+    <string name="logoutok">ઓકે</string>
+
+    <string name="logintitle">લૉગિન</string>
+    <string name="logintv">લૉગિન કરો</string>
+    <string name="loginemailhint">ઈ-મેલ આઈડ</string>
+    <string name="loginpasshint">પાસવર્ડ</string>
+    <string name="loginforgetpass">પાસવર્ડ ભૂલી ગયા છો</string>
+    <string name="loginrememberme">મને યાદ રાખો</string>
+    <string name="loginbtn">લૉગિન</string>
+    <string name="loginnotyet">હજુ સુધી નોંધાયેલ નથી? હમણાં સાઇન અપ કરો</string>
+
+
+    <string name="registrationtitle">રેજિસ્ટર</string>
+    <string name="registrationtv">રજિસ્ટ્રેશન કરો</string>
+    <string name="registrationnamehint">પૂરું નામ</string>
+    <string name="registrationemailhint">ઈ-મેલ આઈડ</string>
+    <string name="registrationpasshint">પાસવર્ડ</string>
+    <string name="registrationbtn">રેજિસ્ટર</string>
+    <string name="gologin">પહેલેથી જ નોંધાયેલ છે? હવે લૉગિન કરો</string>
 
 </resources>

@@ -110,6 +110,33 @@
     <string name="newshowtitle">News Show</string>
     <string name="savednewstitle">Saved News</string>
 
+    <string name="logouttite">Logout</string>
+    <string name="logoutdes">Are you sure want to logout?</string>
+    <string name="logoutcancel">Cancel</string>
+    <string name="logoutok">OK</string>
+
+
+    <string name="logintv">Login</string>
+    <string name="logintitle">Login</string>
+    <string name="loginemailhint">Email Id</string>
+    <string name="loginpasshint">Password</string>
+    <string name="loginforgetpass">Forget Password</string>
+    <string name="loginrememberme">Remember Me</string>
+    <string name="loginbtn">LOGIN</string>
+    <string name="loginnotyet">Not yet registered? SignUp Now</string>
+
+
+
+
+    <string name="registrationtitle">Registration</string>
+    <string name="registrationtv">Register</string>
+    <string name="registrationnamehint">Name</string>
+    <string name="registrationemailhint">Email Id</string>
+    <string name="registrationpasshint">Password</string>
+    <string name="registrationbtn">REGISTER</string>
+    <string name="gologin">Already registered? Login Now</string>
+
+
 
 
 </resources>

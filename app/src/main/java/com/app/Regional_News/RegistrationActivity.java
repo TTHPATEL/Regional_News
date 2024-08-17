@@ -52,6 +52,8 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        getSupportActionBar().setTitle(R.string.registrationtitle);
+
         mApiService = UtilsApi.getAPIService();
         sharedPrefManager = new SharedPrefManager(this);
 

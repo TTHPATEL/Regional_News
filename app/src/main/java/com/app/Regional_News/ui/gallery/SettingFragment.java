@@ -211,9 +211,10 @@
                 public void onClick(View v) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                    builder.setTitle("Logout");
-                    builder.setMessage("Are you sure want to logout?");
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    builder.setTitle(R.string.logouttite);
+
+                    builder.setMessage(R.string.logoutdes);
+                    builder.setPositiveButton(R.string.logoutok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_F_LOGIN, false);
@@ -221,7 +222,7 @@
                             startActivity(i);
                         }
                     });
-                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton(R.string.logoutcancel, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
