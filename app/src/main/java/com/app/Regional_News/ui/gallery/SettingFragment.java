@@ -104,12 +104,15 @@
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     // Save the language preference
                     sharedPrefManager.saveLanguagePreference(SharedPrefManager.SP_LANGUAGE, isChecked);
+
                     // Set the app's locale to Gujarati if the switch is on, otherwise set it to English
                     setAppLocale(isChecked ? "gu" : "en");
+
                     // Recreate the activity to apply the language change
                     requireActivity().recreate();
                 }
             });
+
 
 
             // Check the current UI mode and set the switch state accordingly

@@ -2,10 +2,14 @@ package com.app.Regional_News.extra;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.BaseBundle;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Locale;
 
 
 public class SharedPrefManager {
@@ -105,6 +109,8 @@ public class SharedPrefManager {
     public Boolean getLanguagePreference() {
         return sp.getBoolean(SP_LANGUAGE, false); // Default is English (false)
     }
+
+
 
 
 }
