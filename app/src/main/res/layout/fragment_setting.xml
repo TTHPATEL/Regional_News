@@ -64,6 +64,7 @@
                 android:layout_marginEnd="10dp">
 
                 <TextView
+                    android:id="@+id/setting_ac_hd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/setting_ac_hd"
@@ -95,6 +96,7 @@
                         android:layout_toEndOf="@id/user_icon">
 
                         <TextView
+                            android:id="@+id/setting_ac_shd_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_ac_shd_1"
@@ -103,11 +105,12 @@
                             android:paddingStart="10dp"/>
 
                         <TextView
+                            android:id="@+id/setting_ac_shd_1_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
                             android:text="@string/setting_ac_shd_1_info"
-                            android:textColor="@color/text_black_color"
-                            android:paddingStart="10dp"/>
+                            android:textColor="@color/text_black_color" />
                     </LinearLayout>
 
                     <ImageView
@@ -133,6 +136,7 @@
                 android:layout_marginEnd="10dp">
 
                 <TextView
+                    android:id="@+id/setting_app_set_hd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/setting_app_set_hd"
@@ -165,6 +169,7 @@
                         android:layout_toEndOf="@id/ic_brightness">
 
                         <TextView
+                            android:id="@+id/setting_app_set_shd_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_app_set_shd_1"
@@ -173,6 +178,7 @@
                             android:paddingStart="10dp"/>
 
                         <TextView
+                            android:id="@+id/setting_app_set_shd_1_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_app_set_shd_1_info"
@@ -215,6 +221,8 @@
                         android:layout_toEndOf="@id/ic_ringing_modified">
 
                         <TextView
+                            android:id="@+id/setting_app_set_shd_2"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_app_set_shd_2"
@@ -223,6 +231,7 @@
                             android:paddingStart="8.5dp"/>
 
                         <TextView
+
                             android:id="@+id/lang_status"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -269,6 +278,7 @@
                         android:layout_toEndOf="@id/ic_lightmode">
 
                         <TextView
+                            android:id="@+id/setting_app_set_shd_3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_app_set_shd_3"
@@ -277,6 +287,7 @@
                             android:paddingStart="10dp"/>
 
                         <TextView
+
                             android:id="@+id/modeStatus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -317,6 +328,7 @@
                 android:layout_marginEnd="10dp">
 
                 <TextView
+                    android:id="@+id/setting_oth_ser_hd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/setting_oth_ser_hd"
@@ -347,6 +359,7 @@
                         android:layout_toEndOf="@id/ic_game">
 
                         <TextView
+                            android:id="@+id/setting_oth_ser_shd_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_oth_ser_shd_1"
@@ -355,6 +368,7 @@
                             android:paddingStart="10dp"/>
 
                         <TextView
+                            android:id="@+id/setting_oth_ser_shd_1_info"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_oth_ser_shd_1_info"
@@ -393,6 +407,8 @@
                         android:layout_toEndOf="@id/ic_quiz">
 
                         <TextView
+                            android:id="@+id/setting_oth_ser_shd_2"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_oth_ser_shd_2"
@@ -401,6 +417,8 @@
                             android:paddingStart="10dp"/>
 
                         <TextView
+                            android:id="@+id/setting_oth_ser_shd_2_info"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_oth_ser_shd_2_info"
@@ -439,6 +457,7 @@
                         android:layout_toEndOf="@id/ic_calendar">
 
                         <TextView
+                            android:id="@+id/setting_oth_ser_shd_3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_oth_ser_shd_3"
@@ -447,6 +466,7 @@
                             android:paddingStart="10dp"/>
 
                         <TextView
+                            android:id="@+id/setting_oth_ser_shd_3_info"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_oth_ser_shd_3_info"
@@ -485,6 +505,8 @@
                         android:layout_toEndOf="@id/ic_scholarship">
 
                         <TextView
+                            android:id="@+id/setting_oth_ser_shd_4"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_oth_ser_shd_4"
@@ -493,6 +515,8 @@
                             android:paddingStart="10dp"/>
 
                         <TextView
+                            android:id="@+id/setting_oth_ser_shd_4_info"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_oth_ser_shd_4_info"
@@ -525,6 +549,8 @@
                 android:layout_marginEnd="10dp">
 
                 <TextView
+                    android:id="@+id/setting_app_info_hd"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/setting_app_info_hd"
@@ -554,6 +580,8 @@
                         android:layout_toEndOf="@id/ic_share">
 
                         <TextView
+                            android:id="@+id/setting_app_info_shd_1"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_app_info_shd_1"
@@ -562,6 +590,8 @@
                             android:paddingStart="10dp"/>
 
                         <TextView
+                            android:id="@+id/setting_app_info_shd_1_info"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_app_info_shd_1_info"
@@ -600,6 +630,8 @@
                         android:layout_toEndOf="@id/ic_feedback">
 
                         <TextView
+                            android:id="@+id/setting_app_info_shd_2"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_app_info_shd_2"
@@ -608,6 +640,8 @@
                             android:paddingStart="10dp"/>
 
                         <TextView
+                            android:id="@+id/setting_app_info_shd_2_info"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_app_info_shd_2_info"
@@ -646,6 +680,8 @@
                         android:layout_toEndOf="@id/ic_logout">
 
                         <TextView
+                            android:id="@+id/setting_app_info_shd_3"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_app_info_shd_3"
@@ -654,6 +690,8 @@
                             android:paddingStart="10dp"/>
 
                         <TextView
+                            android:id="@+id/setting_app_info_shd_3_info"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_app_info_shd_3_info"
@@ -675,6 +713,8 @@
 
 
             <TextView
+                android:id="@+id/terms_and_cond"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/terms_and_cond"
@@ -682,6 +722,8 @@
                 android:layout_marginTop="20dp"/>
 
             <TextView
+                android:id="@+id/app_nameversion"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/app_nameversion"
