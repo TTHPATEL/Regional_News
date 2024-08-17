@@ -86,6 +86,29 @@
     <string name="scholarapplytv">Apply link :</string>
     <string name="scholarlink">Visit website</string>
 
+    <string name="newsshowtitle">News Show</string>
+    <string name="Enewstitle">E Newspaper</string>
+
+    <string name="feedbacktitle">Feedback</string>
+    <string name="feedbacktv">Feedback</string>
+    <string name="feedbacktitleeditext">Feedback Title</string>
+    <string name="feedbackdes">Feedback Description</string>
+    <string name="feedbackbtn">SUBMIT</string>
+
+    <string name="profiletitle">Profile Updation</string>
+    <string name="profiletitletv">Personal Information</string>
+    <string name="profilecurrentdata">Current Detail</string>
+    <string name="profilename">Full Name</string>
+    <string name="profileemail">Email id</string>
+    <string name="profilepass">Password</string>
+    <string name="profilebtn">UPDATE</string>
+
+
+    <string name="quiztitle">Quiz</string>
+    <string name="scholarshiptitle">Scholarships</string>
+    <string name="eventtitle">Events</string>
+    <string name="newshowtitle">News Show</string>
+    <string name="savednewstitle">Saved News</string>
 
 
 

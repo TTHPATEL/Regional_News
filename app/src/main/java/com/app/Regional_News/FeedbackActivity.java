@@ -59,7 +59,7 @@ public class FeedbackActivity extends AppCompatActivity {
         // USE FOR DISPLAY SYSTEM INBUILT BACK NAVIGATION ARROW
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Set the toolbar title
-        getSupportActionBar().setTitle("Feedback");
+        getSupportActionBar().setTitle(R.string.feedbacktitle);
 
         //DATA FETCHING FROM USER
         sharedPrefManager = new SharedPrefManager(this);

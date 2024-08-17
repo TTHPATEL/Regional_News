@@ -40,6 +40,8 @@ public class NewsShowActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news_show);
         Bundle extras = getIntent().getExtras();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.newshowtitle);
+
 
         String getNews_id = extras.getString("getNews_id");
         String news_imgurl = extras.getString("news_imgurl");
