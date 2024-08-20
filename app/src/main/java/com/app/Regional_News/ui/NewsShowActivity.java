@@ -2,12 +2,14 @@ package com.app.Regional_News.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.SharedPreferences;
@@ -31,6 +33,7 @@ public class NewsShowActivity extends AppCompatActivity {
     TextView news_headline,news_des_1,news_des_2,timetext,keywordtext;
     ImageView news_images;
     CheckBox save_check;
+    LinearLayout share_lay;
 
 
 
@@ -56,6 +59,7 @@ public class NewsShowActivity extends AppCompatActivity {
         news_images = findViewById(R.id.news_images);
         keywordtext = findViewById(R.id.keywordtext);
         save_check = findViewById(R.id.save_check);
+        share_lay = findViewById(R.id.share_lay);
 
 
         // Load image using Picasso
@@ -76,6 +80,22 @@ public class NewsShowActivity extends AppCompatActivity {
             editor.apply();
         });
 
+        share_lay.setOnClickListener(view -> {
+            // Retrieve the data you want to share
+            String headline = news_headline.getText().toString();
+            String description = news_des_1.getText().toString();
+
+            // Create the share intent
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+
+            // Prepare the text to share
+            String shareText = "Headline: " + headline + "\n" + description + "\n";
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+
+            // Start the share intent
+            startActivity(Intent.createChooser(shareIntent, "Share news via"));
+        });
 
 
 //        String mm_id = extras.getString("mm_id");

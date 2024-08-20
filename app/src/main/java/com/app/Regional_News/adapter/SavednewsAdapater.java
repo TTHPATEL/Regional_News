@@ -35,6 +35,7 @@ public class SavednewsAdapater  extends RecyclerView.Adapter<SavednewsAdapater.V
         public ImageView news_images;
         public LinearLayout news_list_layout;
         public CheckBox news_checkbox; // Add CheckBox
+        public LinearLayout share_lay;
 
 
         public ViewHolder(View v) {
@@ -45,6 +46,8 @@ public class SavednewsAdapater  extends RecyclerView.Adapter<SavednewsAdapater.V
             news_list_layout = v.findViewById(R.id.news_list_layout);
             keywordtext = v.findViewById(R.id.keywordtext);
             news_checkbox = v.findViewById(R.id.save_check); // Initialize CheckBox
+            share_lay = v.findViewById(R.id.share_lay);
+
 
         }
     }
@@ -111,6 +114,17 @@ public class SavednewsAdapater  extends RecyclerView.Adapter<SavednewsAdapater.V
                 i.putExtra("news_imgurl", data.getNews_imgurl());
                 mContext.startActivity(i);
             }
+        });
+
+        // Handle sharing functionality
+        holder.share_lay.setOnClickListener(v -> {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            String shareText = "Headline: " + data.getNews_headline() + "\n" + data.getNews_des_1() + "\n";
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+
+            // Start the share intent
+            mContext.startActivity(Intent.createChooser(shareIntent, "Share news via"));
         });
     }
 

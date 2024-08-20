@@ -37,6 +37,10 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
         public ImageView news_images;
         public LinearLayout news_list_layout;
         public CheckBox save_check;
+        public LinearLayout share_lay;
+
+
+
 
 
         public ViewHolder(View v) {
@@ -47,6 +51,8 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
             news_list_layout = v.findViewById(R.id.news_list_layout);
             keywordtext = v.findViewById(R.id.keywordtext);
             save_check = v.findViewById(R.id.save_check);
+            share_lay = v.findViewById(R.id.share_lay);
+
 
         }
     }
@@ -120,6 +126,18 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
 
                 mContext.startActivity(i);
             }
+        });
+
+
+        // Handle sharing functionality
+        holder.share_lay.setOnClickListener(v -> {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            String shareText = "Headline: " + data.getNews_headline() + "\n" + data.getNews_des_1() + "\n";
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+
+            // Start the share intent
+            mContext.startActivity(Intent.createChooser(shareIntent, "Share news via"));
         });
     }
 
