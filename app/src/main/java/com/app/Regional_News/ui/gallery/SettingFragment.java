@@ -7,11 +7,14 @@
     import android.content.Intent;
     import android.content.res.Configuration;
     import android.content.res.Resources;
+    import android.net.Uri;
     import android.os.Bundle;
 
     import androidx.appcompat.app.AppCompatDelegate;
+    import androidx.core.content.FileProvider;
     import androidx.fragment.app.Fragment;
 
+    import android.os.Environment;
     import android.view.LayoutInflater;
     import android.view.View;
     import android.view.ViewGroup;
@@ -20,7 +23,9 @@
     import android.widget.RelativeLayout;
     import android.widget.Switch;
     import android.widget.TextView;
+    import android.widget.Toast;
 
+    import com.app.Regional_News.BuildConfig;
     import com.app.Regional_News.EventActivity;
     import com.app.Regional_News.FeedbackActivity;
     import com.app.Regional_News.LoginActivity;
@@ -34,6 +39,7 @@
     import com.google.gson.Gson;
     import com.squareup.picasso.Picasso;
 
+    import java.io.File;
     import java.util.Locale;
 
 
@@ -154,10 +160,45 @@
                     Intent i = new Intent(Intent.ACTION_SEND);
                     i.setType("text/plain");
                     i.putExtra(Intent.EXTRA_SUBJECT, "Regional News App");
-                    i.putExtra(Intent.EXTRA_TEXT, "Regional News App \n https://drive.google.com/file/d/1vFkCT-4erEM2_RlRghGryy-miCJQ-H0b/view?usp=drive_link");
+                    i.putExtra(Intent.EXTRA_TEXT, "Regional News App \n https://drive.google.com/file/d/1pXmnfblXyN6mISViHcHcE-NM_OH5xg4w/view?usp=drive_link");
                     startActivity(i.createChooser(i, "Share Via"));
                 }
             });
+
+
+
+//            app_share_lay.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    File apkFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "app-debug.apk");
+//
+//                    if (apkFile.exists()) {
+////                        Toast.makeText(requireContext(), "APK File Path: " + apkFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
+//
+//                        // Generate a URI for the APK file using FileProvider
+//                        Uri apkUri = FileProvider.getUriForFile(
+//                                requireContext(),
+//                                BuildConfig.APPLICATION_ID + ".provider",
+//                                apkFile);
+//
+//                        // Create the share intent
+//                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+//                        shareIntent.setType("application/vnd.android.package-archive");
+//                        shareIntent.putExtra(Intent.EXTRA_STREAM, apkUri);
+//                        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//
+//                        // Start the share activity
+//                        startActivity(Intent.createChooser(shareIntent, "Share Via"));
+//                    } else {
+//                        // Handle the case where the APK file does not exist
+//                        new AlertDialog.Builder(requireContext())
+//                                .setTitle("File not found")
+//                                .setMessage("The APK file could not be found. Please make sure it is saved in the correct location.")
+//                                .setPositiveButton(android.R.string.ok, null)
+//                                .show();
+//                    }
+//                }
+//            });
 
             savenews_lay.setOnClickListener(new View.OnClickListener() {
                 @Override
