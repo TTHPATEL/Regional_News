@@ -45,7 +45,7 @@
         public  static  String uid;
         private Switch mode_switch;
         private TextView modeStatus;
-        RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay,feedback_lay,profile_lay,savenews_lay;
+        RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay,feedback_lay,profile_lay,savenews_lay,app_share_lay;
         TextView navUsername,navEmail,lang_status;
         ImageView navPic;
         Switch language_mode_switch;
@@ -83,6 +83,7 @@
             savenews_lay = rootView.findViewById(R.id.savenews_lay);
             language_mode_switch = rootView.findViewById(R.id.language_mode_switch);
             lang_status = rootView.findViewById(R.id.lang_status);
+            app_share_lay = rootView.findViewById(R.id.app_share_lay);
 
             getCurrentUserdata();
 
@@ -146,6 +147,17 @@
                 }
             });
 
+
+            app_share_lay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("text/plain");
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Regional News App");
+                    i.putExtra(Intent.EXTRA_TEXT, "Regional News App \n https://drive.google.com/file/d/1vFkCT-4erEM2_RlRghGryy-miCJQ-H0b/view?usp=drive_link");
+                    startActivity(i.createChooser(i, "Share Via"));
+                }
+            });
 
             savenews_lay.setOnClickListener(new View.OnClickListener() {
                 @Override

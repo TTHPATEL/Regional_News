@@ -550,7 +550,6 @@
 
                 <TextView
                     android:id="@+id/setting_app_info_hd"
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/setting_app_info_hd"
@@ -560,6 +559,7 @@
                     android:paddingStart="12dp"/>
 
                 <RelativeLayout
+                    android:id="@+id/app_share_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
@@ -631,7 +631,6 @@
 
                         <TextView
                             android:id="@+id/setting_app_info_shd_2"
-
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/setting_app_info_shd_2"
