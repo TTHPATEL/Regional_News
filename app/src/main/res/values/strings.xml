@@ -129,8 +129,6 @@
     <string name="loginnotyet">Not yet registered? SignUp Now</string>
 
 
-
-
     <string name="registrationtitle">Registration</string>
     <string name="registrationtv">Register</string>
     <string name="registrationnamehint">Name</string>
@@ -139,6 +137,7 @@
     <string name="registrationbtn">REGISTER</string>
     <string name="gologin">Already registered? Login Now</string>
 
+    <string name="notification">Notification</string>
 
 
 
