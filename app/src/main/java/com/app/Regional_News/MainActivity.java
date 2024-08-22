@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     RN_Udata fp;
     public static String uid;
     private Toolbar toolbar;
-    private BaseApiService mApiService;
 
 
     @Override
@@ -57,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         String fdata = sharedPrefManager.getFdata();
         Gson gson = new Gson();
         fp = gson.fromJson(fdata, RN_Udata.class);
+
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -113,47 +113,14 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.notification) {
             // Open the new activity when Notification is clicked
-            fetchNotifications();
+            Intent intent = new Intent(this, NotificationActivity.class); // Replace 'EnewspaperActivity' with your target activity
+            startActivity(intent);
             return true;
         }
 
 
-
         // Handle other menu item clicks if needed
         return super.onOptionsItemSelected(item);
-    }
-
-    private void fetchNotifications() {
-
-        // Create an instance of BaseApiService
-        mApiService = UtilsApi.getAPIService();
-
-
-        // Make the API call
-        Call<Notification_data> call = mApiService.rnsNotificationRequest("notification_list"); // Replace with the actual app ID
-        call.enqueue(new Callback<Notification_data>() {
-            @Override
-            public void onResponse(Call<Notification_data> call, Response<Notification_data> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    ArrayList<Notification_listdata> notifications = response.body().getNotification_listdata();
-                    if (notifications != null && !notifications.isEmpty()) {
-                        // Pass the notifications to a new activity or a dialog
-                        Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
-                        intent.putParcelableArrayListExtra("notifications", notifications);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(MainActivity.this, "No notifications available", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(MainActivity.this, "Failed to fetch notifications", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Notification_data> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
 

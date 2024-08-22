@@ -4,47 +4,64 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.Notification_listdata;
 
 import java.util.ArrayList;
 
-public class NotificationsAdapter extends ArrayAdapter<Notification_listdata> {
+public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdapter.ViewHolder> {
 
-    public NotificationsAdapter(Context context, ArrayList<Notification_listdata> notifications) {
-        super(context, 0, notifications);
+    private final ArrayList<Notification_listdata> clist;
+    private final Context mContext;
+
+    // Provide a reference to the views for each data item
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView noti_title,noti_desc,noti_time;
+        public LinearLayout noti_list_layout;
+
+        public ViewHolder(View v) {
+            super(v);
+            noti_title = v.findViewById(R.id.noti_title);
+            noti_list_layout = v.findViewById(R.id.noti_list_layout);
+            noti_desc = v.findViewById(R.id.noti_desc);
+            noti_time = v.findViewById(R.id.noti_time);
+        }
     }
-    @NonNull
+
+    // Provide a suitable constructor
+    public NotificationsAdapter(Context context, ArrayList<Notification_listdata> data) {
+        this.clist = data;
+        this.mContext = context;
+    }
+
+    // Create new views (invoked by the layout manager)
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.custom_notification_item, parent, false);
-        }
+    public NotificationsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // Creating a new view
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_notification, parent, false);
 
-        Notification_listdata notification = getItem(position);
+        NotificationsAdapter.ViewHolder vh = new NotificationsAdapter.ViewHolder(v);
+        return vh;
+    }
 
-        TextView title = convertView.findViewById(R.id.noti_title);
-        TextView description = convertView.findViewById(R.id.noti_desc);
-        TextView time = convertView.findViewById(R.id.noti_time);
+    // Replace the contents of a view (invoked by the layout manager)
+    @Override
+    public void onBindViewHolder(NotificationsAdapter.ViewHolder holder, int position) {
+        // Get element from arraylist at this position and replace the contents of the view with that element
+        final Notification_listdata data = clist.get(position);
+        holder.noti_title.setText(data.getNoti_title());
+        holder.noti_desc.setText(data.getNoti_desc());
+        holder.noti_time.setText(data.getNoti_title());
 
-        title.setText(notification.getNoti_title());
-        description.setText(notification.getNoti_desc());
-        time.setText(notification.getNoti_time());
+    }
 
-        // Customize the appearance based on the notification status if needed
-        if ("unread".equals(notification.getNoti_status())) {
-            title.setTextColor(ContextCompat.getColor(getContext(), R.color.pink));
-        } else {
-            title.setTextColor(ContextCompat.getColor(getContext(), R.color.green));
-        }
-
-        return convertView;
+    @Override
+    public int getItemCount() {
+        return clist.size();
     }
 }
