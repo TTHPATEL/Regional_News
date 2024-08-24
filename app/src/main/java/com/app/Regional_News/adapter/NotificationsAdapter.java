@@ -56,7 +56,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
         final Notification_listdata data = clist.get(position);
         holder.noti_title.setText(data.getNoti_title());
         holder.noti_desc.setText(data.getNoti_desc());
-        holder.noti_time.setText(data.getNoti_title());
+        holder.noti_time.setText(data.getNoti_time());
 
     }
 

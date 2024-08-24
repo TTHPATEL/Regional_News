@@ -31,7 +31,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class Ram_mandirFragment extends Fragment {
+public class OlympicsFragment extends Fragment {
 
     public RecyclerView recyclerView;
     private ProgressBar progressBar;
@@ -39,9 +39,9 @@ public class Ram_mandirFragment extends Fragment {
     BaseApiService mApiService;
     SearchNewslistAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
-    String new_keyword = "Ram Mandir";
+    String new_keyword = "Olympics";
 
-    public Ram_mandirFragment() {
+    public OlympicsFragment() {
         // Required empty public constructor
     }
 

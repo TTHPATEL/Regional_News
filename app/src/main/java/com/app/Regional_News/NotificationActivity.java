@@ -111,7 +111,7 @@ private void getdata() {
                         } else {
                             String error_message = degdata.getMsg();
                             Toast.makeText(NotificationActivity.this, error_message, Toast.LENGTH_SHORT).show();
-                        }
+                        }   
                     } else {
                         Log.e("msg1",""+response.code());
                         Log.e("msg5",""+call.request().url());

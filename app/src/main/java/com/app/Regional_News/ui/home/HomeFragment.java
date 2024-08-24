@@ -15,7 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.app.Regional_News.EditorialFragment;
 import com.app.Regional_News.EntertainmentFragment;
 import com.app.Regional_News.R;
-import com.app.Regional_News.Ram_mandirFragment;
+import com.app.Regional_News.OlympicsFragment;
 import com.app.Regional_News.SportsFragment;
 import com.app.Regional_News.StockMarketFragment;
 import com.app.Regional_News.adapter.VPAdapter;
@@ -37,9 +37,9 @@ public class HomeFragment extends Fragment {
 
         VPAdapter vpAdapter = new VPAdapter(getChildFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         vpAdapter.addFragment(new latest_news(),getString(R.string.home_tab_latest_news));
+        vpAdapter.addFragment(new OlympicsFragment(),getString(R.string.home_olympic));
         vpAdapter.addFragment(new StockMarketFragment(),getString(R.string.home_stock_news));
         vpAdapter.addFragment(new SportsFragment(),getString(R.string.home_sport_news));
-        vpAdapter.addFragment(new Ram_mandirFragment(),getString(R.string.home_rammandir_news));
         vpAdapter.addFragment(new EntertainmentFragment(),getString(R.string.home_entertainment_news));
         vpAdapter.addFragment(new EditorialFragment(),getString(R.string.home_editoral_news));
         viewPager.setAdapter(vpAdapter);
@@ -55,9 +55,9 @@ public class HomeFragment extends Fragment {
 
         int[] tabIcons = {
                 R.drawable.ic_trending,
+                R.drawable.ic_olympic,
                 R.drawable.ic_news_headline,
                 R.drawable.ic_cricket,
-                R.drawable.ic_temple,
                 R.drawable.ic_entertainment,
                 R.drawable.ic_tentri_lekh        };
 
