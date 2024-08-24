@@ -1,12 +1,23 @@
 package com.app.Regional_News;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.Toast;
 
+import com.app.Regional_News.adapter.NotificationAdapter;
+import com.app.Regional_News.adapter.NotificationsAdapter;
+import com.app.Regional_News.data.Notification_data;
+import com.app.Regional_News.data.Notification_listdata;
 import com.app.Regional_News.data.RN_Udata;
+import com.app.Regional_News.extra.BaseApiService;
+import com.app.Regional_News.extra.RetrofitClient;
 import com.app.Regional_News.extra.SharedPrefManager;
+import com.app.Regional_News.extra.UtilsApi;
 import com.app.Regional_News.ui.gallery.AddComplainFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
@@ -18,6 +29,14 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -26,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     RN_Udata fp;
     public static String uid;
     private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         String fdata = sharedPrefManager.getFdata();
         Gson gson = new Gson();
         fp = gson.fromJson(fdata, RN_Udata.class);
+
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -90,11 +111,20 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.notification) {
+            // Open the new activity when Notification is clicked
+            Intent intent = new Intent(this, NotificationActivity.class); // Replace 'EnewspaperActivity' with your target activity
+            startActivity(intent);
+            return true;
+        }
 
 
         // Handle other menu item clicks if needed
         return super.onOptionsItemSelected(item);
     }
+
+
+
 
     @Override
     public boolean onSupportNavigateUp() {
