@@ -77,6 +77,9 @@
     <string name="eventname">Event Name : </string>
     <string name="eventdate">Event Date : </string>
     <string name="eventdesc">Description: </string>
+    <string name="eventapplyweblink">Apply link :</string>
+    <string name="eventlink">Visit website</string>
+
 
 
     <string name="quizname">Quiz Name :</string>

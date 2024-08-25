@@ -16,6 +16,8 @@ public class Event_cal_listdata {
     public String event_status;
     @SerializedName("event_imgurl")
     public String event_imgurl;
+    @SerializedName("event_weblink")
+    public String event_weblink;
 
 
     public String getEvent_id() {
@@ -64,5 +66,13 @@ public class Event_cal_listdata {
 
     public void setEvent_imgurl(String event_imgurl) {
         this.event_imgurl = event_imgurl;
+    }
+
+    public String getEvent_weblink() {
+        return event_weblink;
+    }
+
+    public void setEvent_weblink(String event_weblink) {
+        this.event_weblink = event_weblink;
     }
 }
