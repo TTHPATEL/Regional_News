@@ -1,6 +1,13 @@
 package com.app.Regional_News.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +18,7 @@ import android.widget.TextView;
 import com.app.Regional_News.EventActivity;
 
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.Regional_News.R;
@@ -104,10 +112,58 @@ public class EventlistAdapter extends RecyclerView.Adapter<EventlistAdapter.View
                     }
                 });
 
+        // Set click listener on the cardview to display the dialog box
+        holder.event_list_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String eventDetails = mContext.getString(R.string.eventdate) + formattedDate + "\n\n" +
+                        mContext.getString(R.string.eventname) + data.getEvent_name() + "\n\n" +
+                        mContext.getString(R.string.eventdesc) + "\n" + data.getEvent_desc() +  "\n\n" +
+                        mContext.getString(R.string.eventapplyweblink)  + " " ;
 
 
-        
+                // Make the event web link clickable
+                SpannableString spannableString = new SpannableString(eventDetails + mContext.getString(R.string.eventlink));
+                ClickableSpan clickableSpan = new ClickableSpan() {
+                    @Override
+                    public void onClick(View textView) {
+                        // Open the web link in the browser
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(data.getEvent_weblink()));
+                        mContext.startActivity(browserIntent);
+                    }
 
+                    @Override
+                    public void updateDrawState(TextPaint ds) {
+                        super.updateDrawState(ds);
+                        int linkColor = ContextCompat.getColor(mContext, R.color.text_black_color);
+
+                        ds.setColor(linkColor); // Set the color of the link text
+                        ds.setUnderlineText(false); // Set underline
+                    }
+                };
+                spannableString.setSpan(clickableSpan, eventDetails.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                AlertDialog dialog = new AlertDialog.Builder(mContext)
+                        .setTitle(mContext.getString(R.string.eventdialogboxtitle))
+                        .setMessage(spannableString)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show();
+
+                // Make the link clickable
+                ((android.widget.TextView) dialog.findViewById(android.R.id.message)).setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
+
+//
+//                // Create an AlertDialog to show the event name
+//                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+//                builder.setTitle("Event Details");
+//                builder.setMessage(data.getEvent_name());
+//                builder.setPositiveButton(android.R.string.ok, null);
+//
+//                // Display the dialog
+//                AlertDialog dialog = builder.create();
+//                dialog.show();
+            }
+        });
 
     }
 
