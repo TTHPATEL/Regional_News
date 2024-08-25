@@ -1,7 +1,15 @@
 package com.app.Regional_News;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -193,13 +202,40 @@ public class EventActivity extends AppCompatActivity {
             if (eventData != null) {
                 String eventDetails = getString(R.string.eventdate) + formatDate(eventData.getEvent_date()) + "\n\n" +
                         getString(R.string.eventname) + eventData.getEvent_name() + "\n\n" +
-                        getString(R.string.eventdesc) + "\n" + eventData.getEvent_desc() + "\n\n";
+                        getString(R.string.eventdesc) + "\n" + eventData.getEvent_desc() +  "\n\n" +
+                        getString(R.string.eventapplyweblink)  + " " ;
 
-                new AlertDialog.Builder(EventActivity.this)
+
+                // Make the event web link clickable
+                SpannableString spannableString = new SpannableString(eventDetails + getString(R.string.eventlink));
+                ClickableSpan clickableSpan = new ClickableSpan() {
+                    @Override
+                    public void onClick(View textView) {
+                        // Open the web link in the browser
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(eventData.getEvent_weblink()));
+                        startActivity(browserIntent);
+                    }
+
+                    @Override
+                    public void updateDrawState(TextPaint ds) {
+                        super.updateDrawState(ds);
+                        int linkColor = ContextCompat.getColor(EventActivity.this, R.color.text_black_color);
+
+                        ds.setColor(linkColor); // Set the color of the link text
+                        ds.setUnderlineText(false); // Set underline
+                    }
+                };
+                spannableString.setSpan(clickableSpan, eventDetails.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                AlertDialog dialog = new AlertDialog.Builder(EventActivity.this)
                         .setTitle(getString(R.string.eventdialogboxtitle))
-                        .setMessage(eventDetails)
+                        .setMessage(spannableString)
                         .setPositiveButton(android.R.string.ok, null)
                         .show();
+
+                // Make the link clickable
+                ((android.widget.TextView) dialog.findViewById(android.R.id.message)).setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
+
             } else {
                 Toast.makeText(EventActivity.this, "No event on this date", Toast.LENGTH_SHORT).show();
             }
