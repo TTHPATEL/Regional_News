@@ -15,9 +15,9 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.Regional_News.EnewspaperActivity;
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.Saved_news_datalist;
-import com.app.Regional_News.ui.NewsShowActivity;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -109,7 +109,7 @@ public class SavednewsAdapater  extends RecyclerView.Adapter<SavednewsAdapater.V
         holder.news_list_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(mContext, NewsShowActivity.class);
+                Intent i = new Intent(mContext, EnewspaperActivity.NewsShowActivity.class);
                 i.putExtra("getNews_id", data.getNews_id());
                 i.putExtra("news_imgurl", data.getNews_imgurl());
                 mContext.startActivity(i);

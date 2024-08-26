@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.app.Regional_News.ui.home.HomeFragment"
+        android:name="com.app.Regional_News.EnewspaperActivity$HomeFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_event"
-        android:name="com.app.Regional_News.ui.gallery.SearchFragment"
+        android:name="com.app.Regional_News.EnewspaperActivity$SearchFragment"
         android:label="@string/menu_search"
         tools:layout="@layout/fragment_search" />
 
@@ -60,7 +60,7 @@
         tools:layout="@layout/fragment_income" />
     <fragment
         android:id="@+id/nav_setting"
-        android:name="com.app.Regional_News.ui.gallery.SettingFragment"
+        android:name="com.app.Regional_News.EditorialFragment$SettingFragment"
         android:label="@string/menu_setting"
         tools:layout="@layout/fragment_setting" />
 

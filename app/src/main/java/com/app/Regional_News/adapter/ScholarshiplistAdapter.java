@@ -11,12 +11,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.Scholarship_listfetch_listdata;
-import com.app.Regional_News.ui.NewsShowActivity;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 

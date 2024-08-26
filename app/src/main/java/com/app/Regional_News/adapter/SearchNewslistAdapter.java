@@ -15,9 +15,9 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.Regional_News.EnewspaperActivity;
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.Search_News_listfetch_listdata;
-import com.app.Regional_News.ui.NewsShowActivity;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -117,7 +117,7 @@ public class SearchNewslistAdapter extends RecyclerView.Adapter<SearchNewslistAd
         holder.news_list_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(mContext, NewsShowActivity.class);
+                Intent i = new Intent(mContext, EnewspaperActivity.NewsShowActivity.class);
                 i.putExtra("mm_id", data.getNews_id());
                 i.putExtra("mm_m_year", data.getNews_headline());
                 i.putExtra("getNews_id", data.getNews_id());

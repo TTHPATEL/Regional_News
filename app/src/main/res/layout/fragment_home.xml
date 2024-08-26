@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/homefragment"
-    tools:context=".ui.home.HomeFragment"
+    tools:context=".EnewspaperActivity$HomeFragment"
     android:orientation="vertical">
 
 

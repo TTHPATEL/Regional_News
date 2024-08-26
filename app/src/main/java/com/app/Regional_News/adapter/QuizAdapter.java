@@ -2,12 +2,9 @@ package com.app.Regional_News.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,9 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.Regional_News.QuizWebViewActivity;
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.Quiz_listdata;
-import com.app.Regional_News.ui.NewsShowActivity;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 

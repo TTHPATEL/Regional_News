@@ -57,31 +57,7 @@
             android:name=".OTPVerification"
             android:exported="false" />
         <activity
-            android:name=".Login2"
-            android:exported="false" />
-        <activity
-            android:name=".ui.AddvisitorActivity"
-            android:exported="false"
-            android:label="Add Visitor" />
-        <activity
-            android:name=".SwingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GMainActivity"
-            android:exported="false"
-            android:label="Guard Dashboard" />
-        <activity
-            android:name=".GLoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.MemberActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.GMemberActivity"
-            android:exported="false"
-            android:label="Wing Member" />
-        <activity
-            android:name=".ui.NewsShowActivity"
+            android:name=".EnewspaperActivity$NewsShowActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
