@@ -1,10 +1,10 @@
 package com.app.Regional_News.extra;
 
 public class UtilsApi {
-    //    public static final String BASE_URL_API = "http://192.168.218.179/KutchToday/";  // TIRTH PHONE
-//    public static final String BASE_URL_API = "http://192.168.243.178/KutchToday/"; // MUMMY PHONE
-    public static final String BASE_URL_API = "http://192.168.0.195/KutchToday/"; // 5G WIFI ROUTER
-//    public static final String BASE_URL_API = "http://192.168.180.178/KutchToday/"; // M33 PHONE
+    //    public static final String BASE_URL_API = "http://192.168.218.179/RNS/";  // TIRTH PHONE
+//    public static final String BASE_URL_API = "http://192.168.243.178/RNS/"; // MUMMY PHONE
+    public static final String BASE_URL_API = "http://192.168.0.195/RNS/"; // 5G WIFI ROUTER
+//    public static final String BASE_URL_API = "http://192.168.180.178/RNS/"; // M33 PHONE
 
 
     //  Interface BaseApiService
