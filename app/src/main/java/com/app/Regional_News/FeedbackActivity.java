@@ -9,21 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
-import androidx.annotation.ColorRes;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.app.Regional_News.data.Feedbackdata;
-import com.app.Regional_News.data.Udata;
+import com.app.Regional_News.data.RN_Udata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.SharedPrefManager;
 import com.app.Regional_News.extra.UtilsApi;
@@ -41,7 +35,7 @@ public class FeedbackActivity extends AppCompatActivity {
     Button bt_submit;
     EditText feedback_title,feedback_desc;
     BaseApiService mApiService;
-    Udata fp;
+    RN_Udata fp;
     SharedPrefManager sharedPrefManager;
     ImageView success_img;
     CardView cardview;
@@ -65,7 +59,7 @@ public class FeedbackActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
         String fdata = sharedPrefManager.getFdata();
         Gson gson = new Gson();
-        fp = gson.fromJson(fdata, Udata.class);
+        fp = gson.fromJson(fdata, RN_Udata.class);
 
 
         feedback_title=findViewById(R.id.feedback_title);
@@ -113,9 +107,9 @@ public class FeedbackActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Feedbackdata> call, Response<Feedbackdata> response) {
                 if (response.isSuccessful()){
-                    Feedbackdata udata=response.body();
-                    if (udata.getStatus().equals("1")){
-                        String msg=udata.getMsg();
+                    Feedbackdata RN_Udata=response.body();
+                    if (RN_Udata.getStatus().equals("1")){
+                        String msg=RN_Udata.getMsg();
                         Toast.makeText(FeedbackActivity.this,""+msg,Toast.LENGTH_SHORT).show();
                         successMessage();
                         feedback_title.setText("");
@@ -123,7 +117,7 @@ public class FeedbackActivity extends AppCompatActivity {
                     }
                     else
                     {
-                        String msg=udata.getMsg();
+                        String msg=RN_Udata.getMsg();
                         Toast.makeText(FeedbackActivity.this,""+msg,Toast.LENGTH_SHORT).show();
                     }
                 }

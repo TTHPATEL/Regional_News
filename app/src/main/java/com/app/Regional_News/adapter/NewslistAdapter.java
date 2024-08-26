@@ -4,7 +4,6 @@ package com.app.Regional_News.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +14,12 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-import com.squareup.picasso.Callback; // Import for Picasso
+
+import com.app.Regional_News.EnewspaperActivity;
 
 
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.News_listfetch_listdata;
-import com.app.Regional_News.ui.NewsShowActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -91,7 +90,7 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
         });
 
         holder.news_list_layout.setOnClickListener(v -> {
-            Intent i = new Intent(mContext, NewsShowActivity.class);
+            Intent i = new Intent(mContext, EnewspaperActivity.NewsShowActivity.class);
             i.putExtra("getNews_id", data.getNews_id());
             i.putExtra("news_imgurl", data.getNews_imgurl());
             i.putExtra("isChecked", sharedPreferences.getBoolean(data.getNews_id(), false));

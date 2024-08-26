@@ -61,11 +61,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         }
-        if (sharedPrefManager.getSPSudahLogin()){
-            Intent i =new Intent(LoginActivity.this,GMainActivity.class);
-            startActivity(i);
-            finish();
-        }
+
         et_email=findViewById(R.id.ed_email);
         et_password=findViewById(R.id.ed_password);
         bt_login=findViewById(R.id.bt_login);
