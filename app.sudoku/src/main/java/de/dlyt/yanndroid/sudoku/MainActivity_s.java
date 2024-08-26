@@ -444,12 +444,7 @@ public class MainActivity_s extends AppCompatActivity {
         super.onResume();
         //resumeGameTimer(null); //note: only resume if it wasn't paused by the user
 
-        //settings
-        if (sharedPref_Settings.getBoolean("secure_flag", true)) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
-        } else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);
-        }
+
         game_recycler.setKeepScreenOn(sharedPref_Settings.getBoolean("keep_screen_on", true));
 
         //appearance
