@@ -2,4 +2,4 @@
 
 Some rules to run this app and work with database is 
 1) Your Android Device & Database Device must be in Same Ip Address
-2) Goto java > extra > UtilsApi >   "http://192.168.0.194/KutchToday/" . replace this ip address to your Wifi Ip Address
+2) Goto java > extra > UtilsApi >   "http://192.168.0.195/RNS/" . replace this ip address to your Wifi Ip Address
