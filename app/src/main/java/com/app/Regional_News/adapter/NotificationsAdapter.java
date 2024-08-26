@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.Regional_News.R;
@@ -57,6 +58,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
         holder.noti_title.setText(data.getNoti_title());
         holder.noti_desc.setText(data.getNoti_desc());
         holder.noti_time.setText(data.getNoti_time());
+        holder.noti_title.setTextColor(ContextCompat.getColor(mContext, R.color.teal_700)); // Replace with your normal color
 
     }
 
