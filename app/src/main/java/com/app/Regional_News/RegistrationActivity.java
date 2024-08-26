@@ -61,10 +61,7 @@ public class RegistrationActivity extends AppCompatActivity {
             startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
             finish();
         }
-        if (sharedPrefManager.getSPSudahLogin()) {
-            startActivity(new Intent(RegistrationActivity.this, GMainActivity.class));
-            finish();
-        }
+
 
         loginText = findViewById(R.id.loginText);
         et_name = findViewById(R.id.u_name);

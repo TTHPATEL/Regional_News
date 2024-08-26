@@ -1,35 +1,22 @@
 package com.app.Regional_News;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.app.Regional_News.adapter.NotificationAdapter;
-import com.app.Regional_News.adapter.NotificationsAdapter;
-import com.app.Regional_News.adapter.NotificationsAdapter;
 import com.app.Regional_News.adapter.NotificationsAdapter;
 import com.app.Regional_News.data.Notification_data;
-import com.app.Regional_News.data.Notification_listdata;
-import com.app.Regional_News.data.Notification_data;
-import com.app.Regional_News.data.Notification_listdata;
 import com.app.Regional_News.data.Notification_listdata;
 import com.app.Regional_News.extra.BaseApiService;
 import com.app.Regional_News.extra.ItemOffsetDecoration;
