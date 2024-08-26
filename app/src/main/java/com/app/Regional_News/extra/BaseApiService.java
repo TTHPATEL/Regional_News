@@ -2,7 +2,6 @@ package com.app.Regional_News.extra;
 
 
 
-import com.app.Regional_News.data.Commondata;
 import com.app.Regional_News.data.Enewspaper_list_data;
 import com.app.Regional_News.data.Event_cal_data;
 import com.app.Regional_News.data.Feedbackdata;
@@ -18,8 +17,6 @@ import com.app.Regional_News.data.Saved_news_data;
 import com.app.Regional_News.data.Scholarship_listfetch_data;
 import com.app.Regional_News.data.Search_News_listfetch_data;
 import com.app.Regional_News.data.Enewspaper_PDF_data;
-import com.app.Regional_News.data.UMdata;
-import com.app.Regional_News.data.Udata;
 import com.app.Regional_News.data.User_id_fetch_data;
 
 import retrofit2.Call;
@@ -29,10 +26,6 @@ import retrofit2.http.POST;
 
 
 public interface BaseApiService {
-    @FormUrlEncoded
-    @POST("dss_api.php")
-    Call<Udata> dssloginRequest(@Field("dss_app") String dss_app,
-                                @Field("u_data") String u_data);
 
 
     @FormUrlEncoded
@@ -55,11 +48,6 @@ public interface BaseApiService {
     @POST("dss_api.php")
     Call<Notification_data> rnsNotificationRequest(@Field("dss_app") String dss_app);
 
-
-    @FormUrlEncoded
-    @POST("dss_api.php")
-    Call<Commondata> dssaddcomplaintRequest(@Field("dss_app") String dss_app,
-                                            @Field("u_data") String u_data);
 
     @FormUrlEncoded
     @POST("dss_api.php")
@@ -118,21 +106,4 @@ public interface BaseApiService {
                                                   @Field("u_data") String u_data);
 
 
-
-    @FormUrlEncoded
-    @POST("dss_api.php")
-    Call<UMdata> dssUMRequest(@Field("dss_app") String dss_app,
-                              @Field("u_data") String u_data);
-
-
-
-    @FormUrlEncoded
-    @POST("dss_api.php")
-    Call<Commondata> dssaddvisitorRequest(@Field("dss_app") String dss_app,
-                              @Field("u_data") String u_data);
-
-    @FormUrlEncoded
-    @POST("dss_api.php")
-    Call<Commondata> dsspaymRequest(@Field("dss_app") String dss_app,
-                                          @Field("u_data") String u_data);
 }

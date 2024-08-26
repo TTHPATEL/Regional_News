@@ -7,14 +7,11 @@
     import android.content.Intent;
     import android.content.res.Configuration;
     import android.content.res.Resources;
-    import android.net.Uri;
     import android.os.Bundle;
 
     import androidx.appcompat.app.AppCompatDelegate;
-    import androidx.core.content.FileProvider;
     import androidx.fragment.app.Fragment;
 
-    import android.os.Environment;
     import android.view.LayoutInflater;
     import android.view.View;
     import android.view.ViewGroup;
@@ -23,9 +20,7 @@
     import android.widget.RelativeLayout;
     import android.widget.Switch;
     import android.widget.TextView;
-    import android.widget.Toast;
 
-    import com.app.Regional_News.BuildConfig;
     import com.app.Regional_News.EventActivity;
     import com.app.Regional_News.FeedbackActivity;
     import com.app.Regional_News.LoginActivity;
@@ -34,12 +29,11 @@
     import com.app.Regional_News.R;
     import com.app.Regional_News.SavedNewsActivity;
     import com.app.Regional_News.ScholarshipActivity;
-    import com.app.Regional_News.data.Udata;
+    import com.app.Regional_News.data.RN_Udata;
     import com.app.Regional_News.extra.SharedPrefManager;
     import com.google.gson.Gson;
     import com.squareup.picasso.Picasso;
 
-    import java.io.File;
     import java.util.Locale;
 
 
@@ -47,7 +41,7 @@
 
 
         SharedPrefManager sharedPrefManager;
-        Udata fp;
+        RN_Udata fp;
         public  static  String uid;
         private Switch mode_switch;
         private TextView modeStatus;
@@ -71,7 +65,7 @@
             sharedPrefManager = new SharedPrefManager(getContext());
             String fdata = sharedPrefManager.getFdata();
             Gson gson = new Gson();
-            fp = gson.fromJson(fdata, Udata.class);
+            fp = gson.fromJson(fdata, RN_Udata.class);
 
             // Find the views and set data
             navUsername = rootView.findViewById(R.id.tv_uname);
@@ -324,7 +318,7 @@
             // DATA FETCHING FROM USER
             String fdata = sharedPrefManager.getFdata();
             Gson gson = new Gson();
-            fp = gson.fromJson(fdata, Udata.class);
+            fp = gson.fromJson(fdata, RN_Udata.class);
 
 
             navUsername.setText(fp.getU_name());
