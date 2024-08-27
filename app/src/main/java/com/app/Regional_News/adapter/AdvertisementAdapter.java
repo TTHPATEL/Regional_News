@@ -1,0 +1,186 @@
+package com.app.Regional_News.adapter;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.app.Regional_News.AdvertisementsActivity;
+import com.app.Regional_News.R;
+import com.app.Regional_News.data.Advertisement_listdata;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+
+public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdapter.ViewHolder> {
+    private final ArrayList<Advertisement_listdata> clist;
+    private final Context mContext;
+
+
+    //Provide a reference to the views for each data item
+    //Complex data items may need more than one view per item, and
+    //you provide access to all the views for a data item in a view holder
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        //each data item is just a string in this case
+        public TextView tv_adv_name;
+//        public TextView tv_event_date,event_desc;
+        public CardView cardview;
+        public ImageView news_images;
+        public LinearLayout adv_list_layout;
+
+
+        public ViewHolder(View v) {
+            super(v);
+            tv_adv_name = v.findViewById(R.id.tv_adv_name);
+            cardview = v.findViewById(R.id.cardview);
+            news_images = v.findViewById(R.id.news_images); // This is where news_images ImageView is initialized
+            adv_list_layout = v.findViewById(R.id.adv_list_layout);
+//            tv_event_date = v.findViewById(R.id.tv_event_date);
+//            event_desc = v.findViewById(R.id.event_desc);
+
+        }
+    }
+
+    //Provide a suitable constructor
+    public AdvertisementAdapter(Context context, ArrayList<Advertisement_listdata> data) {
+        this.clist = data;
+        this.mContext = context;
+    }
+
+    //Create new views (invoked by the layout manager)
+    @Override
+    public AdvertisementAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        //Creating a new view
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_advertisement, parent, false);
+
+
+        //set the view's size, margins, paddings and layout parameters
+
+        AdvertisementAdapter.ViewHolder vh = new AdvertisementAdapter.ViewHolder(v);
+        return vh;
+    }
+
+    //Replace the contents of a view (invoked by the layout manager
+    @Override
+    public void onBindViewHolder(AdvertisementAdapter.ViewHolder holder, int position) {
+
+        // - get element from arraylist at this position
+        // - replace the contents of the view with that element
+
+        final Advertisement_listdata data = clist.get(position);
+
+        // Format the date before setting it to the TextView
+        String formattedDate = AdvertisementsActivity.formatDate(data.getAdv_date());
+        holder.tv_adv_name.setText(data.getAdv_name());
+//        holder.event_desc.setText(data.getEvent_desc());
+//        holder.tv_event_date.setText(formattedDate);
+
+
+
+        // Load image using Picasso
+
+        Picasso.get()
+                .load(data.getAdv_img())
+                .placeholder(R.drawable.image_not_found)
+                .error(R.drawable.image_not_found)
+                .into(holder.news_images, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        Log.d("Picasso", "Image loaded successfully");
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Log.e("Picasso", "Error loading image: " + e.getMessage());
+                        e.printStackTrace();
+                    }
+                });
+
+        // Set click listener on the cardview to display the dialog box
+        holder.adv_list_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                // Inflate custom dialog layout
+                LayoutInflater inflater = LayoutInflater.from(mContext);
+                View dialogView = inflater.inflate(R.layout.dialog_advertisement_details, null);
+
+                ImageView dialogImage = dialogView.findViewById(R.id.dialog_adv_image);
+                TextView dialogText = dialogView.findViewById(R.id.dialog_adv_text);
+
+                // Load image into dialog's ImageView
+                Picasso.get()
+                        .load(data.getAdv_img())
+                        .placeholder(R.drawable.image_not_found)
+                        .error(R.drawable.image_not_found)
+                        .into(dialogImage);
+
+
+
+
+
+
+
+                String advertismentDetails = mContext.getString(R.string.adv_name_tv) + "\n" + data.getAdv_name() + "\n\n" +
+                        mContext.getString(R.string.advdesc) + "\n" + data.getAdv_desc() +  "\n\n" +
+                        mContext.getString(R.string.advapplyweblink)  + " " ;
+
+
+                // Make the Advertisment web link clickable
+                SpannableString spannableString = new SpannableString(advertismentDetails + mContext.getString(R.string.eventlink));
+                ClickableSpan clickableSpan = new ClickableSpan() {
+                    @Override
+                    public void onClick(View textView) {
+                        // Open the web link in the browser
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(data.getAdv_weblink()));
+                        mContext.startActivity(browserIntent);
+                    }
+
+                    @Override
+                    public void updateDrawState(TextPaint ds) {
+                        super.updateDrawState(ds);
+                        int linkColor = ContextCompat.getColor(mContext, R.color.text_black_color);
+
+                        ds.setColor(linkColor); // Set the color of the link text
+                        ds.setUnderlineText(false); // Set underline
+                    }
+                };
+                spannableString.setSpan(clickableSpan, advertismentDetails.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                dialogText.setText(spannableString);
+                dialogText.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
+
+                // Build and display the dialog
+                AlertDialog dialog = new AlertDialog.Builder(mContext)
+                        .setView(dialogView)
+                        .setTitle(mContext.getString(R.string.advdialogboxtitle))
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show();
+            }
+        });
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return clist.size();
+    }
+}
