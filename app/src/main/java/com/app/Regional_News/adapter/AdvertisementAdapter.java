@@ -38,20 +38,21 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
     //you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         //each data item is just a string in this case
-        public TextView tv_event_date,event_desc,tv_event_name;
+        public TextView event_desc,tv_adv_name;
+//        public TextView tv_event_date;
         public CardView cardview;
         public ImageView news_images;
-        public LinearLayout event_list_layout;
+        public LinearLayout adv_list_layout;
 
 
         public ViewHolder(View v) {
             super(v);
-            tv_event_date = v.findViewById(R.id.tv_event_date);
-            tv_event_name = v.findViewById(R.id.tv_event_name);
+//            tv_event_date = v.findViewById(R.id.tv_event_date);
+            tv_adv_name = v.findViewById(R.id.tv_adv_name);
 //            event_desc = v.findViewById(R.id.event_desc);
             cardview = v.findViewById(R.id.cardview);
             news_images = v.findViewById(R.id.news_images); // This is where news_images ImageView is initialized
-            event_list_layout = v.findViewById(R.id.event_list_layout);
+            adv_list_layout = v.findViewById(R.id.adv_list_layout);
         }
     }
 
@@ -66,7 +67,7 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
     public AdvertisementAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         //Creating a new view
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_event, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_advertisement, parent, false);
 
 
         //set the view's size, margins, paddings and layout parameters
@@ -86,8 +87,8 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
 
         // Format the date before setting it to the TextView
         String formattedDate = EventActivity.formatDate(data.getAdv_date());
-        holder.tv_event_date.setText(formattedDate);
-        holder.tv_event_name.setText(data.getAdv_name());
+//        holder.tv_event_date.setText(formattedDate);
+        holder.tv_adv_name.setText(data.getAdv_name());
 //        holder.event_desc.setText(data.getEvent_desc());
 
 
@@ -111,7 +112,7 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
                 });
 
         // Set click listener on the cardview to display the dialog box
-        holder.event_list_layout.setOnClickListener(new View.OnClickListener() {
+        holder.adv_list_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String eventDetails = mContext.getString(R.string.eventdate) + formattedDate + "\n\n" +

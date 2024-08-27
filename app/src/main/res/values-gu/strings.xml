@@ -124,5 +124,7 @@
 
     <string name="adv">જાહેરાત</string>
     <string name="adv_info">સ્થાનિક વ્યવસાયો જુઓ અને વધુ ઑફર્સ શોધો</string>
+    <string name="adv_name_tv">જાહેરાતનું નામ</string>
+
 
 </resources>

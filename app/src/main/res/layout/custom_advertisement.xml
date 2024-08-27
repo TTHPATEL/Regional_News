@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:id="@+id/adv_list_layout">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:id="@+id/leftside">
+
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/eventname"/>
+
+        <TextView
+            android:id="@+id/tv_adv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/text_black_color"
+            android:text="Name"/>
+
+
+
+        <!-- This Space view will push the keywordtext to the bottom -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        android:id="@+id/rightside">
+
+        <ImageView
+            android:id="@+id/news_images"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_image_corners"
+            android:clipToOutline="true"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/image_not_found" />
+
+    </LinearLayout>
+</LinearLayout>
