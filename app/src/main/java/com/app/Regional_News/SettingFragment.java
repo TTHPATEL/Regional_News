@@ -45,7 +45,7 @@
         public  static  String uid;
         private Switch mode_switch;
         private TextView modeStatus;
-        RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay,feedback_lay,profile_lay,savenews_lay;
+        RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay,feedback_lay,profile_lay,savenews_lay,app_share_lay;
         TextView navUsername,navEmail,lang_status;
         ImageView navPic;
         Switch language_mode_switch;
@@ -83,6 +83,7 @@
             savenews_lay = rootView.findViewById(R.id.savenews_lay);
             language_mode_switch = rootView.findViewById(R.id.language_mode_switch);
             lang_status = rootView.findViewById(R.id.lang_status);
+            app_share_lay = rootView.findViewById(R.id.app_share_lay);
 
             getCurrentUserdata();
 
@@ -146,6 +147,52 @@
                 }
             });
 
+
+            app_share_lay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("text/plain");
+                    i.putExtra(Intent.EXTRA_SUBJECT,getString(R.string.app_name));
+                    i.putExtra(Intent.EXTRA_TEXT, getString(R.string.app_name) +"\n https://drive.google.com/file/d/1pXmnfblXyN6mISViHcHcE-NM_OH5xg4w/view?usp=drive_link");
+                    startActivity(i.createChooser(i, "Share Via"));
+                }
+            });
+
+
+
+//            app_share_lay.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    File apkFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "app-debug.apk");
+//
+//                    if (apkFile.exists()) {
+////                        Toast.makeText(requireContext(), "APK File Path: " + apkFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
+//
+//                        // Generate a URI for the APK file using FileProvider
+//                        Uri apkUri = FileProvider.getUriForFile(
+//                                requireContext(),
+//                                BuildConfig.APPLICATION_ID + ".provider",
+//                                apkFile);
+//
+//                        // Create the share intent
+//                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+//                        shareIntent.setType("application/vnd.android.package-archive");
+//                        shareIntent.putExtra(Intent.EXTRA_STREAM, apkUri);
+//                        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//
+//                        // Start the share activity
+//                        startActivity(Intent.createChooser(shareIntent, "Share Via"));
+//                    } else {
+//                        // Handle the case where the APK file does not exist
+//                        new AlertDialog.Builder(requireContext())
+//                                .setTitle("File not found")
+//                                .setMessage("The APK file could not be found. Please make sure it is saved in the correct location.")
+//                                .setPositiveButton(android.R.string.ok, null)
+//                                .show();
+//                    }
+//                }
+//            });
 
             savenews_lay.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -286,4 +333,5 @@
                     .centerCrop()
                     .into(navPic);
         }
+
     }

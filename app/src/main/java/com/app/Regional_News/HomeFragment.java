@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
                 R.drawable.ic_trending,
                 R.drawable.ic_olympic,
                 R.drawable.ic_news_headline,
-                R.drawable.ic_temple,
+                R.drawable.ic_cricket,
                 R.drawable.ic_entertainment,
                 R.drawable.ic_tentri_lekh        };
 
@@ -80,4 +80,5 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
     }
+
 }
