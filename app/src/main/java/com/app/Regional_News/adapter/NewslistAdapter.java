@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.Regional_News.EnewspaperActivity;
 
 
+import com.app.Regional_News.NewsShowActivity;
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.News_listfetch_listdata;
 import com.squareup.picasso.Picasso;
@@ -90,7 +91,7 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
         });
 
         holder.news_list_layout.setOnClickListener(v -> {
-            Intent i = new Intent(mContext, EnewspaperActivity.NewsShowActivity.class);
+            Intent i = new Intent(mContext, NewsShowActivity.class);
             i.putExtra("getNews_id", data.getNews_id());
             i.putExtra("news_imgurl", data.getNews_imgurl());
             i.putExtra("isChecked", sharedPreferences.getBoolean(data.getNews_id(), false));

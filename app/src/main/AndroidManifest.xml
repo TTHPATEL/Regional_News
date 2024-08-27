@@ -57,7 +57,7 @@
             android:name=".OTPVerification"
             android:exported="false" />
         <activity
-            android:name=".EnewspaperActivity$NewsShowActivity"
+            android:name=".NewsShowActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
