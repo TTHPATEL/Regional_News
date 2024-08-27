@@ -117,6 +117,28 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
         holder.adv_list_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                // Inflate custom dialog layout
+                LayoutInflater inflater = LayoutInflater.from(mContext);
+                View dialogView = inflater.inflate(R.layout.dialog_advertisement_details, null);
+
+                ImageView dialogImage = dialogView.findViewById(R.id.dialog_adv_image);
+                TextView dialogText = dialogView.findViewById(R.id.dialog_adv_text);
+
+                // Load image into dialog's ImageView
+                Picasso.get()
+                        .load(data.getAdv_img())
+                        .placeholder(R.drawable.image_not_found)
+                        .error(R.drawable.image_not_found)
+                        .into(dialogImage);
+
+
+
+
+
+
+
                 String advertismentDetails = mContext.getString(R.string.adv_name_tv) + "\n" + data.getAdv_name() + "\n\n" +
                         mContext.getString(R.string.advdesc) + "\n" + data.getAdv_desc() +  "\n\n" +
                         mContext.getString(R.string.advapplyweblink)  + " " ;
@@ -143,15 +165,15 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
                 };
                 spannableString.setSpan(clickableSpan, advertismentDetails.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
+                dialogText.setText(spannableString);
+                dialogText.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
+
+                // Build and display the dialog
                 AlertDialog dialog = new AlertDialog.Builder(mContext)
+                        .setView(dialogView)
                         .setTitle(mContext.getString(R.string.advdialogboxtitle))
-                        .setMessage(spannableString)
                         .setPositiveButton(android.R.string.ok, null)
                         .show();
-
-                // Make the link clickable
-                ((android.widget.TextView) dialog.findViewById(android.R.id.message)).setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
-
             }
         });
 
