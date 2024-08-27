@@ -2,6 +2,7 @@ package com.app.Regional_News.extra;
 
 
 
+import com.app.Regional_News.data.Advertisement_data;
 import com.app.Regional_News.data.Enewspaper_list_data;
 import com.app.Regional_News.data.Event_cal_data;
 import com.app.Regional_News.data.Feedbackdata;
@@ -33,7 +34,6 @@ public interface BaseApiService {
     Call<RN_Udata> rnsLoginRequest(@Field("dss_app") String dss_app,
                                    @Field("u_data") String u_data);
 
-
     @FormUrlEncoded
     @POST("dss_api.php")
     Call<User_id_fetch_data> rnsfetchUid(@Field("dss_app") String dss_app,
@@ -48,11 +48,9 @@ public interface BaseApiService {
     @POST("dss_api.php")
     Call<Notification_data> rnsNotificationRequest(@Field("dss_app") String dss_app);
 
-
     @FormUrlEncoded
     @POST("dss_api.php")
     Call<News_listfetch_data> rnNewslistRequest(@Field("dss_app") String dss_app);
-
 
     @FormUrlEncoded
     @POST("dss_api.php")
@@ -105,5 +103,7 @@ public interface BaseApiService {
     Call<Profile_Updationdata> rnsProfileUpdationRequest(@Field("dss_app") String dss_app,
                                                   @Field("u_data") String u_data);
 
-
+    @FormUrlEncoded
+    @POST("dss_api.php")
+    Call<Advertisement_data> rnAdvertisementRequest(@Field("dss_app") String dss_app);
 }
