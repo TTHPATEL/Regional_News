@@ -81,7 +81,6 @@
     <string name="eventlink">Visit website</string>
 
 
-
     <string name="quizname">Quiz Name :</string>
     <string name="quizstartdate">Quiz Start Date :</string>
     <string name="quizenddate">Quiz End Date :</string>
@@ -142,6 +141,9 @@
 
     <string name="notification">Notification</string>
 
+    <string name="adv">Advertisements</string>
+    <string name="adv_info">See Local Businesses and Discover \nMore Offers</string>
 
+    "See Local Businesses and Discover More Offers"
 
 </resources>

@@ -386,6 +386,52 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/adv_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/ic_adv"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_adv" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/ic_adv"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:text="@string/adv"
+                            android:textColor="@color/text_black_color"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
+                            android:text="@string/adv_info"
+                            android:textColor="@color/text_black_color" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="15dp"
+                        android:src="@drawable/ic_next" />
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:id="@+id/quiz_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -396,43 +442,42 @@
                         android:id="@+id/ic_quiz"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginTop="5dp"
                         android:layout_marginStart="20dp"
-                        android:src="@drawable/ic_quiz_2"/>
+                        android:layout_marginTop="7dp"
+                        android:src="@drawable/ic_quiz_2" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_toEndOf="@id/ic_quiz">
+                        android:layout_toEndOf="@id/ic_quiz"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/setting_oth_ser_shd_2"
-
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
                             android:text="@string/setting_oth_ser_shd_2"
                             android:textColor="@color/text_black_color"
-                            android:textStyle="bold"
-                            android:paddingStart="10dp"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/setting_oth_ser_shd_2_info"
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:paddingStart="10dp"
                             android:text="@string/setting_oth_ser_shd_2_info"
-                            android:textColor="@color/text_black_color"
-                            android:paddingStart="10dp"/>
+                            android:textColor="@color/text_black_color" />
                     </LinearLayout>
 
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
                         android:layout_marginEnd="15dp"
-                        android:src="@drawable/ic_next"/>
+                        android:src="@drawable/ic_next" />
                 </RelativeLayout>
 
                 <RelativeLayout
