@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Regional_News"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AdvertisementsActivity"
+            android:exported="false" />
+        <activity
             android:name=".NotificationActivity"
             android:exported="false" />
         <activity

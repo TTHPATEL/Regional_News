@@ -45,7 +45,7 @@
         public  static  String uid;
         private Switch mode_switch;
         private TextView modeStatus;
-        RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay,feedback_lay,profile_lay,savenews_lay,app_share_lay;
+        RelativeLayout scholarship_lay,event_lay,sudoko_lay,quiz_lay,feedback_lay,profile_lay,savenews_lay,app_share_lay,adv_lay;
         TextView navUsername,navEmail,lang_status;
         ImageView navPic;
         Switch language_mode_switch;
@@ -84,6 +84,7 @@
             language_mode_switch = rootView.findViewById(R.id.language_mode_switch);
             lang_status = rootView.findViewById(R.id.lang_status);
             app_share_lay = rootView.findViewById(R.id.app_share_lay);
+            adv_lay = rootView.findViewById(R.id.adv_lay);
 
             getCurrentUserdata();
 
@@ -206,6 +207,15 @@
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(requireContext(), ProfileUpdationActivation.class);
+                    startActivity(i);
+                }
+            });
+
+
+            adv_lay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(requireContext(), AdvertisementsActivity.class);
                     startActivity(i);
                 }
             });
