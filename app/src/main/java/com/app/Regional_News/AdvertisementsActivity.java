@@ -27,7 +27,10 @@ import com.app.Regional_News.extra.ItemOffsetDecoration;
 import com.app.Regional_News.extra.NetworkUtils;
 import com.app.Regional_News.extra.UtilsApi;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -136,6 +139,16 @@ public class AdvertisementsActivity extends AppCompatActivity {
             lyt_not_found.setVisibility(View.VISIBLE);
         } else {
             lyt_not_found.setVisibility(View.GONE);
+        }
+    }
+    public static String formatDate(String dateStr) {
+        SimpleDateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        SimpleDateFormat targetFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        try {
+            return targetFormat.format(originalFormat.parse(dateStr));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return dateStr;
         }
     }
 

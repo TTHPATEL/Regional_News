@@ -20,7 +20,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.Regional_News.EventActivity;
+import com.app.Regional_News.AdvertisementsActivity;
 import com.app.Regional_News.R;
 import com.app.Regional_News.data.Advertisement_listdata;
 import com.squareup.picasso.Callback;
@@ -38,8 +38,8 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
     //you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         //each data item is just a string in this case
-        public TextView event_desc,tv_adv_name;
-//        public TextView tv_event_date;
+        public TextView tv_adv_name;
+//        public TextView tv_event_date,event_desc;
         public CardView cardview;
         public ImageView news_images;
         public LinearLayout adv_list_layout;
@@ -47,12 +47,13 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
 
         public ViewHolder(View v) {
             super(v);
-//            tv_event_date = v.findViewById(R.id.tv_event_date);
             tv_adv_name = v.findViewById(R.id.tv_adv_name);
-//            event_desc = v.findViewById(R.id.event_desc);
             cardview = v.findViewById(R.id.cardview);
             news_images = v.findViewById(R.id.news_images); // This is where news_images ImageView is initialized
             adv_list_layout = v.findViewById(R.id.adv_list_layout);
+//            tv_event_date = v.findViewById(R.id.tv_event_date);
+//            event_desc = v.findViewById(R.id.event_desc);
+
         }
     }
 
@@ -86,10 +87,11 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
         final Advertisement_listdata data = clist.get(position);
 
         // Format the date before setting it to the TextView
-        String formattedDate = EventActivity.formatDate(data.getAdv_date());
-//        holder.tv_event_date.setText(formattedDate);
+        String formattedDate = AdvertisementsActivity.formatDate(data.getAdv_date());
         holder.tv_adv_name.setText(data.getAdv_name());
 //        holder.event_desc.setText(data.getEvent_desc());
+//        holder.tv_event_date.setText(formattedDate);
+
 
 
         // Load image using Picasso
@@ -115,14 +117,13 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
         holder.adv_list_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String eventDetails = mContext.getString(R.string.eventdate) + formattedDate + "\n\n" +
-                        mContext.getString(R.string.eventname) + data.getAdv_name() + "\n\n" +
+                String advertismentDetails = mContext.getString(R.string.adv_name_tv) + ": \n " + data.getAdv_name() + "\n\n" +
                         mContext.getString(R.string.eventdesc) + "\n" + data.getAdv_desc() +  "\n\n" +
                         mContext.getString(R.string.eventapplyweblink)  + " " ;
 
 
-                // Make the event web link clickable
-                SpannableString spannableString = new SpannableString(eventDetails + mContext.getString(R.string.eventlink));
+                // Make the Advertisment web link clickable
+                SpannableString spannableString = new SpannableString(advertismentDetails + mContext.getString(R.string.eventlink));
                 ClickableSpan clickableSpan = new ClickableSpan() {
                     @Override
                     public void onClick(View textView) {
@@ -140,10 +141,10 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
                         ds.setUnderlineText(false); // Set underline
                     }
                 };
-                spannableString.setSpan(clickableSpan, eventDetails.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                spannableString.setSpan(clickableSpan, advertismentDetails.length(), spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                 AlertDialog dialog = new AlertDialog.Builder(mContext)
-                        .setTitle(mContext.getString(R.string.eventdialogboxtitle))
+                        .setTitle(mContext.getString(R.string.advdialogboxtitle))
                         .setMessage(spannableString)
                         .setPositiveButton(android.R.string.ok, null)
                         .show();
@@ -151,16 +152,6 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
                 // Make the link clickable
                 ((android.widget.TextView) dialog.findViewById(android.R.id.message)).setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 
-//
-//                // Create an AlertDialog to show the event name
-//                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-//                builder.setTitle("Event Details");
-//                builder.setMessage(data.getEvent_name());
-//                builder.setPositiveButton(android.R.string.ok, null);
-//
-//                // Display the dialog
-//                AlertDialog dialog = builder.create();
-//                dialog.show();
             }
         });
 
