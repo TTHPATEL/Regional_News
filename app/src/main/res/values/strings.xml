@@ -143,8 +143,10 @@
 
     <string name="adv">Advertisements</string>
     <string name="adv_info">See Local Businesses and Discover \nMore Offers</string>
-    <string name="adv_name_tv">Advertisement Name</string>
+    <string name="adv_name_tv">Advertisement Name : </string>
     <string name="advdialogboxtitle">Advertisement Details</string>
+    <string name="advdesc">Description: </string>
+    <string name="advapplyweblink">For more info :</string>
 
 
 </resources>

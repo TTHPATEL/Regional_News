@@ -117,9 +117,9 @@ public class AdvertisementAdapter extends RecyclerView.Adapter<AdvertisementAdap
         holder.adv_list_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String advertismentDetails = mContext.getString(R.string.adv_name_tv) + ": \n " + data.getAdv_name() + "\n\n" +
-                        mContext.getString(R.string.eventdesc) + "\n" + data.getAdv_desc() +  "\n\n" +
-                        mContext.getString(R.string.eventapplyweblink)  + " " ;
+                String advertismentDetails = mContext.getString(R.string.adv_name_tv) + "\n" + data.getAdv_name() + "\n\n" +
+                        mContext.getString(R.string.advdesc) + "\n" + data.getAdv_desc() +  "\n\n" +
+                        mContext.getString(R.string.advapplyweblink)  + " " ;
 
 
                 // Make the Advertisment web link clickable
