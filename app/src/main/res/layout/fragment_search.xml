@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/eventfragment"
-    tools:context=".EnewspaperActivity$SearchFragment"
+    tools:context="SearchFragment"
     android:orientation="vertical">
-
 
 
 
@@ -193,6 +192,14 @@
     </LinearLayout>
 
 
+    <ImageView
+        android:id="@+id/no_connection_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_no_internet"
+        android:visibility="gone" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
@@ -205,48 +212,5 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-
-
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recyclerView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:clipToPadding="false"-->
-<!--        android:padding="@dimen/item_offset"-->
-<!--        android:layout_below="@id/searchlinearlayout"/>-->
-
-<!--    <ProgressBar-->
-<!--        android:id="@+id/progressBar"-->
-<!--        style="?android:attr/progressBarStyleLarge"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_centerVertical="true"-->
-<!--        android:visibility="gone" />-->
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/lyt_not_found"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_centerVertical="true"-->
-<!--        android:gravity="center_horizontal"-->
-<!--        android:orientation="vertical"-->
-<!--        android:visibility="gone"-->
-<!--        tools:ignore="UseCompoundDrawables">-->
-
-<!--        <ImageView-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:contentDescription="@string/app_name"-->
-<!--            android:src="@drawable/ic_no_item" />-->
-
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/no_item_found"-->
-<!--            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"-->
-<!--            android:textColor="@color/black" />-->
-<!--    </LinearLayout>-->
 
 </LinearLayout>

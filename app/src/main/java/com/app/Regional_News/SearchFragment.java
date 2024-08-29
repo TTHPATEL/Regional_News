@@ -42,6 +42,7 @@ public class SearchFragment extends Fragment {
     private LinearLayout searchLinearLayout;
     public ImageView tv_Narendra_Modi,tv_Sushant_Singh_Rajput,S_Jaishankar,tv_ratan_tata,tv_pratik,tv_Joe_Biden ;
     private SwipeRefreshLayout swipeRefreshLayout;
+    ImageView noConnectionImage;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -58,6 +59,7 @@ public class SearchFragment extends Fragment {
         tv_pratik = rootView.findViewById(R.id.tv_pratik);
         tv_Joe_Biden = rootView.findViewById(R.id.tv_Joe_Biden);
         swipeRefreshLayout = rootView.findViewById(R.id.swipeRefreshLayout);
+        noConnectionImage = rootView.findViewById(R.id.no_connection_image);
 
 
 
@@ -159,8 +161,10 @@ public class SearchFragment extends Fragment {
 
         if (NetworkUtils.isConnected(getActivity())) {
             fetchKeywords();
+            noConnectionImage.setVisibility(View.GONE);  // Hide the image when there is a connection
         } else {
             Toast.makeText(getActivity(), getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
+            noConnectionImage.setVisibility(View.VISIBLE);  // Show the image when there is no connectio
         }
 
         return rootView;

@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -59,6 +60,7 @@ public class EventActivity extends AppCompatActivity {
     private LinearLayout lyt_not_found;
     EventlistAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    ImageView noConnectionImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,7 @@ public class EventActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        noConnectionImage = findViewById(R.id.no_connection_image);
 
         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(this, R.dimen.item_offset);
         recyclerView.addItemDecoration(itemDecoration);
@@ -100,8 +103,11 @@ public class EventActivity extends AppCompatActivity {
             showProgress(true);
             getdata();
             fetchEventDates();
+            noConnectionImage.setVisibility(View.GONE);  // Hide the image when there is a connection
+
         } else {
             Toast.makeText(this, getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
+            noConnectionImage.setVisibility(View.VISIBLE);  // Show the image when there is no connectio
         }
     }
 
