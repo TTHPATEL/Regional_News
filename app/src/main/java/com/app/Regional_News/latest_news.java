@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -38,6 +39,7 @@ public class latest_news extends Fragment {
     BaseApiService mApiService;
     NewslistAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
+    ImageView noConnectionImage;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -52,7 +54,7 @@ public class latest_news extends Fragment {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager); // set LayoutManager to RecyclerView
-
+        noConnectionImage = rootView.findViewById(R.id.no_connection_image);
 
 
 
@@ -80,8 +82,10 @@ public class latest_news extends Fragment {
         if (NetworkUtils.isConnected(getActivity())) {
             showProgress(true);
             getdata();
+            noConnectionImage.setVisibility(View.GONE);  // Hide the image when there is a connection
         } else {
             Toast.makeText(getActivity(), getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
+            noConnectionImage.setVisibility(View.VISIBLE);  // Show the image when there is no connectio
         }
         return rootView;
     }

@@ -5,7 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/homefragment"
-    tools:context=".EnewspaperActivity$HomeFragment">
+    tools:context="HomeFragment">
+
+    <ImageView
+        android:id="@+id/no_connection_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_no_internet"
+        android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

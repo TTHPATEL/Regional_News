@@ -1,5 +1,6 @@
 package com.app.Regional_News;
 
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -39,6 +41,7 @@ public class StockMarketFragment extends Fragment {
     SearchNewslistAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
     String new_keyword = "Stock Market";
+    ImageView noConnectionImage;
 
 
 
@@ -62,6 +65,7 @@ public class StockMarketFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager); // set LayoutManager to RecyclerView
+        noConnectionImage = rootView.findViewById(R.id.no_connection_image);
 
 
 
@@ -79,8 +83,12 @@ public class StockMarketFragment extends Fragment {
         if (NetworkUtils.isConnected(getActivity())) {
             showProgress(true);
             getdata(new_keyword);
+            noConnectionImage.setVisibility(View.GONE);  // Hide the image when there is a connection
+
         } else {
             Toast.makeText(getActivity(), getString(R.string.conne_msg1), Toast.LENGTH_SHORT).show();
+            noConnectionImage.setVisibility(View.VISIBLE);  // Show the image when there is no connectio
+
         }
 
 
