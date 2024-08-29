@@ -122,6 +122,10 @@ public class EnewspaperActivity extends AppCompatActivity {
                             Log.e("size", "List size: " + degdata.getEnewspaper_list_listdata().size());
 
                             if (degdata.getStatus().equals("1")) {
+                                String error_message = degdata.getMsg();
+                                Log.e("error_message :",error_message);
+                                Toast.makeText(EnewspaperActivity.this, error_message, Toast.LENGTH_SHORT).show();
+
                                 displayData(degdata.getEnewspaper_list_listdata());
                             } else {
                                 String error_message = degdata.getMsg();

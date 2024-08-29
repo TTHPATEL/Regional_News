@@ -2,6 +2,7 @@ package com.app.Regional_News;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -80,7 +81,8 @@ public class SearchFragment extends Fragment {
                 // Get the clicked item's text
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 // Display a Toast message with the selected item's text
-                Toast.makeText(requireContext(), "Selected item: " + selectedItem, Toast.LENGTH_SHORT).show();
+                Log.e("Selected item: ",selectedItem);
+//                Toast.makeText(requireContext(), "Selected item: " + selectedItem, Toast.LENGTH_SHORT).show();
                 // Start the KeywordDetailActivity and pass the selected item's text
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
                 intent.putExtra("keyword", selectedItem);
@@ -98,7 +100,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Politics");
+                intent.putExtra("Image_direct_keyword", "Modi");
                 startActivity(intent);
             }
         });
@@ -109,7 +111,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Entertainment");
+                intent.putExtra("Image_direct_keyword", "Sushant");
                 startActivity(intent);
             }
         });
@@ -120,7 +122,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Politics");
+                intent.putExtra("Image_direct_keyword", "Jaishankar");
                 startActivity(intent);
             }
         });
@@ -130,7 +132,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Business");
+                intent.putExtra("Image_direct_keyword", "Ratan Tata");
                 startActivity(intent);
             }
         });
@@ -140,7 +142,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Entertainment");
+                intent.putExtra("Image_direct_keyword", "Pratik");
                 startActivity(intent);
             }
         });
@@ -150,7 +152,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Politics");
+                intent.putExtra("Image_direct_keyword", "Biden");
                 startActivity(intent);
             }
         });
