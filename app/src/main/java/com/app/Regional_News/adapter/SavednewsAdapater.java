@@ -113,6 +113,7 @@ public class SavednewsAdapater  extends RecyclerView.Adapter<SavednewsAdapater.V
                 Intent i = new Intent(mContext, NewsShowActivity.class);
                 i.putExtra("getNews_id", data.getNews_id());
                 i.putExtra("news_imgurl", data.getNews_imgurl());
+                i.putExtra("isChecked", holder.news_checkbox.isChecked()); // Pass the checkbox state
                 mContext.startActivity(i);
             }
         });
