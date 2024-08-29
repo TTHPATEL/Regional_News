@@ -116,7 +116,7 @@ public class NewslistAdapter extends RecyclerView.Adapter<NewslistAdapter.ViewHo
         holder.share_lay.setOnClickListener(v -> {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
-            String shareText = "Headline: " + data.getNews_headline() + "\n" + data.getNews_des_1() + "\n";
+            String shareText = "Headline: " + data.getNews_headline() + "\n" + data.getNews_des_1() + "\n" + "News by : Regional News App" +"\n";
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
 
             // Start the share intent

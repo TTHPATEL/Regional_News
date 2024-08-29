@@ -90,7 +90,7 @@ public class NewsShowActivity extends AppCompatActivity {
             shareIntent.setType("text/plain");
 
             // Prepare the text to share
-            String shareText = "Headline: " + headline + "\n" + description + "\n";
+            String shareText = "Headline: " + headline + "\n" + description + "\n" + "News by : Regional News App " +"\n";
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
 
             // Start the share intent
