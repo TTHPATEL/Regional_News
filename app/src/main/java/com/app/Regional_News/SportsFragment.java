@@ -44,7 +44,7 @@ public class SportsFragment extends Fragment {
     BaseApiService mApiService;
     SearchNewslistAdapter adapter;
     private SwipeRefreshLayout swipeRefreshLayout;
-    String new_keyword = "Cricket";
+    String new_keyword = "Sports";
     ImageView noConnectionImage;
 
     public SportsFragment() {
