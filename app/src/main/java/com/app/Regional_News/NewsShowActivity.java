@@ -125,7 +125,8 @@ public class NewsShowActivity extends AppCompatActivity {
                             Log.e("msg2",degdata.getMsg());
                             if (degdata.getStatus().equals("1")){
                                 String error_message = degdata.getMsg();
-                                Toast.makeText(NewsShowActivity.this, error_message, Toast.LENGTH_SHORT).show();
+                                Log.e("error_message :",error_message);
+//                                Toast.makeText(NewsShowActivity.this, error_message, Toast.LENGTH_SHORT).show();
                                 displayData(degdata.getNews_show());
                             } else {
                                 String error_message = degdata.getMsg();
