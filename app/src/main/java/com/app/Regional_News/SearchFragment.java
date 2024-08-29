@@ -98,7 +98,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Politics");
+                intent.putExtra("Image_direct_keyword", "Modi");
                 startActivity(intent);
             }
         });
@@ -109,7 +109,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Entertainment");
+                intent.putExtra("Image_direct_keyword", "Sushant");
                 startActivity(intent);
             }
         });
@@ -120,7 +120,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Politics");
+                intent.putExtra("Image_direct_keyword", "Jaishankar");
                 startActivity(intent);
             }
         });
@@ -130,7 +130,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Business");
+                intent.putExtra("Image_direct_keyword", "Ratan Tata");
                 startActivity(intent);
             }
         });
@@ -140,7 +140,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Entertainment");
+                intent.putExtra("Image_direct_keyword", "Pratik");
                 startActivity(intent);
             }
         });
@@ -150,7 +150,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), Search_newslistActivity.class);
-                intent.putExtra("Image_direct_keyword", "Politics");
+                intent.putExtra("Image_direct_keyword", "Biden");
                 startActivity(intent);
             }
         });
