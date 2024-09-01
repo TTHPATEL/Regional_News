@@ -155,7 +155,7 @@
                     Intent i = new Intent(Intent.ACTION_SEND);
                     i.setType("text/plain");
                     i.putExtra(Intent.EXTRA_SUBJECT,getString(R.string.app_name));
-                    i.putExtra(Intent.EXTRA_TEXT, getString(R.string.app_name) +"\n https://drive.google.com/file/d/1pXmnfblXyN6mISViHcHcE-NM_OH5xg4w/view?usp=drive_link");
+                    i.putExtra(Intent.EXTRA_TEXT, getString(R.string.app_name) +"\n https://drive.google.com/file/d/1ZrNpZjj-XvibdQcgFAV169RDdYxMr2ZW/view?usp=drive_link");
                     startActivity(i.createChooser(i, "Share Via"));
                 }
             });
